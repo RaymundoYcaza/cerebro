@@ -3,7 +3,6 @@ obsidian-portable/
 
 # === QMD - dependencias y build ===
 qmd/node_modules/
-qmd/dist/
 qmd/package-lock.json
 qmd/archive/
 qmd/texts/
