@@ -1,24 +1,29 @@
-vault/
+# === Obsidian ===
 obsidian-portable/
+
+# === QMD - dependencias y build ===
 qmd/node_modules/
 qmd/dist/
 qmd/package-lock.json
-.npmrc
-*.sqlite
-.DS_Store
 qmd/archive/
 qmd/texts/
+
+# === QMD - datos generados (modelos pesados, cache) ===
+qmd/.qmd-data/models/
+qmd/.cache/
+
+# === QMD - herramientas de desarrollo ===
 qmd/.cursor/
 qmd/.github/copilot/
-*.md
-!README.md
-!CLAUDE.md
-!CHANGELOG.md
-!skills/**/*.md
-!finetune/*.md
-!docs/*.md
+qmd/.claude/
 qmd/finetune/outputs/
 qmd/finetune/data/train/
-qmd/.claude/
-qmd/.cache/
-qmd/.qmd-data/
+
+# === Python ===
+**/__pycache__/
+*.pyc
+
+# === Sistema ===
+.npmrc
+.DS_Store
+Thumbs.db
