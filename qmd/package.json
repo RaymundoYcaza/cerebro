@@ -45,7 +45,7 @@
     "url": "https://github.com/tobi/qmd/issues"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "better-sqlite3": "^12.4.5",
     "fast-glob": "^3.3.0",
     "node-llama-cpp": "^3.17.1",
