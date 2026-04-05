@@ -1,6 +1,6 @@
 #!/bin/bash
 export HOME=/home/jabes
 export XDG_CONFIG_HOME=/home/jabes/.config
-export XDG_CACHE_HOME=/home/jabes/.cache
+export XDG_CACHE_HOME=/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/.cache
 cd /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd
 exec node /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js --index portable mcp
