@@ -3,13 +3,15 @@ obsidian-portable/
 
 # === QMD - dependencias y build ===
 qmd/node_modules/
-qmd/package-lock.json
 qmd/archive/
 qmd/texts/
 
 # === QMD - datos generados (modelos pesados, cache) ===
 qmd/.qmd-data/models/
-qmd/.cache/
+qmd/.cache/*
+!qmd/.cache/qmd/
+qmd/.cache/qmd/*
+!qmd/.cache/qmd/portable.sqlite
 
 # === QMD - herramientas de desarrollo ===
 qmd/.cursor/
