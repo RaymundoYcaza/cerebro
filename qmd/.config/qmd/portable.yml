@@ -1,0 +1,6 @@
+collections:
+  cerebro:
+    path: /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse
+    pattern: "**/*.md"
+    context:
+      "": Vault personal de notas en español sobre automatización, ingeniería industrial, desarrollo web, desarrollo móvil, diseño instruccional, motion graphics, Excel, contabilidad, ciencias y productividad

@@ -647,3 +647,165 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 Node.js v20.19.6
 [2026-04-05 09:49:22] === sync done ===
+[2026-04-05 10:19:20] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 10:19:23] === sync done ===
+[2026-04-05 10:49:23] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 10:49:26] === sync done ===
+[2026-04-05 11:19:26] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 11:19:29] === sync done ===
+[2026-04-05 11:49:26] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 11:49:34] === sync done ===
+[2026-04-05 12:19:28] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 12:19:31] === sync done ===
+[2026-04-05 12:49:30] === sync start ===
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+node:internal/modules/cjs/loader:1661
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: The module '/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 141. This version of Node.js requires
+NODE_MODULE_VERSION 115. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+    at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at bindings (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/bindings/bindings.js:112:48)
+    at new Database (/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/node_modules/better-sqlite3/lib/database.js:48:64)
+    at openDatabase (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/db.js:58:12)
+    at createStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/store.js:1167:16)
+    at getStore (file:///mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd/dist/cli/qmd.js:25:17) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.19.6
+[2026-04-05 12:49:32] === sync done ===
