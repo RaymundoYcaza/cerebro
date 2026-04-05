@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { openDatabase } from "../db.js";
 import fastGlob from "fast-glob";
 import { execSync, spawn as nodeSpawn } from "child_process";
