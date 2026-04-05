@@ -921,3 +921,6 @@ Node.js v20.19.6
 [2026-04-05 15:02:53] Pulling...
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
+[2026-04-05 15:03:59] Pulling...
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
