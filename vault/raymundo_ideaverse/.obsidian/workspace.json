@@ -1,0 +1,464 @@
+{
+  "main": {
+    "id": "c4f7fdb608baf8e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b3085712ef39795",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed620ff772ae2275",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/Maps/Calendar.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "87316dc0d987cab6",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/Dashboard.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Dashboard"
+            }
+          },
+          {
+            "id": "e78cecfdf4af52c2",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "440b3841429709ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "b208c03cadd231ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dddbab8b18fd423a",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "77966b04a7f238ed",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#note/develop🍃",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "byCreatedTime"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "21c04d2aac62db4c",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 340.5
+  },
+  "right": {
+    "id": "7a43a6c530e72e44",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea89fdbc5439f479",
+        "type": "tabs",
+        "dimension": 62.64916467780429,
+        "children": [
+          {
+            "id": "2ca57d6199b2f8d5",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "Atlas/Dots/Statements/El trauma como reconfigurador de valores.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for El trauma como reconfigurador de valores"
+            }
+          },
+          {
+            "id": "1dc0cb1cebc39098",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
+          },
+          {
+            "id": "4f6e4ddebde66a86",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabeticalReverse",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "90d026528dc7103b",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "+/Pablo Muñoz Izurrieta.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Pablo Muñoz Izurrieta"
+            }
+          },
+          {
+            "id": "ecdb0a392a024342",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "8e15cd93a6a4be64",
+        "type": "tabs",
+        "dimension": 37.3508353221957,
+        "children": [
+          {
+            "id": "d535bd36dbc98e0b",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)"
+            }
+          },
+          {
+            "id": "ae0aed29d208c352",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Atlas/Dots/Sources/Referencia I Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Referencia I Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 452.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "workspaces:Manage workspace layouts": false,
+      "publish:Publish changes...": false,
+      "bases:Create new base": false,
+      "audio-recorder:Start/stop recording": false,
+      "random-note:Open random note": false,
+      "periodic-notes:Open today's daily note": false,
+      "darlal-switcher-plus:Open in Headings Mode": false,
+      "darlal-switcher-plus:Open Symbols for the active editor": false,
+      "cmdr:Toggle stacked tabs": false,
+      "obsidian42-brat:BRAT": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "e78cecfdf4af52c2",
+  "lastOpenFiles": [
+    "Atlas/Utilities/Clips/Compra de dominio de Dómine.md",
+    "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+    "Atlas/Utilities/News/2025-04-04 Mujer clínicamente muerta relata vida en línea temporal alternativa.md",
+    "Atlas/Utilities/News/2026-04-04 Sismo en Ecuador magnitud 5.3 en Guayas.md",
+    "Atlas/Utilities/Clips/I Built a Second Brain That Runs While I Sleep.md",
+    "Atlas/Utilities/Engram/ubuntu-systemd-static-server.md",
+    "Atlas/Utilities/Engram/ionic-typescript-build-verification.md",
+    "x/Templates/Template, Engram base.md",
+    "Calendar/Notes/Past Years/ARCHIVE_2025/2025-05-20 Me doy cuenta de que no estoy preparado para entornos de desarrollo de JS como SvelteKit, siendo lo mio algo como Laravel por ahora.md",
+    "Atlas/Utilities/Engram",
+    "Atlas/Utilities/Clips/Calendario Dole.md",
+    "Atlas/Utilities/Clips/Gestión de Conocimiento Técnico y Soberanía de Datos.md",
+    "Atlas/Dashboard.md",
+    "x/Templates/Template, Daily.md",
+    "x/Templates/Template, Book.md",
+    "Atlas/Dots/Sources/Referencia I Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas.md",
+    "Atlas/Dots/Quotes/-Una de nuestras mayores libertades es decidir cómo reaccionamos a las cosas.md",
+    "Atlas/Utilities/Ideas/Crear videos desde la tormenta de ideas del blog RaymundoYcaza.md",
+    "Atlas/Dots/Published/Blog/automatizacion-con-excel/2025-02-17_excel-no-esta-muerto.md",
+    "Atlas/Utilities/Ideas",
+    "Atlas/Dots/Sources/Fuente I El alter ego no es un personaje ficticio, sino una versión potenciada de uno mismo.md",
+    "Atlas/Dots/Sources/Fuente I El foco es un modo de vida. No se puede ser disperso en la vida privada.md",
+    "Atlas/Dots/Sources/Fuente I El descanso es parte del trabajo, pero debe ser neutro.md",
+    "Atlas/Dots/Sources/Fuente I Los gatillos mentales eliminan la resistencia a empezar.md",
+    "Atlas/Dots/Sources/Fuente I El foco es una habilidad entrenable y la meditación puede ser su gimnasio.md",
+    "Atlas/Dots/Sources/Fuente I El mundo no es lo primero que debes consumir.md",
+    "Atlas/Dots/Sources/Fuente I La dopamina debe ser como una hoguera que se quema lentamente.md",
+    "Atlas/Dots/Sources/Fuente I La disciplina efectiva no es restrictiva sino arquitectónica.md",
+    "Atlas/Utilities/Images/Pasted image 20260329005803.png",
+    "Efforts/Rules",
+    "Atlas/Dots/Published/Blog",
+    "Atlas/Dots/Published",
+    "Efforts/Borradores",
+    "Atlas/Utilities/Images/Pasted image 20260327004328.png",
+    "Atlas/Utilities/Bookmarks/Youtube Music/Musica Relax",
+    "Atlas/Utilities/Images/Pasted image 20260320161604.png",
+    "Atlas/Utilities/Images/Pasted image 20260320161556.png",
+    "Atlas/Utilities/Bookmarks/Youtube Music",
+    "Atlas/Utilities/Images/Pasted image 20260319013217.png",
+    "Atlas/Utilities/Diario",
+    "Atlas/Utilities/Prompts",
+    "Atlas/Utilities/Images/Pasted image 20260317110339.png",
+    "Atlas/Utilities/Images/msedge_Jv6h8MuCVz.png",
+    "Atlas/Utilities/Images/msedge_Q6Bp4gbbJ9.png",
+    "Atlas/Utilities/Images/f6G0aq5Y8C.png",
+    "Atlas/Utilities/Images/msedge_BmRlSD5asl.jpg",
+    "Atlas/Utilities/Canvases/2023-03-20 - Review, Brain Dump, Imagine, Prioritize.canvas",
+    "Atlas/Utilities/Canvases/LYT W10 Calendar Canvas.canvas",
+    "Atlas/Utilities/Canvases/LYT Ship Dashboard.canvas",
+    "Atlas/Utilities/Canvases/LYT W11 Calendar Canvas.canvas",
+    "Atlas/Utilities/Canvases/Obsidian Canvas MOC.canvas",
+    "Atlas/Utilities/Canvases/Ship of the Sensemaker.canvas",
+    "Atlas/Utilities/Canvases/LYT 2023 Rules.canvas",
+    "Atlas/Utilities/Canvases/LYT Book Framing.canvas",
+    "Atlas/Utilities/Canvases/LYT Nick Weekly Schedule.canvas",
+    "Atlas/Utilities/Canvases/LYT Website Ideaverse.canvas"
+  ]
+}

@@ -1,0 +1,1 @@
+﻿Asumo el precio, pago las consecuencias y vivo con coherencia

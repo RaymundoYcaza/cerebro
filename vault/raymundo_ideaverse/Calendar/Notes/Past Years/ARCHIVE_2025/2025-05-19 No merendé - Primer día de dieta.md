@@ -1,0 +1,8 @@
+---
+up:
+  - "[[Diario Personal]]"
+related:
+created: 2025-05-20
+---
+
+ 

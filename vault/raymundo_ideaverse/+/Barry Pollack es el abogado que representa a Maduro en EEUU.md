@@ -1,0 +1,1 @@
+﻿Este abogado también defendió a Julian Assange en el caso WikiLeaks

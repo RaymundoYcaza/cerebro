@@ -1,0 +1,6 @@
+- Se migró el BlogRY a Webempresa 
+    - Error SSL luego de la migración
+    - Se abrió ticket por el error
+    - Se corrigió SSL -> Error 403
+    - Se reubicaron los archivos del blog -> Todo debe ir en su arpeta. Nada debe ir en la raíz (recomendado)
+    - Se eliminaron varios plugins y se dejan 10

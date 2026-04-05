@@ -1,0 +1,10 @@
+---
+postNumber: 
+keyword: 
+blogTitle: 
+seo-title: 
+seo-meta: 
+urlYoutube: 
+urlBlog: 
+coverTitle:
+---

@@ -1,0 +1,5 @@
+- Se recibe una notificación de alerta de uso de disco (80% de la cuota asignada) 
+    - Se realizó el análisis para determinar la causa del incremento y se determinó que se debía a los archivos eliminados que habían sido trasladados a la papelera.
+    - Se procedió a vaciar la papelera y el problema de cuota fue resuelto.
+    - Se están utilizando 2.01 GB de 5 GB asignados (40.21%)
+   - 

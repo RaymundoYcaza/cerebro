@@ -1,0 +1,81 @@
+---
+in:
+  - "[[Collections]]"
+related:
+  - "[[Youtube MOC]]"
+tags:
+  - "#map/view"
+created: 2025-05-16
+acr: true
+---
+
+
+
+
+
+
+## Apuntes sueltos
+
+> [!bug]+ Mtgs pointing to this note
+> All notes linking as related to `This note`
+> ```dataview
+> LIST
+> 
+> FROM ""
+> 
+> WHERE contains(related,this.file.link)  AND !contains(in,[[Collections]]) AND !contains(in,[[Entities]]) AND !contains(in,[[Concepts]])
+> 
+> SORT file.name desc
+> LIMIT 10
+> ```
+## Collecciones
+
+> [!example]+ Mtgs pointing to this note
+> All notes linking as related to `This note`
+> ```dataview
+> LIST
+> 
+> FROM ""
+> 
+> WHERE contains(related,this.file.link) AND contains(in,[[Collections]])
+> 
+> SORT file.name desc
+> LIMIT 10
+> ```
+
+## Conceptos
+
+> [!abstract]+ Mtgs pointing to this note
+> All notes linking as related to `This note`
+> ```dataview
+> LIST
+> 
+> FROM ""
+> 
+> WHERE contains(related,this.file.link) AND contains(in,[[Concepts]])
+> 
+> SORT file.name desc
+> LIMIT 10
+> ```
+
+## Entidades
+
+> [!user]+ Mtgs pointing to this note
+> All notes linking as related to `This note`
+> ```dataview
+> LIST
+> 
+> FROM ""
+> 
+> WHERE contains(related,this.file.link) AND contains(in,[[Entities]])
+> 
+> SORT file.name desc
+> LIMIT 10
+> ```
+
+
+
+
+## Relajación
+[Relief from Anxiety & Panic Attacks - Binaural Beats & Isochronic Tones (Subliminal Messages) - YouTube](https://www.youtube.com/watch?v=J5FKMRaNObQ)
+## Motivación

@@ -1,0 +1,6 @@
+---
+created: 2024-05-27 
+---
+
+
+![[FICHA TE´CNICA COMPROBANTES ELECTRO´NICOS ESQUEMA OFFLINE Versio´n 221.pdf]]

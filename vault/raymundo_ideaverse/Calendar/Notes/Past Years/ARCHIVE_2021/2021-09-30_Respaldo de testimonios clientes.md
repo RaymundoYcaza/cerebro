@@ -1,0 +1,20 @@
+- Se obtiene un respaldo de los testimonios de clientes. => Se almacenan en la carpeta testimonios, por ejemplo: JUAN CERVANTES 
+    - Se eliminan los tipos de entrada testimonios.
+    - Se reubican la mayoría de las entradas, distribuyéndolas en las tres categorías base:
+    - Fórmulas de Excel y otras hojas de cálculo
+    - Modelamiento y visualización de datos
+    - Programación para la oficina (macros)
+    - Con la reorganización de entradas por categorías se consigue que el blog muestre más entradas (se veían muy pocas)
+    - Se instala el plugin WP All Import Pro
+    - Para exportar las entradas.
+    - Se instala el plugin WP All Export Pro
+    - Para exportar las entradas.
+    - Se instala el plugin WP Nag Hide
+    - Para esconder todos los molestos avisos generados por los demás plugins.
+    - Se exportan las entradas hasta la fecha, en un archivo de Excel.
+    - Se generan archivos markdown y se importan en la carpeta de Testimonios para realizar un seguimiento de los enlaces.
+### Observaciones
+- Existen 38 entradas en la categoría  `Domina Excel, paso a paso` . Hay que renombrar la categoría.
+- Existen 4 entradas en la categoría  `Personal` . Hay que reubicarlas o renombrar la categoría.
+- Las categorías se redujeron a cinco.
+- Las entradas correspondientes a los testimonios, se redirigieron con u n 301 hacia el URL  `/contrata-servicio-consultoria/`

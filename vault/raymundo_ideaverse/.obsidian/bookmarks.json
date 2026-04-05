@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "ctime": 1681343611460,
+      "path": "Atlas/Shares/Videos/Obsidian Bookmarks (video).md"
+    },
+    {
+      "type": "search",
+      "ctime": 1772213431982,
+      "query": "block:(/^- !/ \"blog\")",
+      "title": "Buscar intenciones de acción"
+    },
+    {
+      "type": "search",
+      "ctime": 1772214217434,
+      "query": "block:(/^- @/ \"raraoliman\")",
+      "title": "Buscar intenciones de publicación"
+    },
+    {
+      "type": "search",
+      "ctime": 1772214278830,
+      "query": "block:(/^- ~/ \"raraoliman\")",
+      "title": "Buscar notas marcadores"
+    },
+    {
+      "type": "search",
+      "ctime": 1772214357718,
+      "query": "block:(/^- \\$/ \"raraoliman\")",
+      "title": "Buscar intenciones de inversión"
+    },
+    {
+      "type": "search",
+      "ctime": 1772214391288,
+      "query": "block:(/^- & / \"raraoliman\")",
+      "title": "Buscar notas de captura"
+    },
+    {
+      "type": "search",
+      "ctime": 1772214429794,
+      "query": "block:(/^- % / \"raraoliman\")",
+      "title": "Buscar notas pensamiento"
+    }
+  ]
+}

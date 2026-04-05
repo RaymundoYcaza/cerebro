@@ -1,0 +1,1 @@
+Tableau es una ==plataforma líder de **inteligencia de negocios y análisis visual**== que permite conectar, visualizar y compartir datos de manera intuitiva, sin necesidad de programar. Transforma datos complejos en paneles interactivos (dashboards) y gráficos fáciles de entender, facilitando la toma de decisiones rápidas y el descubrimiento de tendencias.

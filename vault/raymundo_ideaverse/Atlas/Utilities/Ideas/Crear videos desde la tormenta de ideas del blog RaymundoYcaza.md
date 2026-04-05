@@ -1,0 +1,1 @@
+Crear muchos artículos como base y sobre estos artículos crear videos, que subiré a Youtube, y pondré en mi blog en posts especiales desde donde enlazaré hacia los artículos que se usaron como base.

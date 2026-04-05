@@ -1,0 +1,4 @@
+---
+in:
+  - "[[Tecnología MOC]]"
+---

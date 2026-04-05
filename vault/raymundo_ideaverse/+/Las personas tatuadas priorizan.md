@@ -1,0 +1,1 @@
+﻿Las personas tatuaas prorizan la validacion PRESENTE sobre el respeto futuro.

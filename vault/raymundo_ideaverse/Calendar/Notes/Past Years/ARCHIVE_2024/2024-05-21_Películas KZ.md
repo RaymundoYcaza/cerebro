@@ -1,0 +1,13 @@
+---
+created: 2024-05-21 
+---
+- Películas
+- Mr. Nobody (2009) Dir. Jaco Van Dormael. o (LAS VIDAS POSIBLES DE MR NOBODY.)
+- Memento (2000) Dir. Christopher Nolan
+- Cloud Atlas (2012) Dir. Lilly Wachowski y Lana Wachowski
+- Coherence (2013) Dir. James Ward Byrkit
+- The fountain (2006) Dir. Darren Aronofsky
+- The Butterfly Effect (2004) Dir. Eric Bress, J. Mackye Gruber
+- Shutter Island (2010) Dir. Martin Scorsese
+- Wild Wild West
+- Regresiones de un hombre muerto

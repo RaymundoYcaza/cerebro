@@ -1,0 +1,47 @@
+- Cambios en el blog 
+    - Se desinstalan los plugins
+        - WP All Export Pro
+        - WP All Import Pro
+        - Testimonials Widget Premium
+        - `Motivo:`  Cumplieron su función puntutal, y no se requieren para un uso continuado.
+    - Se eliminan las páginas pilares
+        - Fórmulas de Excel y otras hojas de cálculo
+        - Modelamiento y visualización de datos
+        - Programación para la oficina (macros)
+        - `Motivo:`  No mostraban los cambios realizados.
+    - Se crearon los reemplazos para las páginas pilares
+        - [https://www.raymundoycaza.com/excel-formulas-y-funciones](https://www.raymundoycaza.com/excel-formulas-y-funciones)
+        - [https://www.raymundoycaza.com/excel-graficos-y-reportes](https://www.raymundoycaza.com/excel-graficos-y-reportes)
+        - [https://www.raymundoycaza.com/excel-macros-y-programacion-para-la-oficina](https://www.raymundoycaza.com/excel-macros-y-programacion-para-la-oficina)
+        - `Motivo:`  El blog necesita páginas que separen los intereses generales de la temática del blog.
+        - Se instaló el plugin WP Show Posts
+        - `Motivo:`  Para crear clusters de contenido y generar las páginas pilares.
+        - Se agregó código CSS1633206616711
+        - `Motivo:`  Para dar estilo de tarjetas a los clusters generados en las páginas pilares.
+        - Se creó el botón 'Servicios' en el menú principal.
+        - `Motivo:`  Dar más visibilidad a la opción de servicios de pago del blog.
+    - Se realizó una actualización de plugins
+        - **AddToAny Share Buttons**
+        - **Analytify - Google Analytics Dashboard**
+        - **Feeds for YouTube**
+        - **Yet Another Stars Rating**
+        - **Yoast SEO**
+        - **Astra Pro**
+        - **Elementor**
+        - **Gravity Forms**
+    - Se desactivó el plugin **Elementor PRO**
+        - `Motivo:`  No es necesario para los objetivos del blog.
+    - Se desactivó el plugin **WP Rocket**
+        - Se reactiva nuevamente.
+        - `Motivo:`  Verificar si no tenía relación con novedad.
+    - Se realiza la investigación para poder mostrar los artículos relacionados con la categoría actual, debajo de cada entrada, utilizando el plugin WP Show Posts.
+    - Se evita la necesidad de hacerlo utulizando código, con este shortcode
+        - `[wp_show_posts id="8880" settings="taxonomy=category&tax_term=current"]`
+    - Se agregó código CSS1633219094570
+        - `Motivo:`  Arreglar problema de visualización de entradas relacionadas al pie de las entradas individuales con el plugin WP Show Posts (aparente incompatibilidad de estilos con Astra)
+    - Se agregó código CSS: 1633219282043
+        - `Motivo:`  Ajustar el tamaño de los títulos de las entradas relacionadas al pie de las entradas individuales con el plugin WP Show Posts.
+    - Se realizó un respaldo de la BD
+        - `Motivo`  Inicio de rutina de respaldo mensual
+
+-

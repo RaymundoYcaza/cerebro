@@ -1,0 +1,21 @@
+---
+up:
+  - "[[Calendar/Logs/Logs]]"
+---
+- 2023
+	- Septiembre
+		- [[2023-09-02]] Leído [[Biblia RVR-1960_1 Pedro_Capítulo 1]]
+		- [[2023-09-03]] Leído [[Biblia RVR-1960_1 Pedro_Capítulo 2]]
+		- [[2023-09-04]] Leído [[Biblia RVR-1960_1 Pedro_Capítulo 3]]
+		- [[2023-09-05]] Leído [[Biblia RVR-1960_1 Pedro_Capítulo 4]]
+		- [[2023-09-06]] Leído [[Biblia RVR-1960_1 Pedro_Capítulo 5]]
+		- [[2023-09-07]] Leído [[Biblia RVR-1960_2 Pedro_Capítulo 1]]
+		- [[2023-09-08]] Leído [[Biblia RVR-1960_2 Pedro_Capítulo 2]]
+		- [[2023-09-12]] Leído [[Biblia RVR-1960_1 Juan_Capítulo 1]]
+		- [[2023-09-13]] Leído [[Biblia RVR-1960_1 Juan_Capítulo 2]]
+		- [[2023-09-14]] Leído [[Biblia RVR-1960_1 Juan_Capítulo 3]]
+		- [[2023-09-15]] Leído [[Biblia RVR-1960_1 Juan_Capítulo 4]]
+		- [[2023-09-18]] Leído [[Biblia RVR-1960_Juan_Capítulo 5]]
+- 2024
+	- 2024-05-25 Leído Génesis 1 y 2
+	- 
