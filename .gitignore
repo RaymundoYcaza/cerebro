@@ -27,4 +27,4 @@ qmd/finetune/data/train/
 # === Sistema ===
 .npmrc
 .DS_Store
-Thumbs.db
+Thumbs.dbsync.log
