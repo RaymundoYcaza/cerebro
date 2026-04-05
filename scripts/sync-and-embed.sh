@@ -2,8 +2,8 @@
 #!/bin/bash
 set -e
 
-REPO_DIR="/home/jabes/cerebro"
-LOG_FILE="/home/jabes/cerebro/sync.log"
+REPO_DIR="/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro"
+LOG_FILE="/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/sync.log"
 
 cd "$REPO_DIR"
 

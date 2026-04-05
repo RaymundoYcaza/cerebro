@@ -1,0 +1,9 @@
+[Unit]
+Description=qmd embed — reindexar vault cerebro
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/scripts/sync-and-embed.sh
+StandardOutput=append:/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/sync.log
+StandardError=append:/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/sync.log
