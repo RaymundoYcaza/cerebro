@@ -2,7 +2,14 @@
 
 ## Visión general
 
-Cerebro es un "Second Brain" autónomo construido sobre el vault de Obsidian de Raymundo, con Git como base de datos y agentes LLM que ejecutan tareas en background mientras el usuario duerme.[memory:189] El sistema indexa notas, repara frontmatter, actualiza MOCs, responde consultas vía agentes (Kai, Vault Manager), y provee captura rápida de notas por SSH, todo de forma reproducible en Ubuntu 24.
+Cerebro es un "Second Brain" autónomo construido sobre el vault de Obsidian
+de Raymundo, con Git como base de datos y agentes LLM que ejecutan tareas en
+background mientras el usuario duerme. El sistema indexa notas,
+repara frontmatter, actualiza MOCs, responde consultas vía agentes (Kai,
+Vault Manager), y provee captura rápida de notas por SSH, todo de forma
+reproducible en Ubuntu 24.
+
+Referencia: [I build a second robot](tps://dev.to/simplemindedrobot/i-built-a-second-brain-that-runs-while-i-sleep-4gc1)
 
 ---
 
@@ -12,8 +19,10 @@ Construir un Second Brain autónomo que:
 
 - Use el vault de Obsidian como única fuente de verdad.
 - Use Git como base de datos (historial, respaldo, audit log).
-- Permita a agentes LLM (Kai, Vault Manager, futuros agentes) procesar notas, reparar estructura y ejecutar tareas nocturnas.
-- Soporte captura rápida de notas (spark, source, contact) vía SSH, sin abrir la interfaz gráfica de Obsidian.[memory:189]
+- Permita a agentes LLM (Kai, Vault Manager, futuros agentes) procesar
+  notas, reparar estructura y ejecutar tareas nocturnas.
+- Soporte captura rápida de notas (spark, source, contact) vía SSH, sin
+  abrir la interfaz gráfica de Obsidian.
 
 ---
 
@@ -21,11 +30,12 @@ Construir un Second Brain autónomo que:
 
 1. **Infraestructura base reproducible**
    - Mantener el vault en un directorio fijo en Ubuntu 24.
-   - Automatizar qmd (motor semántico) y systemd timers para reindexar el vault sin intervención.
-   - Mantener scripts de recuperación (`restore-setup.sh`) para volver a levantar todo tras un formateo.[memory:190]
-
+   - Automatizar qmd (motor semántico) y systemd timers para reindexar
+     el vault sin intervención.
+   - Mantener scripts de recuperación (`restore-setup.sh`) para volver a
+     levantar todo tras un formateo.
 2. **Agentes LLM integrados con el vault**
-   - Agente **Kai** como asistente primario para el vault (búsqueda, síntesis, planificación).[memory:191]
+   - Agente **Kai** como asistente primario para el vault (búsqueda, síntesis, planificación).
    - Agente **Vault Manager** para reparar frontmatter y, en el futuro, reubicar notas.
    - Skills de OpenCode: `/recall`, `/atomize`, `/deep-research`, `/daily-summary`, `/vault-manager`.
 

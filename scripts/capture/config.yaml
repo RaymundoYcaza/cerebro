@@ -10,19 +10,19 @@ defaults:
 profiles:
   spark:
     output_dir: "+"
-    template_path: "Templates/capture/spark.md"
+    template_path: "x/Templates/spark.md"
     filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]
 
   source:
     output_dir: "Sources"
-    template_path: "Templates/capture/source.md"
+    template_path: "x/Templates/source.md"
     filename_strategy: "title"
     assistant_modes: ["manual", "openai"]
 
   contact:
     output_dir: "Contacts"
-    template_path: "Templates/capture/contact.md"
+    template_path: "x/Templates/contact.md"
     filename_strategy: "title"
     assistant_modes: ["manual", "openai"]
 
