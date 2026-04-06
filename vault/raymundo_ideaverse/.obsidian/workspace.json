@@ -41,48 +41,8 @@
               "icon": "lucide-file",
               "title": "Calendar"
             }
-          },
-          {
-            "id": "dd1b55b79d996bb5",
-            "type": "leaf",
-            "pane-relief:history-v1": {
-              "pos": 0,
-              "stack": [
-                {
-                  "state": "{}",
-                  "eState": "{}"
-                },
-                {
-                  "title": "ubuntu-systemd-static-server",
-                  "icon": "lucide-file",
-                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Engram/ubuntu-systemd-static-server.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"ubuntu-systemd-static-server\"}",
-                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
-                }
-              ]
-            },
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Atlas/Utilities/Engram/ionic-typescript-build-verification.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "ionic-typescript-build-verification"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -311,7 +271,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/Utilities/Engram/ionic-typescript-build-verification.md",
+                "file": "Atlas/Maps/Calendar.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -321,7 +281,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ionic-typescript-build-verification"
+              "title": "Backlinks for Calendar"
             }
           },
           {
@@ -375,8 +335,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "dd1b55b79d996bb5",
+  "active": "ed620ff772ae2275",
   "lastOpenFiles": [
+    "Atlas/Utilities/Engram/ionic-typescript-build-verification.md",
+    "x/Templates/aurora.md",
+    "Sources/atajos-principales-para-plegado-folds.md",
+    "Sources",
+    "Contacts/raymundo-ycaza-morales.md",
+    "Contacts",
+    "Atlas/Dots/X/20260406-122015-hay-patrones-que-se-repiten.md",
+    "Atlas/Dots/X/20260406-121753-abogado-colombiano-trabajando-en-usa-se-repite-un-patrón.md",
+    "Atlas/Dots/X/20260406-121117-el-número-1-frente-a-mi-y-me-reflejo-en-él.md",
+    "+/sparks/20260406-114840-prueba-3.md",
+    "+/sparks/20260406-114559-esta-es-una-prueba.md",
+    "+/sparks/20260406-111452-prueba-2.md",
+    "+/sparks",
+    "+/20260406-162405-monto-máximo-de-retiro-en-cajeros-de-banco-guayaquil.md",
+    "+/20260406-110820-las-runas-son-una-forma-de-comunicación.md",
     "Atlas/Utilities/Engram/ubuntu-systemd-static-server.md",
     "Atlas/Maps/Calendar.md",
     "Atlas/Utilities/Clips/Sistema solar básico progresivo.md",
@@ -391,19 +366,7 @@
     "+/Adoración.md",
     "Atlas/Dots/X/2025-05-13 Protocolo del León.md",
     "+/Asumo el precio, pago las consecuencias y vivo con coherencia.md",
-    "+/ARC Ideation.md",
-    "+/Apofenia.md",
-    "+/Anhelo en alemán.md",
-    "+/Analizar plantillas gratuitas Notion (PPV).md",
-    "+/Alguien tiene que absorber el odio primero.md",
-    "+/Agenda 2030 para el Desarrollo Sustentable.md",
-    "Atlas/Utilities/Botiquin/Aceite de orégano para desinflamar.md",
-    "Atlas/Utilities/Reflexiones/A qué me dedico.md",
-    "+/Accesos+ RY.md",
     "Atlas/Utilities/Reflexiones",
-    "+/2026-03-30 Análisis - qué sé sobre integrales cálculo integral.md",
-    "+/2026-03-30 Análisis - en cinco palabras qué sé sobre excel.md",
-    "+/2026-03-30 Análisis - en 12 palabras qué se sobre automatización de proc.md",
     "Atlas/Utilities/Botiquin",
     "Atlas/Utilities/Engram",
     "Atlas/Utilities/Ideas",
@@ -411,12 +374,9 @@
     "Efforts/Rules",
     "Atlas/Dots/Published/Blog",
     "Atlas/Dots/Published",
-    "Efforts/Borradores",
     "Atlas/Utilities/Images/Pasted image 20260327004328.png",
-    "Atlas/Utilities/Bookmarks/Youtube Music/Musica Relax",
     "Atlas/Utilities/Images/Pasted image 20260320161604.png",
     "Atlas/Utilities/Images/Pasted image 20260320161556.png",
-    "Atlas/Utilities/Bookmarks/Youtube Music",
     "Atlas/Utilities/Images/Pasted image 20260319013217.png",
     "Atlas/Utilities/Images/Pasted image 20260317110339.png",
     "Atlas/Utilities/Images/msedge_Jv6h8MuCVz.png",
