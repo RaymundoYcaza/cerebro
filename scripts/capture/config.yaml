@@ -1,5 +1,4 @@
 vault_root: /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse
-templates_root: /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse/x/Templates/
 
 defaults:
   date_format: "%Y-%m-%d"
@@ -10,19 +9,25 @@ defaults:
 
 profiles:
   spark:
-    output_dir: "+/sparks"
-    template: "spark.md"
+    output_dir: "+"
+    template_path: "Templates/capture/spark.md"
     filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]
 
   source:
     output_dir: "Sources"
-    template: "source.md"
+    template_path: "Templates/capture/source.md"
     filename_strategy: "title"
     assistant_modes: ["manual", "openai"]
 
   contact:
     output_dir: "Contacts"
-    template: "contact.md"
+    template_path: "Templates/capture/contact.md"
     filename_strategy: "title"
+    assistant_modes: ["manual", "openai"]
+
+  aurora:
+    output_dir: "Atlas/Dots/X"
+    template_path: "x/Templates/aurora.md"
+    filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]

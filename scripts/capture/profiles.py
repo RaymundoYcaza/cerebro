@@ -1,4 +1,5 @@
-SUPPORTED_PROFILES = ["spark", "source", "contact"]
+SUPPORTED_PROFILES = ["spark", "source", "contact", "aurora"]
+EXIT_OPTIONS = ["salir", "exit", "quit"]
 
 
 def get_profile_config(config: dict, profile_name: str) -> dict:
