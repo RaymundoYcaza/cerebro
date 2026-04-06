@@ -84,13 +84,25 @@
                 {
                   "state": "{}",
                   "eState": "{}"
+                },
+                {
+                  "title": "Art of Link Curation",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Dots/Things/Art of Link Curation.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Art of Link Curation\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}}}"
+                },
+                {
+                  "title": "Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
                 }
               ]
             },
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+                "file": "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -105,7 +117,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)"
+              "title": "- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están"
             }
           }
         ],
@@ -159,7 +171,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#note/develop🍃",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -338,7 +350,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+                "file": "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -348,7 +360,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)"
+              "title": "Backlinks for - Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están"
             }
           },
           {
@@ -404,8 +416,9 @@
   },
   "active": "e78cecfdf4af52c2",
   "lastOpenFiles": [
-    "Atlas/Utilities/Clips/Compra de dominio de Dómine.md",
+    "Atlas/Dots/Things/Art of Link Curation.md",
     "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
+    "Atlas/Utilities/Clips/Compra de dominio de Dómine.md",
     "Atlas/Utilities/News/2025-04-04 Mujer clínicamente muerta relata vida en línea temporal alternativa.md",
     "Atlas/Utilities/News/2026-04-04 Sismo en Ecuador magnitud 5.3 en Guayas.md",
     "Atlas/Utilities/Clips/I Built a Second Brain That Runs While I Sleep.md",
@@ -431,7 +444,6 @@
     "Atlas/Dots/Sources/Fuente I El foco es una habilidad entrenable y la meditación puede ser su gimnasio.md",
     "Atlas/Dots/Sources/Fuente I El mundo no es lo primero que debes consumir.md",
     "Atlas/Dots/Sources/Fuente I La dopamina debe ser como una hoguera que se quema lentamente.md",
-    "Atlas/Dots/Sources/Fuente I La disciplina efectiva no es restrictiva sino arquitectónica.md",
     "Atlas/Utilities/Images/Pasted image 20260329005803.png",
     "Efforts/Rules",
     "Atlas/Dots/Published/Blog",
