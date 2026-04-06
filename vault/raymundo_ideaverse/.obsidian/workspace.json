@@ -152,9 +152,108 @@
               "icon": "lucide-file",
               "title": "Angelink Keshia Vargas"
             }
+          },
+          {
+            "id": "1d2138385afbd6a2",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "x/Templates/spark.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "spark"
+            }
+          },
+          {
+            "id": "4e88fd6953957643",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "x/Templates/source.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "source"
+            }
+          },
+          {
+            "id": "475f6b71e1b66b06",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "x/Templates/contact.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "contact"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -383,7 +482,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/Dots/People/Angelink Keshia Vargas.md",
+                "file": "x/Templates/contact.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -393,7 +492,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Angelink Keshia Vargas"
+              "title": "Backlinks for contact"
             }
           },
           {
@@ -447,8 +546,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "26a7379906535b4a",
+  "active": "475f6b71e1b66b06",
   "lastOpenFiles": [
+    "x/Templates/source.md",
+    "x/Templates/contact.md",
+    "x/Templates/spark.md",
+    "Atlas/Dots/People/Angelink Keshia Vargas.md",
     "+/Cafe Hopping Log.md",
     "+/¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube.md",
     "+/Adoración.md",
@@ -473,10 +576,6 @@
     "Atlas/Dots/X/2026-03-07 I No estás cuidando lo que te di.md",
     "Atlas/Utilities/Botiquin",
     "Atlas/Utilities/Clips/5 afirmaciones para el dia a dia.md",
-    "Atlas/Dashboard.md",
-    "Atlas/Dots/Quotes/-Nadie es causa de sí mismo.md",
-    "x/Templates/Template, Properties, Base.md",
-    "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
     "Atlas/Utilities/Engram",
     "Atlas/Utilities/Ideas",
     "Atlas/Utilities/Images/Pasted image 20260329005803.png",
