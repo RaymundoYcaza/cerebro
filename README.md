@@ -364,11 +364,43 @@ Cambiar la ubicación de `Sources` o `Contacts` se hace editando `config.yaml`, 
 
 Este README está diseñado para que tanto un LLM como un analista humano puedan retomar el proyecto, entender el contexto y continuar implementando el roadmap sin perder la visión original.
 
-## Log
+## Log de sesiones
 
-### 2026-04-06
+Cada sesión de trabajo se documenta aquí para mantener un historial claro de avances y decisiones. El formato está pensado para que tanto LLMs como analistas humanos puedan retomar el proyecto.
 
-#### Reporte de estado general
+---
+
+### 2026-04-06 — Sesión de pulido de captura rápida y ajustes de Aurora
+
+En esta sesión se avanzó en la pulida de la funcionalidad de captura rápida y en el ajuste de la plantilla Aurora para que sea robusta y coherente con el resto del sistema. [cite:189]
+
+#### Objetivo de la sesión
+
+- Mejorar el flujo de captura, haciéndolo más estable y fácil de usar.
+- Ajustar la plantilla Aurora para que acepte correctamente los campos `up`, `related`, `created`, `title` y `body`.
+- Asegurar que el programa vuelva al menú tras guardar una nota, en lugar de cerrarse.
+
+#### Actividades realizadas
+
+- Corregir la plantilla `aurora.md` para que los placeholders sean `{{related}}` y `{{created}}` sin espacios internos, resolviendo el problema de no reemplazo de valores.
+- Mejorar `templates.py` para soportar placeholders con espacios, usando expresiones regulares en lugar de reemplazo literal.
+- Añadir `gum write` para capturas multilínea, evitando que Enter envíe el texto de forma incorrecta.
+- Hacer que el flujo de `main.py` vuelva al menú tras guardar una nota, en lugar de cerrarse; añadir una opción de salir explícita en los menús.
+
+#### Detalles técnicos
+
+- `gum write` ahora se usa para capturar el cuerpo de notas, permitiendo pegado de texto largo sin interrupciones.
+- La plantilla `aurora.md` incluye `up`, `related`, `created`, `aliases` y `tags` con placeholders correctos.
+- `templates.py` usa regex para reemplazar placeholders, soportando variantes con espacios (`{{ created }}`, `{{  created  }}`).
+- `main.py` vuelve al menú principal tras guardar una nota, pidiendo confirmación para salir.
+
+#### Resultados obtenidos
+
+- La captura de notas `spark`, `source`, `contact` y `aurora` es ahora más estable y robusta.
+- La plantilla Aurora acepta correctamente los campos `up`, `related`, `created`, `title` y `body`.
+- El flujo de trabajo es más intuitivo, con menús claros y opción de salir explícita.
+
+#### Tabla resumen de estado actual
 
 | Objetivo / Funcionalidad                 | Estado actual    | Detalle                                                                                                                                                                        |
 | ---------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
