@@ -1,0 +1,9 @@
+[Unit]
+Description=Vault Manager: analiza el Inbox del cerebro
+After=network.target
+
+[Service]
+Type=oneshot
+User=jabes
+WorkingDirectory=/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro
+ExecStart=/usr/bin/python3 /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/scripts/vault_manager/analyze.py
