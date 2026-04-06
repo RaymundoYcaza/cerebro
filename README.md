@@ -363,3 +363,22 @@ Cambiar la ubicación de `Sources` o `Contacts` se hace editando `config.yaml`, 
      - generar resúmenes diarios (`/daily-summary`).
 
 Este README está diseñado para que tanto un LLM como un analista humano puedan retomar el proyecto, entender el contexto y continuar implementando el roadmap sin perder la visión original.
+
+## Log
+
+### 2026-04-06
+
+#### Reporte de estado general
+
+| Objetivo / Funcionalidad                 | Estado actual    | Detalle                                                                                                                                                                        |
+| ---------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ✅ Infraestructura base reproducible     | 🟢 ✔️            | Configuración en restore-setup.sh, config.yaml y perfiles organizados. Todo es reproducible desde cero.                                                                        |
+| 🔄 Agentes LLM integrados                | 🟡 En desarrollo | Kai y Vault Manager ya van en el repositorio, pero la integración con IA es solo el stub (ai_prompt.py) sin conectividad real.                                                 |
+| 🔄 Manejo del Inbox y frontmatter ACE    | 🟡 En desarrollo | spark y aurora capturan correctamente, pero vault-manager es solo un script de reparación que no reubica notas. Falta el relocate real.                                        |
+| ✅ Captura rápida CLI/SSH                | ✅ Funciona      | main.py y manual_prompt.py permiten captura rápida de spark, source, contact y aurora desde terminal, con menú gum y salida de notas en + / Sources / Contacts / Atlas/Dots/X. |
+| 🟡 Validación básica de fechas           | 🟡 En desarrollo | ask_profile_data valida created, source_date y birthday como YYYY-MM-DD, pero es solo validación; no hay lógica de faltas ni bloqueo fuerte.                                   |
+| 🟢 Frontmatter base (up/related/created) | ✅ Funciona      | Todas las notas generadas mantienen up, related y created en el frontmatter, gracias al renderizado de plantillas.                                                             |
+| 🔴 Aurora con plantilla robusta          | 🟢 Según versión | La plantilla aurora.md ahora incluye up, related y created con placeholders {{related}} y {{created}} correctamente, sin espacios internos.                                    |
+| 🔴 Interacción IA (OpenAI) real          | 🔴 Por hacer     | ai_prompt.py es solo un stub con openai_capture_stub; falta implementar llamada real a OpenAI y parsear la salida JSON para alimentar engine.py.                               |
+| 🔴 Gestión avanzada de notes             | 🔴 Por hacer     | spark captura, pero no hay mover las notas a Atlas/Dots ni Efforts según reglas de madurez; eso es el fututo relocate.py.                                                      |
+| 🟢 Respaldo y restauración               | ✅ Funciona      | Git respalda el vault y scripts; restore-setup.sh restaura la configuración de forma programada tras formateo o reinstalación.                                                 |
