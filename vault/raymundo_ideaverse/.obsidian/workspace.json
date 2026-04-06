@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "87316dc0d987cab6",
+            "id": "ad6ac84020091cb5",
             "type": "leaf",
             "pane-relief:history-v1": {
               "pos": 0,
@@ -57,7 +57,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/Dashboard.md",
+                "file": "+/2026-03-07 I No estás cuidando lo que te di.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -72,56 +72,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Dashboard"
-            }
-          },
-          {
-            "id": "e78cecfdf4af52c2",
-            "type": "leaf",
-            "pane-relief:history-v1": {
-              "pos": 0,
-              "stack": [
-                {
-                  "state": "{}",
-                  "eState": "{}"
-                },
-                {
-                  "title": "Art of Link Curation",
-                  "icon": "lucide-file",
-                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Dots/Things/Art of Link Curation.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Art of Link Curation\"}",
-                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}}}"
-                },
-                {
-                  "title": "Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)",
-                  "icon": "lucide-file",
-                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Plantilla rápida - Servidor estático persistente con systemd (Ubuntu)\"}",
-                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
-                }
-              ]
-            },
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están"
+              "title": "2026-03-07 I No estás cuidando lo que te di"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -350,7 +305,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
+                "file": "+/2026-03-07 I No estás cuidando lo que te di.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -360,7 +315,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for - Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están"
+              "title": "Backlinks for 2026-03-07 I No estás cuidando lo que te di"
             }
           },
           {
@@ -414,8 +369,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e78cecfdf4af52c2",
+  "active": "dddbab8b18fd423a",
   "lastOpenFiles": [
+    "Atlas/Utilities/Botiquin",
+    "Atlas/Maps/Calendar.md",
+    "Atlas/Utilities/Clips/5 afirmaciones para el dia a dia.md",
+    "Atlas/Dashboard.md",
+    "Atlas/Dots/Quotes/-Nadie es causa de sí mismo.md",
+    "x/Templates/Template, Properties, Base.md",
+    "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
     "Atlas/Dots/Things/Art of Link Curation.md",
     "Atlas/Utilities/Cheatsheets/Plantilla rápida - Servidor estático persistente con systemd (Ubuntu).md",
     "Atlas/Utilities/Clips/Compra de dominio de Dómine.md",
@@ -429,7 +391,6 @@
     "Atlas/Utilities/Engram",
     "Atlas/Utilities/Clips/Calendario Dole.md",
     "Atlas/Utilities/Clips/Gestión de Conocimiento Técnico y Soberanía de Datos.md",
-    "Atlas/Dashboard.md",
     "x/Templates/Template, Daily.md",
     "x/Templates/Template, Book.md",
     "Atlas/Dots/Sources/Referencia I Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas.md",
@@ -438,12 +399,6 @@
     "Atlas/Dots/Published/Blog/automatizacion-con-excel/2025-02-17_excel-no-esta-muerto.md",
     "Atlas/Utilities/Ideas",
     "Atlas/Dots/Sources/Fuente I El alter ego no es un personaje ficticio, sino una versión potenciada de uno mismo.md",
-    "Atlas/Dots/Sources/Fuente I El foco es un modo de vida. No se puede ser disperso en la vida privada.md",
-    "Atlas/Dots/Sources/Fuente I El descanso es parte del trabajo, pero debe ser neutro.md",
-    "Atlas/Dots/Sources/Fuente I Los gatillos mentales eliminan la resistencia a empezar.md",
-    "Atlas/Dots/Sources/Fuente I El foco es una habilidad entrenable y la meditación puede ser su gimnasio.md",
-    "Atlas/Dots/Sources/Fuente I El mundo no es lo primero que debes consumir.md",
-    "Atlas/Dots/Sources/Fuente I La dopamina debe ser como una hoguera que se quema lentamente.md",
     "Atlas/Utilities/Images/Pasted image 20260329005803.png",
     "Efforts/Rules",
     "Atlas/Dots/Published/Blog",
