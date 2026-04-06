@@ -26,6 +26,5 @@
   "templater-obsidian",
   "quickadd",
   "obsidian-meta-bind-plugin",
-  "obsidian-git",
   "obsidian-local-rest-api"
 ]

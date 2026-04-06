@@ -21,7 +21,7 @@ Use the following collections to quickly navigate around your ideaverse:
 
 Use your ideaverse to take control over your life and be more intentional about things:
 
-- I want to...reflect on my life » [[Life Map]]
+- I want to...reflect on my life » [[+/Life Map]]
 - I want to...journal about specific things » [[Logs (Example)]]
 - I want to...be more intentional about my life » [[Atlas/Utilities/Cheatsheets/-/Plan and Review]] 
 

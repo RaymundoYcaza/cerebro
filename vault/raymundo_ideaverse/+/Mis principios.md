@@ -1,8 +1,8 @@
 ---
 up:
   - "[[Raymundo Ycaza Morales]]"
-  - "[[Life Map]]"
-related: 
+  - "[[+/Life Map]]"
+related:
 created: 2025-06-07
 ---
 

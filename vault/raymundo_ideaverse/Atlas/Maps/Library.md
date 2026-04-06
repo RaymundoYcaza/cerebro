@@ -38,7 +38,7 @@ The [[Meta Map]] shows the best practices of knowledge management. I use the [[I
 
 > [!Milestone]+ ### 100 - Personal Management
 
-The [[Atlas/Maps/Thinking Map]] can galvanize my attention; the [[Concepts]] can flavor it; and the [[Habits Map]] speaks about how to direct it. Hidden within in the [[Cabin]]. Go to my [[Life Map]] to brush up on [[My Virtues (starter)|My Virtues]] and more.
+The [[Atlas/Maps/Thinking Map]] can galvanize my attention; the [[Concepts]] can flavor it; and the [[Habits Map]] speaks about how to direct it. Hidden within in the [[Cabin]]. Go to my [[Atlas/Maps/Life Map]] to brush up on [[My Virtues (starter)|My Virtues]] and more.
 
 - [[Posture MOC]] | [[Hormesis MOC]] | [[Breathing Exercises MOC]] | Flowcreation MOC
 - People MOC | Family MOC | [[Prominent People (kit)]]
