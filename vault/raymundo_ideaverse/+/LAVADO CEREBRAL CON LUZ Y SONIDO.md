@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿LAVADO CEREBRAL CON LUZ Y SONIDO.
 Tu cerebro funciona con electricidad. Las neuronas disparan a diferentes ritmos (frecuencias). Las Ondas Gamma (40Hz) son la frecuencia de la "Súper Concentración" y la memoria. Es el estado de los monjes meditando o de un músico en pleno flujo.
 Investigadores del MIT (Li-Huei Tsai) descubrieron algo asombroso: En cerebros con Alzheimer o deterioro cognitivo, las ondas Gamma desaparecen. Pero si fuerzas al cerebro a entrar en Gamma usando estímulos externos (una luz que parpadea a 40Hz o un sonido a 40Hz), ocurre magia biológica.

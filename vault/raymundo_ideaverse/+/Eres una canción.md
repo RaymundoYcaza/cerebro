@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 "ERES UNA CANCION"
 
 Después de nuestra última plática y de ponernos al tanto de las buenas nuevas me preguntaste,

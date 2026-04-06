@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿El término "kafkiano" proviene del escritor checo **Franz Kafka** y se utiliza para describir situaciones caracterizadas por ser innecesariamente complejas, absurdas y opresivas. [ellibrero](https://ellibrero.com/blog/que-significa-kafkiano-y-por-que-lo-utilizamos)
 
 Aunque a menudo se usa para referirse simplemente a la "burocracia complicada", su significado profundo abarca tres dimensiones principales:

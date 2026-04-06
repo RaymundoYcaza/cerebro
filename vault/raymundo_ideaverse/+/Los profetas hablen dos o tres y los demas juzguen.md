@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Texto base (1 Co 14:29):
 “Asimismo, los profetas hablen dos o tres, y los demás juzguen.”
 El problema está en quiénes son “los demás”.

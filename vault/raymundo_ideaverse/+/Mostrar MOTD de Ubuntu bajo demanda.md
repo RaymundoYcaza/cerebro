@@ -1,24 +1,18 @@
 ---
-up:
-  - "[[Índice de Snippets]]"
+up: 
 related: []
+created: 2026-04-06
 created_at: 2025-12-23
 din: ID-1766505049161
-aliases:
-  - motd manual ubuntu
-  - mostrar motd ubuntu
-tags:
-  - z/tipo/snippet
-  - z/estado/activo
+aliases: 
+tags: 
 language: bash
 framework: sistema-ubuntu
 domain: devops
 snippet_type: one-liner
 complexity: baja
 source: conversacion-llm
-dependencies:
-  - run-parts
-  - update-motd
+dependencies: 
 ---
 
 # Mostrar MOTD de Ubuntu bajo demanda

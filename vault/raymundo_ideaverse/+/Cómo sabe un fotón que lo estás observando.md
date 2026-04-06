@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿¿Cómo sabe un fotón que lo estás observando?
 Los fotones no tienen ojos, no “saben” que los miras y tampoco reaccionan a tu intención. Entonces… ¿por qué cambian?
 La clave está en esto: mirar en física cuántica no significa observar con los ojos, significa interactuar.

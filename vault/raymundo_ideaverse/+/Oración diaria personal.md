@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Padre, te doy  gracias por este nuevo día.
 Reconozco que todo lo que tengo proviene de ti, 
 y que sin tu guía no puedo administrar bien 

@@ -1,21 +1,18 @@
 ---
+up: []
+related: []
+created: 2026-04-06
 news-date: 2026-03-20
-news-origin:
-  - "[[Ecuador]]"
+news-origin: 
 news-category: "[[Noticias/Seguridad]]"
-news-subcategory:
-  - "[[Noticias/Seguridad/Crimen]]"
+news-subcategory: 
 news-year: 2026
 news-quarter: Q1
 news-month: 3
 news-week: 12
 news-day: 20
-tags:
-  - "#z/Seguridad/crimen"
-  - "#z/Economía/energía"
-  - "#z/Internacional/corrupción"
+tags: 
 ---
-
 
 # Operación Atenas: red que robaba combustible causó pérdidas por USD 9 millones
 - Agencia: [[Metro Ecuador]]
@@ -53,4 +50,3 @@ tags:
 - Impacto del robo de hidrocarburos en la economía ecuatoriana.
 - Estrategias de Petroecuador y la Policía Nacional para proteger poliductos.
 - Antecedentes de redes criminales vinculadas al tráfico de combustible en América Latina.
-

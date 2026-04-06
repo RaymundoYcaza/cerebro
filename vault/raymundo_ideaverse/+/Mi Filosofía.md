@@ -1,12 +1,12 @@
 ---
-in:
-  - "[[Entities]]"
-related:
-  - "[[Raymundo Ycaza Morales]]"
+up: []
+related: 
 created: 2025-05-13
+in: 
 tags: 
 acr: true
 ---
+
 [[Mi axioma fundamental]]
 [[Mis valores]]
 [[Mis principios]]
@@ -33,4 +33,3 @@ No volver donde Dios no manifiesta su presencia.
 ### Reflexiones
 [[Relato de piedras, arena y café]]
 [[Mis Pensamientos y Reflexiones]]
-

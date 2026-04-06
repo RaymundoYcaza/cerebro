@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Mi bro, vamos a hablar de la verdad que nadie se atreve a decir:
 Tod4s son infieles.
 Y antes de que saltes a defender a "tu fr+uta que es diferente", escucha esto:

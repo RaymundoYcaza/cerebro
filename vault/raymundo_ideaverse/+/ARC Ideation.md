@@ -1,9 +1,9 @@
 ---
-in:
-  - "[[Raymundo Ycaza Morales]]"
+up: []
+related: []
+created: 2026-04-06
+in: 
 ---
-
-
 
 ### 🌈 ¿Qué es ARC Ideation?
 
@@ -54,4 +54,3 @@ Imagina que tienes una cita de un libro:
 
 **C (Communicate)**:  
 → Creo una nota permanente titulada “La atención como recurso” donde sintetizo esta idea con mis propias palabras y conexiones.
-

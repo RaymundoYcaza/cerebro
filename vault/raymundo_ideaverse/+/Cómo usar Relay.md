@@ -1,8 +1,10 @@
 ---
-up:
-related:
+up: 
+related: 
+created: 2026-04-06
 created_at: 2025-12-24
 ---
+
 Para implementar **Relay**, es fundamental entender un cambio de paradigma: **no compartes "bóvedas" (vaults) enteras, sino carpetas específicas dentro de tu bóveda.**
 Esto es ideal para tu caso: tú mantienes tu bóveda personal privada y creas una carpeta llamada "Proyecto X" que se sincroniza mágicamente con la carpeta "Proyecto X" de tu compañero.
 Aquí tienes el procedimiento paso a paso:
