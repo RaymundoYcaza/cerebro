@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Mi bro, debes dom1n4rl4.
 En tu relación debes dom1n4r.
 Muchos siguen teniendo problemas con las mvj3res porque siguen pensando que una relación es cuestión de amor y de cariño y de ternura y de ser felices para siempre.

@@ -1,8 +1,10 @@
 ---
-up:
-related:
+up: 
+related: 
+created: 2026-04-06
 created_at: <% tp.date.now("YYYY-MM-DD") %>
 ---
+
 Se le llama **emulador de terminal** por una razón histórica y técnica muy concreta.
 
 ## ¿Qué “emula” exactamente?

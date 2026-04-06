@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Una célebre anécdota atribuida a Diógenes de Sinope cuenta que, al escuchar a filósofos que defendían con elaborados argumentos lógicos que el movimiento no existe, simplemente se levantó y caminó fuera del lugar, sin decir palabra.
 Recordemos que la anécdota se sitúa como una respuesta a las ideas de la Escuela Eleática (especialmente Zenón de Elea y Parménides). Ellos sostenían que el movimiento y el cambio eran ilusiones de los sentidos y que, lógicamente, el movimiento era imposible (famoso por paradojas como la de Aquiles y la tortuga).
 El significado: Con este gesto, Diógenes quería demostrar que la realidad empírica (lo que vemos y experimentamos) es suficiente para desmentir un argumento abstracto que contradice la naturaleza. A este tipo de refutación se le llama en latín solvitur ambulando, que significa "se resuelve caminando".

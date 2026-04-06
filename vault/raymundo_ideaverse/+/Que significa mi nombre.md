@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Copilot:
 https://copilot.microsoft.com/chats/BtX4cpiYnRboENEEkyJD3
 

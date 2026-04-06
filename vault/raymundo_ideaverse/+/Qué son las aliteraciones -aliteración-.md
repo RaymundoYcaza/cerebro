@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿La **aliteración** es una figura retórica que consiste en la repetición deliberada de sonidos (generalmente consonantes) en palabras cercanas dentro de una misma frase o verso. Su objetivo principal es crear un efecto de musicalidad, ritmo o énfasis que haga el texto más expresivo y fácil de recordar. [es.wikipedia](https://es.wikipedia.org/wiki/Aliteraci%C3%B3n)
 
 ## Concepto y Función

@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿Esta es la lista de casos emblemáticos de corrupción y crimen organizado investigados en Ecuador desde el gobierno de Lenín Moreno (2017-2021) hasta la actualidad, con nombres similares a "León de Troya" o "Caja Chica". Incluyo todos los mencionados en la página proporcionada, más otros relevantes identificados en investigaciones recientes. [elcomercio](https://www.elcomercio.com/actualidad/seguridad/investiga-fiscalia-caso-caja-chica-involucra-luisa-gonzalez/)
 
 ## Lista de Casos

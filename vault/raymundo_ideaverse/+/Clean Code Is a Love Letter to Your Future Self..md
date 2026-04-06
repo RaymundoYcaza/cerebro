@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿You won’t remember why you wrote that logic in three weeks.
 Readable code saves more time than clever shortcuts.
 Naming things properly is a real skill.

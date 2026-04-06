@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿¿SABÍAS QUE YESHÚA NUNCA DIJO QUE DIOS LO ABANDONÓ? ALGO QUE FUE MAL ENSEÑADO… Y ESO CAMBIA TODO...
 Es una de las frases más repetidas de la biblia. Una de las más predicadas. Y una de las más mal entendidas...
 “Dios mío, Dios mío, ¿por qué me has abandonado?"Mateo 27:46

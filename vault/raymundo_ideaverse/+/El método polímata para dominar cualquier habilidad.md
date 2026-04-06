@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿TIPS DE APRENDIZAJE PARA SER UN POLIMATA:
 1. Aprendizaje Activo
 2. Revision Espaciada

@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿La captura de Nicolás Maduro me hizo reflexionar en cómo las cosas nos pueden tomar por sorpresa. Lo que no sucedió en años puede suceder en minutos: 
 - ¿Cómo nos pudo tomar por sorpresa algo que estaba siendo anunciado tantas veces?
 - ¿Cómo nos pudo tomar por sorpresa algo que - visto en retrospectiva-  es tan obvio como esperar la "resaca" de año nuevo?

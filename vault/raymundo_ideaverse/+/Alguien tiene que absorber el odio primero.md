@@ -1,8 +1,10 @@
 ---
-up:
-related:
+up: 
+related: 
+created: 2026-04-06
 created_at: 2026-01-15
 ---
+
 El hombre parecía alguien que estrangulaba osos por diversión, y durante seis meses lo vi arrastrar perros aterrados y sangrando hacia su camión. El martes pasado, por fin llamé a la policía.
 
 Trabajo en el turno nocturno del Interstate Diner, junto a la I-40, desde hace seis años. En esta carretera se ve de todo: jóvenes escapando de casa, intercambios de drogas, sueños rotos que se enfrían junto a una taza de café. Pero El Gigante era distinto.

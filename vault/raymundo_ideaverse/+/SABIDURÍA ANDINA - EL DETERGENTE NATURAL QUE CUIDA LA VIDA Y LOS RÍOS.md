@@ -1,9 +1,9 @@
 ---
-up:
-related:
+up: 
+related: 
+created: 2026-04-06
 created_at: 2025-12-25
 ---
-
 
 La imagen muestra una práctica ancestral que sigue viva en muchas comunidades de los Andes: el lavado de prendas usando agua de quinua o choloque, sin necesidad de detergentes industriales. Este conocimiento tradicional no es folklore, es química natural aplicada, desarrollada siglos antes de la industria moderna.
 

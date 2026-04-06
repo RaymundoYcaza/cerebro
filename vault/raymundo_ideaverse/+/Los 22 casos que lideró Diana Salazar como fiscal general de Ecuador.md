@@ -1,3 +1,9 @@
+---
+up: []
+related: []
+created: 2026-04-06
+---
+
 ﻿1Caso Metástasis
 
 Una de las investigaciones más significativas durante la gestión de Salazar fue el caso Metástasis, que reveló una red de corrupción en el sistema judicial ecuatoriano. La Fiscalía vinculó a jueces y funcionarios judiciales, acusados de colaborar con organizaciones criminales para manipular procesos legales en beneficio de narcotraficantes.
