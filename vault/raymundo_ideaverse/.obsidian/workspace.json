@@ -53,6 +53,12 @@
                   "eState": "{}"
                 },
                 {
+                  "title": "Cafe Hopping Log",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/Cafe Hopping Log.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Cafe Hopping Log\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}}}"
+                },
+                {
                   "title": "¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube",
                   "icon": "lucide-file",
                   "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube\"}",
@@ -129,7 +135,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "+/Cafe Hopping Log.md",
+                "file": "Atlas/Dots/People/Angelink Keshia Vargas.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -144,7 +150,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Cafe Hopping Log"
+              "title": "Angelink Keshia Vargas"
             }
           }
         ],
@@ -377,7 +383,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "+/Cafe Hopping Log.md",
+                "file": "Atlas/Dots/People/Angelink Keshia Vargas.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -387,7 +393,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Cafe Hopping Log"
+              "title": "Backlinks for Angelink Keshia Vargas"
             }
           },
           {
@@ -441,8 +447,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "dddbab8b18fd423a",
+  "active": "26a7379906535b4a",
   "lastOpenFiles": [
+    "+/Cafe Hopping Log.md",
     "+/¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube.md",
     "+/Adoración.md",
     "Atlas/Dots/X/2025-05-13 Protocolo del León.md",
@@ -470,7 +477,6 @@
     "Atlas/Dots/Quotes/-Nadie es causa de sí mismo.md",
     "x/Templates/Template, Properties, Base.md",
     "Atlas/Dots/Quotes/- Sin duda hay que perderse para hallar destinos inalcanzables, de lo contrario, todo el mundo sabría dónde están.md",
-    "Atlas/Dots/Things/Art of Link Curation.md",
     "Atlas/Utilities/Engram",
     "Atlas/Utilities/Ideas",
     "Atlas/Utilities/Images/Pasted image 20260329005803.png",
