@@ -10,7 +10,6 @@ def build_common_fields(config: dict) -> dict:
     return {
         "up": [],
         "related": [],
-        "created": now_date(config["defaults"]["date_format"]),
     }
 
 
@@ -22,7 +21,14 @@ def build_note(profile: str, profile_data: dict) -> tuple[Path, str]:
     output_dir = vault_root / profile_config["output_dir"]
 
     common = build_common_fields(config)
-    data = {**common, **profile_data}
+
+    # Decidir created: prioridad a lo que venga del perfil, o fecha actual
+    created = profile_data.get("created")
+    if not created:
+        created = now_date(config["defaults"]["date_format"])
+
+    # Ensamblar datos finales
+    data = {**common, **profile_data, "created": created}
 
     if profile == "spark":
         title = data.get("title") or "Spark"
@@ -30,7 +36,7 @@ def build_note(profile: str, profile_data: dict) -> tuple[Path, str]:
         title = data.get("title") or "Fuente"
     elif profile == "contact":
         title = data.get("name") or "Contacto"
-        data["title"] = title
+        data["title"] = title  # asegurar que la plantilla tenga {{title}}
     else:
         title = "Nota"
 

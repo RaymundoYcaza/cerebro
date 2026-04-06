@@ -10,7 +10,7 @@ defaults:
 
 profiles:
   spark:
-    output_dir: "+"
+    output_dir: "+/sparks"
     template: "spark.md"
     filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]

@@ -1,3 +1,5 @@
+import shutil
+import subprocess
 import sys
 
 from manual_prompt import ask, ask_profile_data
@@ -5,7 +7,33 @@ from engine import save_note
 from profiles import SUPPORTED_PROFILES
 
 
+def gum_available() -> bool:
+    return shutil.which("gum") is not None
+
+
+def gum_choose(options: list[str], header: str = "") -> str:
+    """
+    Ejecuta gum choose de forma simple.
+    Si falla, devuelve cadena vacía y el flujo cae a input().
+    """
+    try:
+        cmd = ["gum", "choose"]
+        if header:
+            cmd.extend(["--header", header])
+        cmd.extend(options)
+
+        output = subprocess.check_output(cmd, text=True)
+        return output.strip()
+    except Exception:
+        return ""
+
+
 def choose_profile() -> str:
+    if gum_available():
+        choice = gum_choose(SUPPORTED_PROFILES, "Selecciona el tipo de nota")
+        if choice in SUPPORTED_PROFILES:
+            return choice
+
     print("Perfiles disponibles:")
     for i, p in enumerate(SUPPORTED_PROFILES, start=1):
         print(f"{i}. {p}")
@@ -24,8 +52,15 @@ def choose_profile() -> str:
 
 
 def choose_assistant() -> str:
+    options = ["manual", "openai"]
+
+    if gum_available():
+        choice = gum_choose(options, "Selecciona modo de captura")
+        if choice in options:
+            return choice
+
     mode = ask("Modo de captura (manual/openai)", "manual").lower()
-    if mode not in ("manual", "openai"):
+    if mode not in options:
         mode = "manual"
     return mode
 
