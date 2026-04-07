@@ -109,6 +109,12 @@ def run_once():
         run_daily_capture()
         return
 
+    if profile == "utilitarios":
+        from utilities import run_utility_capture
+        path = run_utility_capture()
+        print(f"\n✅ Nota guardada en: {path}")
+        return
+
     assistant = choose_assistant()
 
     if assistant == "openai":

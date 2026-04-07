@@ -1,4 +1,4 @@
-SUPPORTED_PROFILES = ["spark", "source", "contact", "aurora"]
+SUPPORTED_PROFILES = ["spark", "source", "contact", "aurora", "utilitarios"]
 EXIT_OPTIONS = ["salir", "exit", "quit"]
 
 

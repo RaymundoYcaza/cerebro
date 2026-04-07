@@ -481,3 +481,57 @@ En esta sesión se expandió significativamente el sistema con captura de diario
 | 🔴 Interacción IA (OpenAI) real          | 🔴 Por hacer     | ai_prompt.py es solo un stub con openai_capture_stub; falta implementar llamada real a OpenAI y parsear la salida JSON para alimentar engine.py.                               |
 | 🔴 Gestión avanzada de notes             | 🔴 Por hacer     | spark captura, pero no hay mover las notas a Atlas/Dots ni Efforts según reglas de madurez; eso es el futuro relocate.py.                                                      |
 | 🟢 Respaldo y restauración               | ✅ Funciona      | Git respalda el vault y scripts; restore-setup.sh restaura la configuración de forma programada tras formateo o reinstalación.                                                 |
+
+---
+
+### 2026-04-07 — Sesión de agregado de notas tipo Utilitarios
+
+En esta sesión se agregó un nuevo tipo de nota "Utilitarios" al sistema de captura rápida, con lógica propia y destino dinámico basado en subcarpetas existentes.
+
+#### Objetivo de la sesión
+
+- Agregar tipo de nota "Utilitarios" que guarde en `Atlas/Utilities/{subcarpeta}/`.
+- Mostrar listado dinámico de subcarpetas existentes para que el usuario elija el destino.
+- Aplicar propiedades base `up`, `related`, `created` con fecha actual.
+- Mantener lógica independiente y sencilla para personalizar en el futuro.
+
+#### Actividades realizadas
+
+- **Crear `scripts/capture/utilities.py`**: Módulo propio con `get_subfolders()`, `ask_title()`, `ask_body()`, `run_utility_capture()`.
+- **Integrar en `scripts/capture/main.py`**: Agregar `utilitarios` a `SUPPORTED_PROFILES` y ruteo en `run_once()`.
+- **Actualizar `scripts/capture/profiles.py`**: Incluir `utilitarios` en perfiles soportados.
+- **Actualizar `scripts/main.py`**: Agregar sub-menú "Fábrica de Contenido" con opción de Utilitarios (para uso desde menú principal Rich).
+- **Fix de bug en `gum write`**: Corregir flags `-w`/`-h` a `--width`/`--height` (gum 0.17.0 solo acepta long flags).
+- **Fix de imports**: Agregar `sys.path` fix en `utilities.py` y `main.py` para que funcionen al ejecutar directamente con `python3 scripts/capture/main.py`.
+- **Fix de `qmd_status`**: Proteger import de `qmd_bridge` con `try/except` ya que `qmd_status` no existe en `qmd_bridge.py`.
+
+#### Detalles técnicos
+
+- `utilities.py` escanea dinámicamente las subcarpetas de `Atlas/Utilities/` usando `pathlib.iterdir()`.
+- El flujo de captura: selección de subcarpeta (gum choose) → título (gum input) → cuerpo (gum write) → escritura con frontmatter base.
+- Frontmatter generado: `up: []`, `related: []`, `created: YYYY-MM-DD` (sin campos adicionales, manteniendo la base ACE).
+- Nombre de archivo: slug del título + `.md`, sin timestamp (el usuario puede renombrar si hay conflicto).
+- `gum write` requiere `--width` y `--height` (long flags), no `-w`/`-h` — bug descubierto y corregido.
+- Fallbacks manuales implementados para cuando `gum` no está disponible o falla.
+
+#### Resultados obtenidos
+
+- Notas tipo Utilitarios funcionales con selección dinámica de subcarpeta destino.
+- Integración completa en el flujo de captura rápida (menú gum).
+- Lógica independiente y personalizable para futuras mejoras (clasificación automática, sugerencias de `up`/`related`, etc.).
+- Bug de `gum write` corregido para todo el sistema de captura.
+
+#### Tabla resumen de estado actual
+
+| Objetivo / Funcionalidad                 | Estado actual    | Detalle                                                                                                                                                                        |
+| ---------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ✅ Infraestructura base reproducible     | 🟢 ✔️            | Configuración en restore-setup.sh, config.yaml y perfiles organizados. Todo es reproducible desde cero.                                                                        |
+| 🟢 Agentes LLM integrados                | 🟢 Funcional     | Kai y Vault Manager configurados en OpenCode con skills `/recall`, `/atomize`, `/deep-research`, `/daily-summary`, `/vault-manager`. Falta integración real con IA.            |
+| 🟢 Manejo del Inbox y frontmatter ACE    | 🟢 Funcional     | repair.py y repair-ui.sh reparan frontmatter de notas en `+`. ~200 notas limpiadas y reorganizadas. Falta relocate real.                                                      |
+| ✅ Captura rápida CLI/SSH                | ✅ Funciona      | spark, source, contact, aurora, daily journal y utilitarios desde terminal. Menú gum con todos los perfiles.                                                                   |
+| 🟢 Utilitarios                           | ✅ Funciona      | utilities.py permite guardar en Atlas/Utilities/{subcarpeta}/ con selección dinámica de destino y frontmatter base.                                                            |
+| 🟡 Validación básica de fechas           | 🟡 En desarrollo | ask_profile_data valida created, source_date y birthday como YYYY-MM-DD, pero es solo validación; no hay lógica de faltas ni bloqueo fuerte.                                   |
+| 🟢 Frontmatter base (up/related/created) | ✅ Funciona      | Todas las notas generadas mantienen up, related y created en el frontmatter, gracias al renderizado de plantillas.                                                             |
+| 🔴 Interacción IA (OpenAI) real          | 🔴 Por hacer     | ai_prompt.py es solo un stub con openai_capture_stub; falta implementar llamada real a OpenAI y parsear la salida JSON para alimentar engine.py.                               |
+| 🔴 Gestión avanzada de notes             | 🔴 Por hacer     | spark captura, pero no hay mover las notas a Atlas/Dots ni Efforts según reglas de madurez; eso es el futuro relocate.py.                                                      |
+| 🟢 Respaldo y restauración               | ✅ Funciona      | Git respalda el vault y scripts; restore-setup.sh restaura la configuración de forma programada tras formateo o reinstalación.                                                 |
