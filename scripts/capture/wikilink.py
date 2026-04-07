@@ -7,8 +7,9 @@ pick(vault_root) -> str
     Returns '[[Note title]]' on selection, or '' if cancelled.
 
 attach_wikilinks(text, vault_root) -> str
-    Interactive loop: lets the user append zero or more wikilinks to a
-    base text string and returns the final composed string.
+    Interactive composition loop. Starting from an initial text the user
+    can keep appending free text or wikilinks until they choose 'listo'.
+    Returns the final composed string.
 """
 
 from __future__ import annotations
@@ -24,12 +25,6 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 def _tty():
-    """Return an open file object for /dev/tty (the real terminal).
-
-    This ensures gum can render its TUI even when stdout/stdin are
-    redirected (e.g. inside subprocess.check_output chains).
-    Falls back to sys.stdin/sys.stderr on Windows or missing /dev/tty.
-    """
     try:
         return open("/dev/tty", "r+b", buffering=0)
     except OSError:
@@ -37,13 +32,7 @@ def _tty():
 
 
 def _gum(*args: str, input_text: str | None = None) -> tuple[int, str]:
-    """Run a gum command with TTY-safe I/O.
-
-    Returns (returncode, stdout_text).
-    stdin  -> /dev/tty  (so gum can read keyboard)
-    stdout -> pipe      (so we can capture the selection)
-    stderr -> /dev/tty  (so gum can render its UI)
-    """
+    """Run a gum command with TTY-safe I/O. Returns (returncode, stdout)."""
     tty = _tty()
     try:
         result = subprocess.run(
@@ -97,9 +86,7 @@ def _pick_with_gum(titles: list[str]) -> str:
         "filter", "--placeholder", "Buscar nota...", "--limit", "1",
         input_text="\n".join(titles),
     )
-    if code in (1, 130):
-        return ""
-    return selected
+    return "" if code in (1, 130) else selected
 
 
 def _pick_with_fzf(titles: list[str]) -> str:
@@ -115,9 +102,7 @@ def _pick_with_fzf(titles: list[str]) -> str:
         )
         if tty:
             tty.close()
-        if result.returncode in (1, 130):
-            return ""
-        return result.stdout.strip()
+        return "" if result.returncode in (1, 130) else result.stdout.strip()
     except (OSError, KeyboardInterrupt):
         return ""
 
@@ -166,29 +151,55 @@ def pick(vault_root: Path) -> str:
     return f"[[{selected}]]" if selected else ""
 
 
-def attach_wikilinks(text: str, vault_root: Path) -> str:
-    """Interactively append one or more wikilinks to *text*.
+def attach_wikilinks(initial_text: str, vault_root: Path) -> str:
+    """Composition loop: append free text or wikilinks to *initial_text*.
 
-    Returns the final composed string.
+    Options presented each iteration:
+      - añadir texto   → open gum input (or plain input) to append more text
+      - añadir enlace  → open fuzzy picker and append wikilink
+      - listo           → finish and return the composed string
+
+    Nothing is printed as intermediate state; the header always shows the
+    current accumulated text so the user knows what they have so far.
     """
-    result = text
+    result = initial_text
+
     while True:
+        preview = result if len(result) <= 60 else result[:57] + "…"
+
         if _gum_available():
             code, choice = _gum(
                 "choose",
-                "--header", f"Vista previa: {result}",
-                "añadir enlace", "listo",
+                "--header", f"Entrada actual: {preview}",
+                "añadir texto",
+                "añadir enlace",
+                "listo",
             )
-            if code in (1, 130) or choice != "añadir enlace":
+            if code in (1, 130):
                 break
         else:
-            raw = input("¿Añadir wikilink? [s/N]: ").strip().lower()
-            if raw not in ("s", "si", "sí", "y", "yes"):
-                break
+            print(f"  Entrada actual: {result}")
+            print("  1. añadir texto")
+            print("  2. añadir enlace")
+            print("  3. listo")
+            raw = input("  Opción [3]: ").strip()
+            choice = {"1": "añadir texto", "2": "añadir enlace", "3": "listo", "": "listo"}.get(raw, "listo")
 
-        link = pick(vault_root)
-        if link:
-            result = f"{result} {link}"
-            print(f"  → {result}")
+        if choice == "añadir texto":
+            if _gum_available():
+                code, extra = _gum("input", "--placeholder", "Texto adicional...")
+                extra = extra if code == 0 else ""
+            else:
+                extra = input("Texto adicional: ").strip()
+            if extra:
+                result = f"{result} {extra}"
+
+        elif choice == "añadir enlace":
+            link = pick(vault_root)
+            if link:
+                result = f"{result} {link}"
+
+        else:  # listo
+            break
 
     return result
