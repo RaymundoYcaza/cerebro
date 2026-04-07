@@ -10,66 +10,67 @@ from daily import run_daily_capture
 DIARY_OPTION = "diario"
 
 
+def _tty():
+    try:
+        return open("/dev/tty", "r+b", buffering=0)
+    except OSError:
+        return None
+
+
+def _gum(*args: str, input_text: str | None = None) -> tuple[int, str]:
+    tty = _tty()
+    try:
+        result = subprocess.run(
+            ["gum", *args],
+            input=input_text.encode() if input_text is not None else None,
+            stdin=None if input_text is not None else (tty or sys.stdin),
+            stdout=subprocess.PIPE,
+            stderr=tty or sys.stderr,
+            text=False,
+        )
+        stdout = result.stdout.decode("utf-8", errors="replace").strip()
+        return result.returncode, stdout
+    except (OSError, KeyboardInterrupt):
+        return 130, ""
+    finally:
+        if tty:
+            tty.close()
+
+
 def gum_available() -> bool:
     return shutil.which("gum") is not None
 
 
-def gum_choose(options: list[str], header: str = "") -> str:
-    try:
-        cmd = ["gum", "choose"]
-        if header:
-            cmd.extend(["--header", header])
-        cmd.extend(options)
-
-        output = subprocess.check_output(cmd, text=True)
-        return output.strip()
-    except subprocess.CalledProcessError as e:
-        if e.returncode in (1, 130):
-            return "salir"
-        return ""
-    except KeyboardInterrupt:
-        return "salir"
-    except Exception:
-        return ""
-
-
 def choose_profile() -> str:
-    # "diario" is always the first option
     options = [DIARY_OPTION] + SUPPORTED_PROFILES + ["salir"]
 
     if gum_available():
-        choice = gum_choose(options, "Selecciona el tipo de nota")
-        if choice == "salir":
+        code, choice = _gum("choose", "--header", "Selecciona el tipo de nota", *options)
+        if code in (1, 130) or choice == "salir":
             raise SystemExit(0)
         if choice in options:
             return choice
+        raise SystemExit(0)
 
     print("Perfiles disponibles:")
-    for i, p in enumerate(options[:-1], start=1):  # exclude "salir"
+    for i, p in enumerate(options[:-1], start=1):
         marker = " (por defecto)" if p == DIARY_OPTION else ""
         print(f"{i}. {p}{marker}")
     print(f"{len(options)}. salir")
 
     raw = input("Elige perfil [1]: ").strip().lower()
-
-    # Default to "diario" on empty input
     if raw == "":
         return DIARY_OPTION
-
     if raw.isdigit():
         idx = int(raw) - 1
-        all_opts = options  # includes "salir"
-        if 0 <= idx < len(all_opts) - 1:
-            return all_opts[idx]
-        if idx == len(all_opts) - 1:
+        if 0 <= idx < len(options) - 1:
+            return options[idx]
+        if idx == len(options) - 1:
             raise SystemExit(0)
-
     if raw in options:
         return raw
-
     if raw in EXIT_OPTIONS:
         raise SystemExit(0)
-
     raise ValueError("Perfil no válido")
 
 
@@ -77,8 +78,8 @@ def choose_assistant() -> str:
     options = ["manual", "openai", "salir"]
 
     if gum_available():
-        choice = gum_choose(options, "Selecciona modo de captura")
-        if choice == "salir":
+        code, choice = _gum("choose", "--header", "Selecciona modo de captura", *options)
+        if code in (1, 130) or choice == "salir":
             raise SystemExit(0)
         if choice in ("manual", "openai"):
             return choice
@@ -93,8 +94,9 @@ def choose_assistant() -> str:
 
 def ask_continue() -> bool:
     if gum_available():
-        choice = gum_choose(["nueva nota", "salir"], "¿Qué deseas hacer ahora?")
-        return choice == "nueva nota"
+        code, choice = _gum("choose", "--header", "¿Qué deseas hacer ahora?",
+                            "nueva nota", "salir")
+        return code == 0 and choice == "nueva nota"
 
     raw = ask("¿Crear otra nota? (s/n)", "s").lower()
     return raw in ("s", "si", "sí", "y", "yes")

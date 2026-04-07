@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import shutil
 import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -14,6 +16,38 @@ DAILY_SECTIONS = ["Freewrite", "Big Things Today", "Log"]
 def _get_vault_root() -> Path:
     config = load_config()
     return Path(config["vault_root"])
+
+
+def _tty():
+    try:
+        return open("/dev/tty", "r+b", buffering=0)
+    except OSError:
+        return None
+
+
+def _gum(*args: str, input_text: str | None = None) -> tuple[int, str]:
+    """TTY-safe gum runner. Returns (returncode, stdout)."""
+    tty = _tty()
+    try:
+        result = subprocess.run(
+            ["gum", *args],
+            input=input_text.encode() if input_text is not None else None,
+            stdin=None if input_text is not None else (tty or sys.stdin),
+            stdout=subprocess.PIPE,
+            stderr=tty or sys.stderr,
+            text=False,
+        )
+        stdout = result.stdout.decode("utf-8", errors="replace").strip()
+        return result.returncode, stdout
+    except (OSError, KeyboardInterrupt):
+        return 130, ""
+    finally:
+        if tty:
+            tty.close()
+
+
+def _gum_available() -> bool:
+    return shutil.which("gum") is not None
 
 
 def get_daily_path(today: date | None = None) -> Path:
@@ -41,7 +75,6 @@ def _build_empty_note(today: date) -> str:
 
 
 def ensure_daily_note(path: Path, today: date | None = None) -> None:
-    """Create the daily note file if it does not exist yet."""
     if path.exists():
         return
     if today is None:
@@ -51,7 +84,6 @@ def ensure_daily_note(path: Path, today: date | None = None) -> None:
 
 
 def append_to_section(path: Path, section: str, bullet: str) -> None:
-    """Append a bullet to the given section, creating the section if absent."""
     raw = path.read_text(encoding="utf-8")
     lines = raw.splitlines()
 
@@ -83,44 +115,12 @@ def append_to_section(path: Path, section: str, bullet: str) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _gum_available() -> bool:
-    import shutil
-    return shutil.which("gum") is not None
-
-
-def _gum_choose(options: list[str], header: str = "") -> str:
-    try:
-        cmd = ["gum", "choose"]
-        if header:
-            cmd.extend(["--header", header])
-        cmd.extend(options)
-        output = subprocess.check_output(cmd, text=True)
-        return output.strip()
-    except subprocess.CalledProcessError as e:
-        if e.returncode in (1, 130):
-            return "salir"
-        return ""
-    except (KeyboardInterrupt, Exception):
-        return "salir"
-
-
-def _gum_input(placeholder: str = "") -> str:
-    try:
-        cmd = ["gum", "input", "--placeholder", placeholder]
-        output = subprocess.check_output(cmd, text=True)
-        return output.strip()
-    except subprocess.CalledProcessError as e:
-        if e.returncode in (1, 130):
-            return ""
-        return ""
-    except (KeyboardInterrupt, Exception):
-        return ""
-
-
 def _choose_section() -> str:
     options = DAILY_SECTIONS + ["salir"]
     if _gum_available():
-        choice = _gum_choose(options, "Selecciona la sección del diario")
+        code, choice = _gum("choose", "--header", "Selecciona la sección del diario", *options)
+        if code in (1, 130) or choice == "salir":
+            raise SystemExit(0)
         if choice in DAILY_SECTIONS:
             return choice
         raise SystemExit(0)
@@ -142,13 +142,14 @@ def _choose_section() -> str:
 
 def _ask_bullet() -> str:
     if _gum_available():
-        text = _gum_input("Escribe tu entrada...")
+        code, text = _gum("input", "--placeholder", "Escribe tu entrada...")
+        if code in (1, 130):
+            return ""
         return text
     return input("Entrada: ").strip()
 
 
 def run_daily_capture() -> None:
-    """Full daily-journal capture flow."""
     today = date.today()
     path = get_daily_path(today)
     vault_root = _get_vault_root()
@@ -162,7 +163,6 @@ def run_daily_capture() -> None:
         print("Entrada vacía, operación cancelada.")
         return
 
-    # Optionally attach one or more wikilinks to the bullet
     bullet = attach_wikilinks(bullet, vault_root)
 
     append_to_section(path, section, bullet)
