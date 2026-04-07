@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 
 from config import load_config
-from utils import now_date
+from wikilink import attach_wikilinks
 
 
 DAILY_SECTIONS = ["Freewrite", "Big Things Today", "Log"]
@@ -58,7 +58,6 @@ def append_to_section(path: Path, section: str, bullet: str) -> None:
     bullet_line = f"- {bullet}" if not bullet.startswith("- ") else bullet
     section_header = f"## {section}"
 
-    # Find the section
     section_idx = None
     for i, line in enumerate(lines):
         if line.strip() == section_header:
@@ -66,19 +65,15 @@ def append_to_section(path: Path, section: str, bullet: str) -> None:
             break
 
     if section_idx is None:
-        # Section does not exist — append it at the end
         if lines and lines[-1] != "":
             lines.append("")
         lines.append(section_header)
         lines.append(bullet_line)
         lines.append("")
     else:
-        # Find the end of this section (next ## or EOF)
         insert_at = len(lines)
         for i in range(section_idx + 1, len(lines)):
             if lines[i].startswith("## "):
-                # Insert before this next section header
-                # Walk back to skip trailing blank lines
                 insert_at = i
                 while insert_at > section_idx + 1 and lines[insert_at - 1].strip() == "":
                     insert_at -= 1
@@ -156,6 +151,7 @@ def run_daily_capture() -> None:
     """Full daily-journal capture flow."""
     today = date.today()
     path = get_daily_path(today)
+    vault_root = _get_vault_root()
 
     ensure_daily_note(path, today)
 
@@ -165,6 +161,9 @@ def run_daily_capture() -> None:
     if not bullet:
         print("Entrada vacía, operación cancelada.")
         return
+
+    # Optionally attach one or more wikilinks to the bullet
+    bullet = attach_wikilinks(bullet, vault_root)
 
     append_to_section(path, section, bullet)
     print(f"\n✅ Entrada añadida en '{section}' → {path}")
