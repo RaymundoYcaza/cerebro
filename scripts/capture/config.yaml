@@ -7,6 +7,9 @@ defaults:
   default_assistant: manual
   openai_model: gpt-4.1-mini
 
+daily:
+  output_dir: Calendar
+
 profiles:
   spark:
     output_dir: "+"

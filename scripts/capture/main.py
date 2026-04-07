@@ -5,6 +5,9 @@ import sys
 from manual_prompt import ask, ask_profile_data
 from engine import save_note
 from profiles import SUPPORTED_PROFILES, EXIT_OPTIONS
+from daily import run_daily_capture
+
+DIARY_OPTION = "diario"
 
 
 def gum_available() -> bool:
@@ -31,30 +34,37 @@ def gum_choose(options: list[str], header: str = "") -> str:
 
 
 def choose_profile() -> str:
-    options = SUPPORTED_PROFILES + ["salir"]
+    # "diario" is always the first option
+    options = [DIARY_OPTION] + SUPPORTED_PROFILES + ["salir"]
 
     if gum_available():
         choice = gum_choose(options, "Selecciona el tipo de nota")
         if choice == "salir":
             raise SystemExit(0)
-        if choice in SUPPORTED_PROFILES:
+        if choice in options:
             return choice
 
     print("Perfiles disponibles:")
-    for i, p in enumerate(SUPPORTED_PROFILES, start=1):
-        print(f"{i}. {p}")
-    print(f"{len(SUPPORTED_PROFILES) + 1}. salir")
+    for i, p in enumerate(options[:-1], start=1):  # exclude "salir"
+        marker = " (por defecto)" if p == DIARY_OPTION else ""
+        print(f"{i}. {p}{marker}")
+    print(f"{len(options)}. salir")
 
-    raw = input("Elige perfil: ").strip().lower()
+    raw = input("Elige perfil [1]: ").strip().lower()
+
+    # Default to "diario" on empty input
+    if raw == "":
+        return DIARY_OPTION
 
     if raw.isdigit():
         idx = int(raw) - 1
-        if 0 <= idx < len(SUPPORTED_PROFILES):
-            return SUPPORTED_PROFILES[idx]
-        if idx == len(SUPPORTED_PROFILES):
+        all_opts = options  # includes "salir"
+        if 0 <= idx < len(all_opts) - 1:
+            return all_opts[idx]
+        if idx == len(all_opts) - 1:
             raise SystemExit(0)
 
-    if raw in SUPPORTED_PROFILES:
+    if raw in options:
         return raw
 
     if raw in EXIT_OPTIONS:
@@ -92,6 +102,11 @@ def ask_continue() -> bool:
 
 def run_once():
     profile = choose_profile()
+
+    if profile == DIARY_OPTION:
+        run_daily_capture()
+        return
+
     assistant = choose_assistant()
 
     if assistant == "openai":
