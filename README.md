@@ -424,3 +424,60 @@ En esta sesión se avanzó en la pulida de la funcionalidad de captura rápida y
 | 🔴 Interacción IA (OpenAI) real          | 🔴 Por hacer     | ai_prompt.py es solo un stub con openai_capture_stub; falta implementar llamada real a OpenAI y parsear la salida JSON para alimentar engine.py.                               |
 | 🔴 Gestión avanzada de notes             | 🔴 Por hacer     | spark captura, pero no hay mover las notas a Atlas/Dots ni Efforts según reglas de madurez; eso es el fututo relocate.py.                                                      |
 | 🟢 Respaldo y restauración               | ✅ Funciona      | Git respalda el vault y scripts; restore-setup.sh restaura la configuración de forma programada tras formateo o reinstalación.                                                 |
+
+---
+
+### 2026-04-06 — Sesión de expansión: Daily Journal, Wikilink Picker, OpenCode Agents y limpieza del vault
+
+En esta sesión se expandió significativamente el sistema con captura de diario diario, selector fuzzy de wikilinks, nuevos agentes OpenCode, y una limpieza masiva del vault.
+
+#### Objetivo de la sesión
+
+- Implementar captura de journal diario con secciones Freewrite, Big Things Today y Log.
+- Añadir wikilink fuzzy picker para enlazar notas existentes durante la captura.
+- Configurar agentes y skills de OpenCode para atomización, resumen diario, investigación profunda y gestión del vault.
+- Limpiar y reorganizar el vault, moviendo notas de subdirectorios a la raíz de `+`.
+
+#### Actividades realizadas
+
+- **Daily Journal**: Implementar `scripts/capture/daily.py` con captura de journal diario con tres secciones: Freewrite (escritura libre), Big Things Today (logros del día), y Log (notas rápidas con timestamp).
+- **Wikilink Fuzzy Picker**: Crear `scripts/capture/wikilink.py` con búsqueda fuzzy de notas existentes en el vault e integración en el flujo de captura para añadir wikilinks a notas relacionadas.
+- **Rework de attach_wikilinks**: Mejorar el flujo de wikilinks con un loop de "añadir texto / añadir enlace / listo" para permitir múltiples enlaces de forma iterativa.
+- **Fix de TTY en gum**: Resolver problemas de TTY roto en subprocesses encadenados usando `/dev/tty` para todas las llamadas a `gum`.
+- **OpenCode Agents & Commands**: Crear agentes `kai.md` y `vault-manager.md`, y commands/skills para `/atomize`, `/daily-summary`, `/deep-research`, `/recall`, `/vault-manager`.
+- **Limpieza del vault**: Mover ~200 notas de subdirectorios `notes/` y `old-calendar/` a la raíz de `+`, eliminando frontmatter inconsistente y estandarizando la estructura.
+- **Vault Manager enhancements**: Añadir `analyze.py`, `relocate.py`, `repair.py` y `repair-ui.sh` para análisis, reparación y futura reubicación de notas.
+- **Documentación**: Actualizar extensamente README.md (+426 líneas), PLAN.md, y múltiples notas con timestamps.
+
+#### Detalles técnicos
+
+- `daily.py` crea notas en `Calendar/YYYY-MM-DD.md` con frontmatter `created`, `type: daily`, y secciones `## Freewrite`, `## Big Things Today`, `## Log`.
+- `wikilink.py` escanea todas las notas del vault, extrae títulos, y usa `gum filter` para búsqueda fuzzy con selección múltiple.
+- El loop de `attach_wikilinks` permite añadir texto manual o seleccionar de notas existentes, repitiendo hasta que el usuario indique "listo".
+- Todas las llamadas a `gum` ahora usan `input=/dev/tty` explícitamente para evitar problemas de TTY en subprocesses encadenados.
+- Los agentes OpenCode están configurados con `model: provider/model-id` y skills referenciados correctamente.
+- La limpieza del vault incluyó reparación de frontmatter con `repair.py` y eliminación del plugin `obsidian-git` (5 archivos removidos de `.obsidian/plugins/`).
+
+#### Resultados obtenidos
+
+- Captura de journal diario funcional con secciones estructuradas.
+- Wikilink fuzzy picker integrado en el flujo de captura, permitiendo enlazar notas existentes fácilmente.
+- Agentes OpenCode configurados y listos para tareas de búsqueda, síntesis, atomización y gestión del vault.
+- Vault limpio y organizado, con ~200 notas reubicadas y frontmatter estandarizado.
+- Documentación actualizada y roadmap claro para futuras fases.
+
+#### Tabla resumen de estado actual
+
+| Objetivo / Funcionalidad                 | Estado actual    | Detalle                                                                                                                                                                        |
+| ---------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ✅ Infraestructura base reproducible     | 🟢 ✔️            | Configuración en restore-setup.sh, config.yaml y perfiles organizados. Todo es reproducible desde cero.                                                                        |
+| 🟢 Agentes LLM integrados                | 🟢 Funcional     | Kai y Vault Manager configurados en OpenCode con skills `/recall`, `/atomize`, `/deep-research`, `/daily-summary`, `/vault-manager`. Falta integración real con IA.            |
+| 🟢 Manejo del Inbox y frontmatter ACE    | 🟢 Funcional     | repair.py y repair-ui.sh reparan frontmatter de notas en `+`. ~200 notas limpiadas y reorganizadas. Falta relocate real.                                                      |
+| ✅ Captura rápida CLI/SSH                | ✅ Funciona      | main.py, daily.py y manual_prompt.py permiten captura de spark, source, contact, aurora y daily journal desde terminal, con wikilink fuzzy picker.                             |
+| 🟢 Wikilink fuzzy picker                 | ✅ Funciona      | wikilink.py escanea el vault y permite búsqueda fuzzy con gum filter para añadir wikilinks a notas existentes durante la captura.                                              |
+| 🟢 Daily Journal                         | ✅ Funciona      | daily.py crea notas en Calendar/ con secciones Freewrite, Big Things Today y Log, con frontmatter estandarizado.                                                               |
+| 🟡 Validación básica de fechas           | 🟡 En desarrollo | ask_profile_data valida created, source_date y birthday como YYYY-MM-DD, pero es solo validación; no hay lógica de faltas ni bloqueo fuerte.                                   |
+| 🟢 Frontmatter base (up/related/created) | ✅ Funciona      | Todas las notas generadas mantienen up, related y created en el frontmatter, gracias al renderizado de plantillas.                                                             |
+| 🔴 Interacción IA (OpenAI) real          | 🔴 Por hacer     | ai_prompt.py es solo un stub con openai_capture_stub; falta implementar llamada real a OpenAI y parsear la salida JSON para alimentar engine.py.                               |
+| 🔴 Gestión avanzada de notes             | 🔴 Por hacer     | spark captura, pero no hay mover las notas a Atlas/Dots ni Efforts según reglas de madurez; eso es el futuro relocate.py.                                                      |
+| 🟢 Respaldo y restauración               | ✅ Funciona      | Git respalda el vault y scripts; restore-setup.sh restaura la configuración de forma programada tras formateo o reinstalación.                                                 |
