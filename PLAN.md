@@ -47,4 +47,5 @@
 ## Ideales
 
 - Crear una ruta "/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro" en mi
-  laptop para poder usar las mismas rutas que uso en ubuntu.
+  laptop para poder usar las mismas rutas que uso en ubuntu
+  =======

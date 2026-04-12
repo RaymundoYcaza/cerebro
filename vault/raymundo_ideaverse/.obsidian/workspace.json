@@ -331,8 +331,7 @@
       "darlal-switcher-plus:Open Symbols for the active editor": false,
       "cmdr:Toggle stacked tabs": false,
       "obsidian42-brat:BRAT": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-git:Open Git source control": false
+      "templater-obsidian:Templater": false
     }
   },
   "active": "ed620ff772ae2275",

@@ -11,7 +11,7 @@ qmd/.qmd-data/models/
 qmd/.cache/*
 !qmd/.cache/qmd/
 qmd/.cache/qmd/*
-!qmd/.cache/qmd/portable.sqlite
+#!qmd/.cache/qmd/portable.sqlite
 
 # === QMD - herramientas de desarrollo ===
 qmd/.cursor/
