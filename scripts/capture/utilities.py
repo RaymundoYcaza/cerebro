@@ -4,15 +4,11 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-# Asegurar que el raíz del proyecto esté en PYTHONPATH
-_project_root = Path(__file__).resolve().parent.parent.parent
-if str(_project_root) not in sys.path:
-    sys.path.insert(0, str(_project_root))
+# Asegurar que el directorio actual esté en el path
+sys.path.append(str(Path(__file__).resolve().parent))
 
-from scripts.capture.utils import slugify, now_date, write_note
-
-VAULT_ROOT = Path("/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse")
-UTILITIES_DIR = VAULT_ROOT / "Atlas" / "Utilities"
+from config import load_config
+from utils import slugify, now_date, write_note
 
 
 def _tty():
@@ -46,12 +42,20 @@ def gum_available() -> bool:
     return shutil.which("gum") is not None
 
 
+def get_utilities_dir():
+    config = load_config()
+    vault_root = Path(config["vault_root"])
+    return vault_root / "Atlas" / "Utilities"
+
+
 def get_subfolders() -> list[str]:
     """Devuelve lista de subcarpetas existentes en Atlas/Utilities/."""
-    if not UTILITIES_DIR.exists():
+    utilities_dir = get_utilities_dir()
+    if not utilities_dir.exists():
+        utilities_dir.mkdir(parents=True, exist_ok=True)
         return []
     return sorted(
-        p.name for p in UTILITIES_DIR.iterdir() if p.is_dir()
+        p.name for p in utilities_dir.iterdir() if p.is_dir()
     )
 
 
@@ -60,7 +64,6 @@ def ask_title() -> str:
         code, title = _gum("input", "--header", "Título de la nota", "--placeholder", "Ej: Comando útil de git")
         if code == 0 and title:
             return title
-    # Fallback manual
     try:
         return input("Título: ").strip()
     except (EOFError, KeyboardInterrupt):
@@ -73,7 +76,6 @@ def ask_body() -> str:
         if code == 0 and body:
             return body
 
-    # Fallback manual con sentinel
     print("\nCuerpo de la nota (Ctrl+D o línea con 'EOF' para terminar):")
     lines = []
     try:
@@ -90,33 +92,36 @@ def ask_body() -> str:
 def run_utility_capture() -> str:
     """Flujo completo de captura de nota tipo Utilitarios."""
     subfolders = get_subfolders()
-    if not subfolders:
-        raise RuntimeError(f"No se encontraron subcarpetas en {UTILITIES_DIR}")
+    utilities_dir = get_utilities_dir()
 
-    # Seleccionar subcarpeta
-    if gum_available():
-        code, choice = _gum("choose", "--header", "¿Dónde guardar la nota?", *subfolders)
-        if code in (1, 130) or not choice:
-            raise SystemExit(0)
-        subfolder = choice
+    if not subfolders:
+        print(f"Aviso: No se encontraron subcarpetas en {utilities_dir}. Se guardará en la raíz de Utilities.")
+        subfolder = ""
     else:
-        print("Subcarpetas disponibles:")
-        for i, sf in enumerate(subfolders, start=1):
-            print(f"  {i}. {sf}")
-        while True:
-            try:
-                raw = input("Selecciona subcarpeta [1]: ").strip()
-                if not raw:
-                    idx = 0
-                elif raw.isdigit():
-                    idx = int(raw) - 1
-                else:
-                    continue
-                if 0 <= idx < len(subfolders):
-                    subfolder = subfolders[idx]
-                    break
-            except (EOFError, KeyboardInterrupt):
+        # Seleccionar subcarpeta
+        if gum_available():
+            code, choice = _gum("choose", "--header", "¿Dónde guardar la nota?", *subfolders)
+            if code in (1, 130) or not choice:
                 raise SystemExit(0)
+            subfolder = choice
+        else:
+            print("Subcarpetas disponibles:")
+            for i, sf in enumerate(subfolders, start=1):
+                print(f"  {i}. {sf}")
+            while True:
+                try:
+                    raw = input("Selecciona subcarpeta [1]: ").strip()
+                    if not raw:
+                        idx = 0
+                    elif raw.isdigit():
+                        idx = int(raw) - 1
+                    else:
+                        continue
+                    if 0 <= idx < len(subfolders):
+                        subfolder = subfolders[idx]
+                        break
+                except (EOFError, KeyboardInterrupt):
+                    raise SystemExit(0)
 
     # Pedir título y cuerpo
     title = ask_title()
@@ -131,7 +136,7 @@ def run_utility_capture() -> str:
 
     # Guardar nota
     filename = f"{slugify(title)}.md"
-    target_dir = UTILITIES_DIR / subfolder
+    target_dir = utilities_dir / subfolder
     note_path = target_dir / filename
     write_note(note_path, content)
 

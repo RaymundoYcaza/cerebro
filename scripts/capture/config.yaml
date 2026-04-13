@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-vault_root: /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse
+vault_root: /mnt/c/cerebro/vault/raymundo_ideaverse
 
 defaults:
   date_format: "%Y-%m-%d"
   datetime_format: "%Y-%m-%d %H:%M"
   filename_max_length: 80
   default_assistant: manual
-  openai_model: gpt-4.1-mini
+  openai_model: gpt-4o-mini
 
 daily:
   output_dir: Calendar
@@ -35,38 +34,9 @@ profiles:
     template_path: "x/Templates/aurora.md"
     filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]
-=======
-vault_root: /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/vault/raymundo_ideaverse
 
-defaults:
-  date_format: "%Y-%m-%d"
-  datetime_format: "%Y-%m-%d %H:%M"
-  filename_max_length: 80
-  default_assistant: manual
-  openai_model: gpt-4.1-mini
-
-profiles:
-  spark:
-    output_dir: "+"
-    template_path: "x/Templates/spark.md"
-    filename_strategy: "timestamp-title"
-    assistant_modes: ["manual", "openai"]
-
-  source:
-    output_dir: "Sources"
-    template_path: "x/Templates/source.md"
+  effort:
+    output_dir: "Efforts"
+    template_path: "x/Templates/Template, Properties, Effort (Kit).md"
     filename_strategy: "title"
-    assistant_modes: ["manual", "openai"]
-
-  contact:
-    output_dir: "Contacts"
-    template_path: "x/Templates/contact.md"
-    filename_strategy: "title"
-    assistant_modes: ["manual", "openai"]
-
-  aurora:
-    output_dir: "Atlas/Dots/X"
-    template_path: "x/Templates/aurora.md"
-    filename_strategy: "timestamp-title"
-    assistant_modes: ["manual", "openai"]
->>>>>>> bca2500 (Actualiza notas 2026-04-07 11:18:01)
+    assistant_modes: ["manual"]
