@@ -129,6 +129,29 @@ def run_once():
 def main():
     try:
         while True:
+            # Menú Inicial (Captura o Revisión)
+            options = ["nueva captura", "revisión de tareas (efforts)", "salir"]
+            choice = "nueva captura"
+            
+            if gum_available():
+                code, choice = _gum("choose", "--header", "CEREBRO - Gestión de Conocimiento", *options)
+                if code in (1, 130) or choice == "salir":
+                    print("Salida.")
+                    sys.exit(0)
+            else:
+                print("\n--- CEREBRO ---")
+                for i, opt in enumerate(options):
+                    print(f"{i+1}. {opt}")
+                raw = input("Selecciona acción [1]: ").strip()
+                if raw == "2": choice = "revisión de tareas (efforts)"
+                elif raw == "3": sys.exit(0)
+                elif raw == "": choice = "nueva captura"
+
+            if choice == "revisión de tareas (efforts)":
+                from review import run_review
+                run_review()
+                continue
+
             run_once()
             if not ask_continue():
                 print("Salida sin cambios adicionales.")
