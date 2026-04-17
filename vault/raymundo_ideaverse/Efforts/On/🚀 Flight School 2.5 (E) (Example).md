@@ -26,3 +26,6 @@ Tidy up:
 
 > [!Rocket]+ Explore the Ideaverse
 > ![[robert-mccall-A_Decade_of_Achievement_narrow.png]]
+
+## Prueba
+- [x] Tarea de prueba ^alta @2026-04-13

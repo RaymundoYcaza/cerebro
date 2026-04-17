@@ -16,3 +16,4 @@ Let's Raise awareness and excitement about link-based thinking.
 - [[LYT Conference 3 (E) (Example)]]
 - [[LYT Conference 2 (E) (Example)]]
 - [[LYT Conference 1 (E) (Example)]]
+- [ ] XXXyyy ^media @2026-04-17

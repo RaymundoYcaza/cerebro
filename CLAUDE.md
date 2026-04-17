@@ -6,9 +6,9 @@ Second Brain personal de Raymundo, construido sobre Obsidian + qmd + opencode.
 El vault sigue el sistema **Ideaverse** (Maps of Content + átomos de conocimiento).
 
 - **Vault**: `vault/raymundo_ideaverse/` — 2062+ documentos markdown
-- **Búsqueda semántica**: MCP `cerebro` (qmd) — 3908 embeddings, SQLite en `~/.cache/qmd/portable.sqlite`
+- **Búsqueda semántica**: MCP `qmd` — 3908 embeddings, SQLite en `~/.cache/qmd/portable.sqlite`
 - **Auto-reindexado**: systemd user timer `qmd-embed` — cada 30 minutos
-- **Ruta base**: `/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/`
+- **Ruta base**: `/mnt/c/cerebro/`
 - **Usuario**: jabes | HOME: `/home/jabes`
 
 ---
@@ -66,18 +66,25 @@ type: atom | moc | daily | effort | inbox
 
 ### qmd (motor de búsqueda semántica)
 
-```bash
-# Buscar en el vault
-/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd.sh search "query"
+**Skill disponible**: `/qmd` — Usar como primera opción para cualquier búsqueda en el vault.
 
-# Reindexar manualmente
-/mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/qmd.sh embed
+**MCP disponible**: `qmd` — Fallback cuando la skill no esté disponible.
 
-# Config activa
-~/.config/qmd/portable.yml   # colección "cerebro"
-~/.cache/qmd/portable.sqlite  # índice real (28.3 MB)
-~/.cache/qmd/index.sqlite     # symlink → portable.sqlite (workaround bug qmd)
-```
+**Uso prioritario** (en este orden):
+1. **Skill `/qmd`** — Ejecutar con argumentos de consulta: `/qmd search "keywords"` o `/qmd query "pregunta natural"`
+2. **MCP `qmd`** — Usar herramientas `mcp__qmd__query`, `mcp__qmd__search`, `mcp__qmd__get`
+3. **CLI directo** (último recurso):
+   ```bash
+   /mnt/c/cerebro/qmd.sh search "query"
+   /mnt/c/cerebro/qmd.sh query "pregunta en lenguaje natural"
+   /mnt/c/cerebro/qmd.sh embed  # Reindexar manualmente
+   ```
+
+**Config activa**:
+- `~/.config/qmd/portable.yml` — colección "cerebro"
+- `~/.cache/qmd/portable.sqlite` — índice real
+- `~/.cache/qmd/index.sqlite` — symlink → portable.sqlite (workaround bug qmd)
+- `~/.config/claude-code/config.json` — MCP server registrado
 
 **Bug conocido**: qmd en modo MCP ignora `--index <nombre>` y siempre abre `index.sqlite`.
 **Fix activo**: symlink `index.sqlite → portable.sqlite`. El wrapper `qmd/bin/qmd-mcp` regenera el symlink si fue destruido.
@@ -94,15 +101,15 @@ bash scripts/restore-setup.sh     # restaurar todo el setup tras formateo
 
 ```bash
 git clone git@github.com:RaymundoYcaza/cerebro.git \
-  /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro
-bash /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/scripts/restore-setup.sh
+  /mnt/c/cerebro
+bash /mnt/c/cerebro/scripts/restore-setup.sh
 ```
 
 ---
 
 ## Reglas para el Agente
 
-1. **Siempre buscá en el MCP cerebro** antes de responder sobre cualquier tema que pueda estar en el vault. No asumas — buscá primero con 2-3 queries distintas.
+1. **Siempre usá la skill `/qmd` primero** (o MCP `qmd` como fallback) antes de responder sobre cualquier tema que pueda estar en el vault. No asumas — buscá primero con 2-3 queries distintas. El comando `/qmd` es la forma más rápida y prioritaria de consultar el conocimiento del vault.
 2. **Citá las notas fuente** cuando uses contenido del vault — título y path relativo.
 3. **No editás el vault sin confirmación explícita** — podés proponer cambios, nunca aplicarlos automáticamente.
 4. **El Inbox (`+/`) es zona de caos** — no es representativo del conocimiento consolidado. Priorizá `Atlas/Dots/` y `Atlas/Maps/` para respuestas de calidad.
@@ -113,6 +120,7 @@ bash /mnt/disc-a00/Z01-DEVOPS/workspaces/personal/cerebro/scripts/restore-setup.
 
 ## Pendientes del Proyecto
 
+- [x] **MCP qmd configurado** — Skill `/qmd` disponible para búsquedas semánticas
 - [ ] Skills / modos de operación para el agente cerebro (RECALL, RESEARCH, ATOMIZE, DAILY)
 - [ ] Vault Manager — procesa `+/` automáticamente (frontmatter, clasificación, MOC links)
 - [ ] Segunda colección qmd para session transcripts
