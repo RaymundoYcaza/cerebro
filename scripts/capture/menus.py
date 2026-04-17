@@ -118,7 +118,20 @@ def ask_date(prompt_text: str, default: str = "", field_name: str = "fecha") -> 
 def pager(content: str, header: str | None = None) -> None:
     if gum_available():
         body = content if not header else f"{header}\n\n{content}"
-        _gum("pager", input_text=body)
+        tty = _tty()
+        try:
+            subprocess.run(
+                ["gum", "pager"],
+                input=body.encode(),
+                stdout=tty or sys.stdout,
+                stderr=tty or sys.stderr,
+                text=False,
+            )
+        except (OSError, KeyboardInterrupt):
+            return
+        finally:
+            if tty:
+                tty.close()
         return
 
     if header:
