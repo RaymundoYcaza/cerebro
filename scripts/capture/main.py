@@ -1,88 +1,32 @@
-import subprocess
 import sys
-import shutil
 from manual_prompt import ask, ask_profile_data
 from engine import save_note
 from profiles import SUPPORTED_PROFILES, EXIT_OPTIONS
 from daily import run_daily_capture
+from efforts.menu import run_efforts_menu
+from menus import choose_one
 
 DIARY_OPTION = "diario"
 
 
-def _tty():
-    try:
-        return open("/dev/tty", "r+b", buffering=0)
-    except OSError:
-        return None
-
-
-def _gum(*args: str, input_text: str | None = None) -> tuple[int, str]:
-    tty = _tty()
-    try:
-        result = subprocess.run(
-            ["gum", *args],
-            input=input_text.encode() if input_text is not None else None,
-            stdin=None if input_text is not None else (tty or sys.stdin),
-            stdout=subprocess.PIPE,
-            stderr=tty or sys.stderr,
-            text=False,
-        )
-        stdout = result.stdout.decode("utf-8", errors="replace").strip()
-        return result.returncode, stdout
-    except (OSError, KeyboardInterrupt):
-        return 130, ""
-    finally:
-        if tty:
-            tty.close()
-
-
-def gum_available() -> bool:
-    return shutil.which("gum") is not None
-
-
-def choose_profile() -> str:
-    options = [DIARY_OPTION] + SUPPORTED_PROFILES + ["salir"]
-
-    if gum_available():
-        code, choice = _gum("choose", "--header", "Selecciona el tipo de nota", *options)
-        if code in (1, 130) or choice == "salir":
-            raise SystemExit(0)
-        if choice in options:
-            return choice
-        raise SystemExit(0)
-
-    print("Perfiles disponibles:")
-    for i, p in enumerate(options[:-1], start=1):
-        marker = " (por defecto)" if p == DIARY_OPTION else ""
-        print(f"{i}. {p}{marker}")
-    print(f"{len(options)}. salir")
-
-    raw = input("Elige perfil [1]: ").strip().lower()
-    if raw == "":
-        return DIARY_OPTION
-    if raw.isdigit():
-        idx = int(raw) - 1
-        if 0 <= idx < len(options) - 1:
-            return options[idx]
-        if idx == len(options) - 1:
-            raise SystemExit(0)
-    if raw in options:
-        return raw
-    if raw in EXIT_OPTIONS:
-        raise SystemExit(0)
-    raise ValueError("Perfil no válido")
+def choose_note_profile() -> str:
+    choice = choose_one(
+        "Selecciona el tipo de nota",
+        [DIARY_OPTION] + SUPPORTED_PROFILES + ["volver"],
+        DIARY_OPTION,
+    )
+    if not choice or choice == "volver" or choice in EXIT_OPTIONS:
+        return ""
+    return choice
 
 
 def choose_assistant() -> str:
-    options = ["manual", "openai", "salir"]
-
-    if gum_available():
-        code, choice = _gum("choose", "--header", "Selecciona modo de captura", *options)
-        if code in (1, 130) or choice == "salir":
-            raise SystemExit(0)
-        if choice in ("manual", "openai"):
-            return choice
-
+    options = ["manual", "openai", "volver"]
+    choice = choose_one("Selecciona modo de captura", options, "manual")
+    if not choice or choice == "volver":
+        return ""
+    if choice in ("manual", "openai"):
+        return choice
     mode = ask("Modo de captura (manual/openai/salir)", "manual").lower()
     if mode in EXIT_OPTIONS:
         raise SystemExit(0)
@@ -92,17 +36,23 @@ def choose_assistant() -> str:
 
 
 def ask_continue() -> bool:
-    if gum_available():
-        code, choice = _gum("choose", "--header", "¿Qué deseas hacer ahora?",
-                            "nueva nota", "salir")
-        return code == 0 and choice == "nueva nota"
+    choice = choose_one(
+        "¿Qué deseas hacer ahora?",
+        ["Capturar otra nota", "Volver al menú principal", "Salir"],
+        "Volver al menú principal",
+    )
+    if choice == "Capturar otra nota":
+        return True
+    if choice == "Salir":
+        print("Salida sin cambios adicionales.")
+        raise SystemExit(0)
+    return False
 
-    raw = ask("¿Crear otra nota? (s/n)", "s").lower()
-    return raw in ("s", "si", "sí", "y", "yes")
 
-
-def run_once():
-    profile = choose_profile()
+def run_note_capture():
+    profile = choose_note_profile()
+    if not profile:
+        return
 
     if profile == DIARY_OPTION:
         run_daily_capture()
@@ -115,6 +65,8 @@ def run_once():
         return
 
     assistant = choose_assistant()
+    if not assistant:
+        return
 
     if assistant == "openai":
         from ai_prompt import openai_capture_stub
@@ -129,33 +81,22 @@ def run_once():
 def main():
     try:
         while True:
-            # Menú Inicial (Captura o Revisión)
-            options = ["nueva captura", "revisión de tareas (efforts)", "salir"]
-            choice = "nueva captura"
-            
-            if gum_available():
-                code, choice = _gum("choose", "--header", "CEREBRO - Gestión de Conocimiento", *options)
-                if code in (1, 130) or choice == "salir":
-                    print("Salida.")
-                    sys.exit(0)
-            else:
-                print("\n--- CEREBRO ---")
-                for i, opt in enumerate(options):
-                    print(f"{i+1}. {opt}")
-                raw = input("Selecciona acción [1]: ").strip()
-                if raw == "2": choice = "revisión de tareas (efforts)"
-                elif raw == "3": sys.exit(0)
-                elif raw == "": choice = "nueva captura"
+            choice = choose_one(
+                "CEREBRO - Gestión de Conocimiento",
+                ["Capturar nota", "Efforts", "Salir"],
+                "Capturar nota",
+            )
+            if not choice or choice == "Salir":
+                print("Salida.")
+                sys.exit(0)
 
-            if choice == "revisión de tareas (efforts)":
-                from review import run_review
-                run_review()
+            if choice == "Efforts":
+                run_efforts_menu()
                 continue
 
-            run_once()
+            run_note_capture()
             if not ask_continue():
-                print("Salida sin cambios adicionales.")
-                sys.exit(0)
+                continue
 
     except SystemExit as e:
         if e.code == 0:
@@ -172,4 +113,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
