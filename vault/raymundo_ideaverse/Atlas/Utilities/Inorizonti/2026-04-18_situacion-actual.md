@@ -1,0 +1,6 @@
+## Nuestra situación actual como empresa
+
+Solo operamos dos personas, los fundadores del proyecto. Fundamos la empresa en 2020. Operamos desde 2021. Tenemos muy pocos clientes. No tenemos más de 5 ventas al año y buscar proyección de marca, tocar puertas, obtener clientes salir de deudas, obtener un sueldo para cada uno, determinar con precisión nuestros gastos y obtener ingreso recurrente para cubrirlos, mantener un flujo de caja disciplinado, mantener bajo control las obligaciones fiscales para evitar incumplimientos, bloqueos y multas, ordenar la contabilidad, construir un cerebro digital que nos permita aprender de nuestros clientes, de nuestros errores y de toda experiencia y experimento, es parte importante de mi estrategia. Además, estoy pensando en usar los blogs (plyson.com y bisstox.com) para proyectar las marcas y obtener visibilidad, alcance, construir confianza y conseguir clientes.
+
+Hemos tenido varios clientes, pero tres organizaciones han sido recurrente, aunque no podemos decir que sea muy profunda la transformación lograda.
+Diagnosticamos sin un proceso claro o predefinido, construimos, probamos y entregamos vía despliegue (bisstox) o entrega de enlace para descarga de videos (plyson), no se tiene definido un orden procedimental, por eso recién se está construyendo en el repositorio
