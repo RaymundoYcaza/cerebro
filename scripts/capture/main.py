@@ -1,7 +1,8 @@
 import sys
 from manual_prompt import ask, ask_profile_data
+from config import load_config
 from engine import save_note
-from profiles import SUPPORTED_PROFILES, EXIT_OPTIONS
+from profiles import SUPPORTED_PROFILES, EXIT_OPTIONS, get_profile_config
 from daily import run_daily_capture
 from efforts.menu import run_efforts_menu
 from menus import choose_one
@@ -20,18 +21,35 @@ def choose_note_profile() -> str:
     return choice
 
 
-def choose_assistant() -> str:
-    options = ["manual", "openai", "volver"]
-    choice = choose_one("Selecciona modo de captura", options, "manual")
+def choose_assistant(profile: str) -> str:
+    config = load_config()
+    profile_config = get_profile_config(config, profile)
+    assistant_modes = profile_config.get(
+        "assistant_modes",
+        config.get("defaults", {}).get("default_assistant", "manual"),
+    )
+
+    if isinstance(assistant_modes, str):
+        assistant_modes = [assistant_modes]
+
+    assistant_modes = [mode for mode in assistant_modes if mode in ("manual", "openai")]
+    if not assistant_modes:
+        assistant_modes = ["manual"]
+
+    if len(assistant_modes) == 1:
+        return assistant_modes[0]
+
+    options = assistant_modes + ["volver"]
+    choice = choose_one("Selecciona modo de captura", options, assistant_modes[0])
     if not choice or choice == "volver":
         return ""
-    if choice in ("manual", "openai"):
+    if choice in assistant_modes:
         return choice
-    mode = ask("Modo de captura (manual/openai/salir)", "manual").lower()
+    mode = ask(f"Modo de captura ({'/'.join(assistant_modes)}/salir)", assistant_modes[0]).lower()
     if mode in EXIT_OPTIONS:
         raise SystemExit(0)
-    if mode not in ("manual", "openai"):
-        mode = "manual"
+    if mode not in assistant_modes:
+        mode = assistant_modes[0]
     return mode
 
 
@@ -64,7 +82,7 @@ def run_note_capture():
         print(f"\n✅ Nota guardada en: {path}")
         return
 
-    assistant = choose_assistant()
+    assistant = choose_assistant(profile)
     if not assistant:
         return
 

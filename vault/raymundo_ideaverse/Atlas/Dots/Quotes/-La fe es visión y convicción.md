@@ -11,4 +11,4 @@ tags:
  
 
 
-La fe es visión y convicción pues la fe la certeza de lo que se espera y la convicción de lo que no se ve. [[Fuente I Hebreos 11 1]]
+La fe es visión y convicción pues la fe la certeza de lo que se espera y la convicción de lo que no se ve. [[Extracto I Hebreos 11 1]]

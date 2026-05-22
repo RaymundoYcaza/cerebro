@@ -36,7 +36,7 @@ Primero debes definir la estructura de tu tabla. Comencemos por los títulos de 
 
 [![[crear-tablas-en-excel-0000151.png "Crear tablas en Excel "]]](http://raymundoycaza.com/wp-content/uploads/crear-tablas-en-excel-0000151.png)
 
-#### \_#02_Ingresa los datos.
+#### 02_Ingresa los datos.
 
 Como segundo paso, puedes ingresar los datos correspondientes a cada columna. No es necesario que los ingreses para poder crear tu tabla, pero el ejemplo quedará más claro si lo hago en orden.
 

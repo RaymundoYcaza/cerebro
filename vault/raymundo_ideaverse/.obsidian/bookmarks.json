@@ -6,40 +6,91 @@
       "path": "Atlas/Shares/Videos/Obsidian Bookmarks (video).md"
     },
     {
-      "type": "search",
-      "ctime": 1772213431982,
-      "query": "block:(/^- !/ \"blog\")",
-      "title": "Buscar intenciones de acción"
+      "type": "group",
+      "ctime": 1777217246447,
+      "items": [
+        {
+          "type": "search",
+          "ctime": 1777217217335,
+          "query": "path:Atlas/Utilities/Cheatsheets montar disco",
+          "title": "Cheatsheets"
+        }
+      ],
+      "title": "Cheatsheets"
     },
     {
-      "type": "search",
-      "ctime": 1772214217434,
-      "query": "block:(/^- @/ \"raraoliman\")",
-      "title": "Buscar intenciones de publicación"
+      "type": "group",
+      "ctime": 1777217266295,
+      "items": [
+        {
+          "type": "search",
+          "ctime": 1772213431982,
+          "query": "block:(/^- !/ \"blog\")",
+          "title": "Buscar intenciones de acción"
+        },
+        {
+          "type": "search",
+          "ctime": 1772214217434,
+          "query": "block:(/^- @/ \"raraoliman\")",
+          "title": "Buscar intenciones de publicación"
+        },
+        {
+          "type": "search",
+          "ctime": 1772214278830,
+          "query": "block:(/^- ~/ \"raraoliman\")",
+          "title": "Buscar notas marcadores"
+        },
+        {
+          "type": "search",
+          "ctime": 1772214357718,
+          "query": "block:(/^- \\$/ \"raraoliman\")",
+          "title": "Buscar intenciones de inversión"
+        },
+        {
+          "type": "search",
+          "ctime": 1772214391288,
+          "query": "block:(/^- & / \"raraoliman\")",
+          "title": "Buscar notas de captura"
+        },
+        {
+          "type": "search",
+          "ctime": 1772214429794,
+          "query": "block:(/^- % / \"raraoliman\")",
+          "title": "Buscar notas pensamiento"
+        }
+      ],
+      "title": "Buscar lineas de intencion blog"
     },
     {
-      "type": "search",
-      "ctime": 1772214278830,
-      "query": "block:(/^- ~/ \"raraoliman\")",
-      "title": "Buscar notas marcadores"
-    },
-    {
-      "type": "search",
-      "ctime": 1772214357718,
-      "query": "block:(/^- \\$/ \"raraoliman\")",
-      "title": "Buscar intenciones de inversión"
-    },
-    {
-      "type": "search",
-      "ctime": 1772214391288,
-      "query": "block:(/^- & / \"raraoliman\")",
-      "title": "Buscar notas de captura"
-    },
-    {
-      "type": "search",
-      "ctime": 1772214429794,
-      "query": "block:(/^- % / \"raraoliman\")",
-      "title": "Buscar notas pensamiento"
+      "type": "group",
+      "ctime": 1777246437346,
+      "items": [
+        {
+          "type": "search",
+          "ctime": 1777246567444,
+          "query": "block:(/^- \\?/ #y/todos) ",
+          "title": "ALL: Pregunta"
+        },
+        {
+          "type": "search",
+          "ctime": 1777246508799,
+          "query": "block:(/^- !/ #y/todos) ",
+          "title": "ALL: Acción"
+        },
+        {
+          "type": "search",
+          "ctime": 1777246698902,
+          "query": "block:(/^- @/ #y/todos) ",
+          "title": "ALL: Divulgar"
+        },
+        {
+          "type": "search",
+          "ctime": 1777246949174,
+          "query": "block:(/^- \\?/ #y/espiritualidad) ",
+          "title": "ESPIRITUALIDAD: Preguntas"
+        }
+      ],
+      "title": "Buscar lineas de intencion gestion"
     }
   ]
 }

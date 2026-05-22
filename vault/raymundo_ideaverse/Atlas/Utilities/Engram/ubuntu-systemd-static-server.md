@@ -4,6 +4,8 @@ domain: devops
 status: refined
 topic_key: ubuntu-systemd-static-server
 updated: 2026-04-03
+up:
+  - "[[_engram.base]]"
 ---
 
 ## What: (Qué se hizo)

@@ -113,4 +113,12 @@ def ask_profile_data(profile: str) -> dict:
             "notes": notes,
         }
 
+    if profile == "idea_post_ry":
+        titulo = ask("Título de la idea")
+        return {
+            "created": created,
+            "titulo": titulo,
+            "title": titulo or "Idea post RY",
+        }
+
     raise ValueError(f"Perfil no soportado: {profile}")

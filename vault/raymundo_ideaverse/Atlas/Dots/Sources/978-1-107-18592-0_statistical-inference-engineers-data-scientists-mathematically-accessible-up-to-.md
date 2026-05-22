@@ -5,13 +5,15 @@ rating:
 isbn: 978-1-107-18592-0
 title: "Statistical Inference for Engineers and Data Scientists"
 subtitle: "A Mathematically Accessible and Up-to-Date Introduction to the Tools Needed to Address Modern Inference Problems in Engineering and Data Science, Ideal for Graduate Students Taking Courses on Statistical Inference and Detection and Estimation, and an Invaluable Reference for Researchers and Professionals."
-authors: - Pierre Moulin
+authors: 
+- Pierre Moulin
 - Venugopal V. Veeravalli
 publisher: "University Printing House, Cambridge CB2 8BS, United Kingdom"
 published_date: "2019"
 language: "English"
 pages: "Approximately 400-500 (estimated based on content)"
-categories: - Engineering
+categories: 
+- Engineering
 subcategory: "Statistics"
 tags: [source/book]
 source: pdf

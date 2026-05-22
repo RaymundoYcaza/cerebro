@@ -1,7 +1,6 @@
 ---
 news-date: "[[2026-03-07]]"
 news-origin:
-  - "#z/Internacional"
 news-category:
   - "[[Noticias/Economía]]"
 news-subcategory:

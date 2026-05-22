@@ -4,6 +4,8 @@ domain: typescript
 status: refined
 topic_key: ionic-typescript-build-verification
 updated: 2026-04-03
+up:
+  - "[[_engram.base]]"
 ---
 
 ## What: (Qué se hizo)

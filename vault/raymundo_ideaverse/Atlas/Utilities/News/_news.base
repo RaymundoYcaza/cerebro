@@ -1,0 +1,30 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.folder == "Atlas/Utilities/News"
+        - file.name != "_news.base"
+    order:
+      - file.name
+      - news-category
+      - news-subcategory
+      - news-origin
+      - news-date
+      - news-year
+      - news-month
+      - news-week
+      - news-day
+      - news-quarter
+    columnSize:
+      file.name: 148
+      note.news-category: 147
+      note.news-subcategory: 233
+      note.news-origin: 192
+      note.news-date: 123
+      note.news-year: 115
+      note.news-month: 119
+      note.news-week: 117
+      note.news-day: 104
+      note.news-quarter: 133
+    rowHeight: medium

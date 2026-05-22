@@ -1,0 +1,4 @@
+pyyaml
+rapidfuzz
+python-slugify
+rich

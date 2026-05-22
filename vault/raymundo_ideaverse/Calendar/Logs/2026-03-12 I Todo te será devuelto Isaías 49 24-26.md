@@ -11,4 +11,4 @@ Anoche dejé una palabra: Que el Rey ya dió una orden *todo te será devuelto*.
 - % Esta idea se viene repitiendo últimamente lo de *tus enemigos*, aunque yo no tengo enemigos presentes en mi mente, pero mi situación a veces sí pareciera el deseo de un enemigo.
 
 
-![[Fuente I Isaías 49 24-26]]
+![[Extracto I Isaías 49 24-26]]

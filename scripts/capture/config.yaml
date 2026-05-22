@@ -35,6 +35,12 @@ profiles:
     filename_strategy: "timestamp-title"
     assistant_modes: ["manual", "openai"]
 
+  idea_post_ry:
+    output_dir: "+"
+    template_path: "x/Templates/idea-post-ry.md"
+    filename_strategy: "timestamp-title"
+    assistant_modes: ["manual"]
+
   effort:
     output_dir: "Efforts"
     template_path: "x/Templates/Template, Properties, Effort (Kit).md"

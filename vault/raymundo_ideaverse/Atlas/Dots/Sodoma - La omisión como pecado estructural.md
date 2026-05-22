@@ -34,7 +34,7 @@ Lo sé porque he visto mi propia cara oculta: no en lo que hice, sino en lo que 
 - [[Cómo estoy manejando mis relaciones cercanas]]: Dios da especial importancia a las relaciones o conexiones que nos permite tener y nos pide cuenta por ellas.
 - [[La hospitalidad como responsabilidad]]: Los extranjeros y los que no tienen dónde reposar su cabeza, son parte de esas conexiones que Dios envía hacia nosotros.
 - [[El uso invertido del poder]]: Lo que Dios nos da, debe ser usado para bendecir a los demás y no para humillarlos o herirlos; esto aplica para ese poder que tenemos sobre los demás en cuanto a autoridad, dependencias afectivas, conocimiento, etc.
-- [[Fuente I Ezequiel 16 49]] tener los recursos para ayudar al afligido y no hacerlo, es maldad delante del Señor.
+- [[Extracto I Ezequiel 16 49]] tener los recursos para ayudar al afligido y no hacerlo, es maldad delante del Señor.
 - [[El costo de lo que no se hace]]
 
 #### Pregunta generativa

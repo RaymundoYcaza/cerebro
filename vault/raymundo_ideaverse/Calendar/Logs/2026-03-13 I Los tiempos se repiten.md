@@ -9,5 +9,5 @@ tags:
 ---
 
 
-Están conectándose varios puntos que me hacen pensar que *los tiempos se repiten* y la base bíblica es:  [[Fuente I Eclesiastés 3 15]]
+Están conectándose varios puntos que me hacen pensar que *los tiempos se repiten* y la base bíblica es:  [[Extracto I Eclesiastés 3 15]]
 

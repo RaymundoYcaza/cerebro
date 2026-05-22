@@ -1,3 +1,4 @@
+
 # Arquitectura de Sistemas Fotovoltaicos de Transición: Del Prototipo de Baja Potencia a la Autonomía Residencial en el Litoral Ecuatoriano
 
 La implementación de sistemas de energía solar en entornos residenciales ha evolucionado de ser una solución de nicho para zonas rurales a una estrategia crítica de resiliencia energética en centros urbanos como Guayaquil. Este fenómeno se sustenta en la combinación de una radiación solar privilegiada y la necesidad de mitigar la inestabilidad de la red eléctrica convencional. El proceso de transición hacia la independencia energética no debe ser visto como una compra única de equipo, sino como una progresión técnica que comienza con soluciones caseras de bajo costo y escala hacia sistemas complejos capaces de gestionar cargas inductivas pesadas, como aires acondicionados, y la demanda total de una vivienda moderna.

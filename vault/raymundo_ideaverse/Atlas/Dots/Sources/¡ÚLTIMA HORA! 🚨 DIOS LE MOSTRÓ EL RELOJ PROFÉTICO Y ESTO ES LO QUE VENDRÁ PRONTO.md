@@ -6,8 +6,10 @@ created: 2025-05-28
 URL: https://www.youtube.com/watch?v=_F3SWiEP7Ao&t=5s&pp=ygUfwqHDmkxUSU1BIEhPUkEhIERpb3MgbGUgbW9zdHLDsw%3D%3D
 tags:
   - source/youtube
+cover: "[[Pasted image 20260508112825.png]]"
 ---
- 
+
+![[Pasted image 20260508112825.png]]
 ## Extractos
 
 - & El Reloj Profético se Ha Activado: La oradora experimentó la realidad de que el reloj del último tiempo se activó.

@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.tags.contains("source/youtube")
+    order:
+      - file.name
+      - cover
+  - type: cards
+    name: View
+    filters:
+      and:
+        - file.tags.contains("source/youtube")
+    order:
+      - file.name
+    image: note.cover
+    imageAspectRatio: 0.55
+    cardSize: 330

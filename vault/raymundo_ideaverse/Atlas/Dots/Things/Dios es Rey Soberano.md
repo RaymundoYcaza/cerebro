@@ -13,8 +13,8 @@ tags:
 - Lo cierto es que todos hemos sido, somos y seguiremos siendo *malos* si no estamos en *Cristo*; aún así, **Dios ha sido bueno con nosotros**. 
 - Si Dios ha decidido bendecir al pueblo judío, está en su derecho y soberanía.
 - Nosotros no debemos cuestionar al rey; no tenemos ese derecho.
-- Dios dijo *tendré misericordia, del que tendré misericordia* [[Fuente I Éxodo 33 18-19]] y si Dios ha decidido tener misericordia de alguien, ¿quiénes somos nosotros para decirle a Dios que no lo haga?
-- Dios dijo: *bástate mi gracia* [[Fuente I 2 Corintios 12 9]], entonces, nos gozaremos en la gracias de Dios y le pediremos conforme a su voluntad y por su gracia recibiremos lo que hemos pedido.
+- Dios dijo *tendré misericordia, del que tendré misericordia* [[Extracto I Éxodo 33 18-19]] y si Dios ha decidido tener misericordia de alguien, ¿quiénes somos nosotros para decirle a Dios que no lo haga?
+- Dios dijo: *bástate mi gracia* [[Extracto I 2 Corintios 12 9]], entonces, nos gozaremos en la gracias de Dios y le pediremos conforme a su voluntad y por su gracia recibiremos lo que hemos pedido.
 - Por definición, desear que otro no reciba por gracia, es *envidia*.
 
 #### Notas relacionadas

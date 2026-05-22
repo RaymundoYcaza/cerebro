@@ -41,8 +41,290 @@
               "icon": "lucide-file",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "78393b962a9cc1f1",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "2024-05-25_Todos tenemos un propósito religioso",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/2024-05-25 - Todos tenemos un propósito religioso.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"2024-05-25_Todos tenemos un propósito religioso\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
+                }
+              ]
+            },
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Limpieza.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Limpieza"
+            }
+          },
+          {
+            "id": "42e7f8d034dcee1d",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "Error 'Permission Denied' al inicializar repositorio Git",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Cheatsheets/Error 'Permission Denied' al inicializar repositorio Git.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Error 'Permission Denied' al inicializar repositorio Git\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":8,\"ch\":0},\"to\":{\"line\":8,\"ch\":0}}}"
+                },
+                {
+                  "title": "Sistema solar básico progresivo",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Clips/Sistema solar básico progresivo.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Sistema solar básico progresivo\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "Modelos Qwen3.5 (0.8B, 2B, 4B, 9B)",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Clips/Modelos Qwen3.5 (0.8B, 2B, 4B, 9B).md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Modelos Qwen3.5 (0.8B, 2B, 4B, 9B)\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}},\"scroll\":0}"
+                },
+                {
+                  "title": "Template, Thing Note (Conceptual)",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/Template, Thing Note (Conceptual).md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Template, Thing Note (Conceptual)\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "Template, Single Source",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/Template, Single Source.md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Template, Single Source\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":9,\"ch\":0}}}"
+                },
+                {
+                  "title": "Template, Evergreen Note",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/Template, Evergreen Note.md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Template, Evergreen Note\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "Template, Properties, Source (Kit)",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/Template, Properties, Source (Kit).md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Template, Properties, Source (Kit)\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":8,\"ch\":0}}}"
+                },
+                {
+                  "title": "source",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/source.md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"source\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "spark",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/spark.md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"spark\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "Template, Single Source",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"x/Templates/Template, Single Source.md\",\"mode\":\"source\",\"source\":true,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Template, Single Source\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":9,\"ch\":0}}}"
+                },
+                {
+                  "title": "Como llamar a ollama",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Atlas/Utilities/Ideas/Como llamar a ollama.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Como llamar a ollama\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":4,\"ch\":0},\"to\":{\"line\":4,\"ch\":0}}}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/Dots/Published/Blog/automatizacion-con-excel/2012-12-17-crear-tablas-en-excel-paso-a-paso.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2012-12-17-crear-tablas-en-excel-paso-a-paso"
+            }
+          },
+          {
+            "id": "a04a54d0d193a9f3",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "Reflexion = Las cosas pueden cambiar de un momento a otro",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Reflexion = Las cosas pueden cambiar de un momento a otro.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Reflexion = Las cosas pueden cambiar de un momento a otro\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "Planificar es plasmar la visión del trabajo hecho y el camino recorrido hasta su consecución",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Planificar es plasmar la visión del trabajo hecho y el camino recorrido hasta su consecución.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Planificar es plasmar la visión del trabajo hecho y el camino recorrido hasta su consecución\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
+                },
+                {
+                  "title": "Mission Creep",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Mission Creep.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Mission Creep\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "Metodología (definición)",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Metodología (definición).md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Metodología (definición)\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}}}"
+                },
+                {
+                  "title": "Los pactos con Dios deben cumplirse nos guste o no",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Los pactos con Dios deben cumplirse nos guste o no.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Los pactos con Dios deben cumplirse nos guste o no\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":8,\"ch\":0},\"to\":{\"line\":8,\"ch\":0}}}"
+                },
+                {
+                  "title": "La Adoración es como la lluvia que cae sobre la tierra y la reblandece",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/La Adoración es como la lluvia que cae sobre la tierra y la reblandece.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"La Adoración es como la lluvia que cae sobre la tierra y la reblandece\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
+                },
+                {
+                  "title": "I don’t know if I still love her. But i love the person i imagined her to be.",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/I don’t know if I still love her. But i love the person i imagined her to be..md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"I don’t know if I still love her. But i love the person i imagined her to be.\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":0,\"ch\":0},\"to\":{\"line\":0,\"ch\":0}}}"
+                },
+                {
+                  "title": "Herramientas de BI",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Herramientas de BI.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Herramientas de BI\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":6,\"ch\":0},\"to\":{\"line\":6,\"ch\":0}}}"
+                },
+                {
+                  "title": "Hermes fue rebautizado como Mercurio por los romanos",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Hermes fue rebautizado como Mercurio por los romanos.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Hermes fue rebautizado como Mercurio por los romanos\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "Hasta dónde estoy dispuesto a llegar",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/Hasta dónde estoy dispuesto a llegar.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Hasta dónde estoy dispuesto a llegar\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "FLEETING - Terminarás construyendo algo que el mundo no podrá ignorar",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/FLEETING - Terminarás construyendo algo que el mundo no podrá ignorar.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"FLEETING - Terminarás construyendo algo que el mundo no podrá ignorar\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "FLEETING - Que es la economia",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/FLEETING - Que es la economia.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"FLEETING - Que es la economia\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "FLEETING - Cómo crear un prompt reglas generales",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/FLEETING - Cómo crear un prompt reglas generales.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"FLEETING - Cómo crear un prompt reglas generales\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":4,\"ch\":0},\"to\":{\"line\":4,\"ch\":0}}}"
+                },
+                {
+                  "title": "FLEETING - El triángulo de las bases de datos se asemeja al triangulo de restricciones que vimos en gestión de proyectos",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/FLEETING - El triángulo de las bases de datos se asemeja al triangulo de restricciones que vimos en gestión de proyectos.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"FLEETING - El triángulo de las bases de datos se asemeja al triangulo de restricciones que vimos en gestión de proyectos\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
+                },
+                {
+                  "title": "FLEETING - Chart Patterns",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/FLEETING - Chart Patterns.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"FLEETING - Chart Patterns\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "El elemento crucial de todo cambio es la cultura",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/El elemento crucial de todo cambio es la cultura.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"El elemento crucial de todo cambio es la cultura\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":5,\"ch\":0},\"to\":{\"line\":5,\"ch\":0}}}"
+                },
+                {
+                  "title": "El costo de llegar tarde",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"+/sparks/El costo de llegar tarde.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"El costo de llegar tarde\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":7,\"ch\":0},\"to\":{\"line\":7,\"ch\":0}}}"
+                },
+                {
+                  "title": "Untitled 2",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"markdown\",\"state\":{\"file\":\"Untitled 2.md\",\"mode\":\"source\",\"source\":false,\"backlinks\":true,\"backlinkOpts\":{\"collapseAll\":false,\"extraContext\":false,\"sortOrder\":\"alphabetical\",\"showSearch\":false,\"searchQuery\":\"\",\"backlinkCollapsed\":false,\"unlinkedCollapsed\":true}},\"icon\":\"lucide-file\",\"title\":\"Untitled 2\"}",
+                  "eState": "{\"cursor\":{\"from\":{\"line\":26,\"ch\":0},\"to\":{\"line\":26,\"ch\":0}},\"scroll\":0}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "+/sparks/Usar Dataclass para estructuras limpias y eficientes.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Usar Dataclass para estructuras limpias y eficientes"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -92,11 +374,11 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Automatización",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "byCreatedTime"
               },
               "icon": "lucide-search",
@@ -173,8 +455,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "calendar"
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           },
           {
@@ -216,13 +498,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "+/Pablo Muñoz Izurrieta.md",
+                "file": "Atlas/Dots/Sources/Álgebra y Trigonometría con Geometría Analítica.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Pablo Muñoz Izurrieta"
+              "title": "Outline of Álgebra y Trigonometría con Geometría Analítica"
             }
           },
           {
@@ -249,7 +531,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       },
       {
         "id": "8e15cd93a6a4be64",
@@ -271,7 +553,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/Maps/Calendar.md",
+                "file": "+/sparks/Usar Dataclass para estructuras limpias y eficientes.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -281,7 +563,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Calendar"
+              "title": "Backlinks for Usar Dataclass para estructuras limpias y eficientes"
             }
           },
           {
@@ -334,54 +616,54 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ed620ff772ae2275",
+  "active": "a04a54d0d193a9f3",
   "lastOpenFiles": [
-    "Atlas/Utilities/Engram/ionic-typescript-build-verification.md",
-    "x/Templates/aurora.md",
-    "Sources/atajos-principales-para-plegado-folds.md",
-    "Sources",
-    "Contacts/raymundo-ycaza-morales.md",
-    "Contacts",
-    "Atlas/Dots/X/20260406-122015-hay-patrones-que-se-repiten.md",
-    "Atlas/Dots/X/20260406-121753-abogado-colombiano-trabajando-en-usa-se-repite-un-patrón.md",
-    "Atlas/Dots/X/20260406-121117-el-número-1-frente-a-mi-y-me-reflejo-en-él.md",
-    "+/sparks/20260406-114840-prueba-3.md",
-    "+/sparks/20260406-114559-esta-es-una-prueba.md",
-    "+/sparks/20260406-111452-prueba-2.md",
-    "+/sparks",
-    "+/20260406-162405-monto-máximo-de-retiro-en-cajeros-de-banco-guayaquil.md",
-    "+/20260406-110820-las-runas-son-una-forma-de-comunicación.md",
-    "Atlas/Utilities/Engram/ubuntu-systemd-static-server.md",
-    "Atlas/Maps/Calendar.md",
+    "+/sparks/Reflexion = Las cosas pueden cambiar de un momento a otro.md",
+    "+/sparks/Planificar es plasmar la visión del trabajo hecho y el camino recorrido hasta su consecución.md",
+    "+/sparks/Mission Creep.md",
+    "+/sparks/Metodología (definición).md",
+    "+/sparks/Los pactos con Dios deben cumplirse nos guste o no.md",
+    "+/sparks/La Adoración es como la lluvia que cae sobre la tierra y la reblandece.md",
+    "+/sparks/I don’t know if I still love her. But i love the person i imagined her to be..md",
+    "+/sparks/Herramientas de BI.md",
+    "+/sparks/Hermes fue rebautizado como Mercurio por los romanos.md",
+    "+/sparks/Hasta dónde estoy dispuesto a llegar.md",
+    "+/sparks/FLEETING - Terminarás construyendo algo que el mundo no podrá ignorar.md",
+    "+/sparks/FLEETING - Que es la economia.md",
+    "+/sparks/FLEETING - Cómo crear un prompt reglas generales.md",
+    "+/sparks/FLEETING - El triángulo de las bases de datos se asemeja al triangulo de restricciones que vimos en gestión de proyectos.md",
+    "+/sparks/FLEETING - Chart Patterns.md",
+    "+/sparks/El elemento crucial de todo cambio es la cultura.md",
+    "+/sparks/El costo de llegar tarde.md",
+    "Untitled 2.md",
+    "Atlas/Dots/Published/Blog/automatizacion-con-excel/2012-12-17-crear-tablas-en-excel-paso-a-paso.md",
+    "Atlas/Utilities/Cheatsheets/Error 'Permission Denied' al inicializar repositorio Git.md",
     "Atlas/Utilities/Clips/Sistema solar básico progresivo.md",
-    "Home.md",
-    "x/Templates/Template, Aurora Log.md",
-    "Atlas/Dots/People/Angelink Keshia Vargas.md",
-    "x/Templates/spark.md",
-    "x/Templates/source.md",
-    "x/Templates/contact.md",
-    "+/Cafe Hopping Log.md",
-    "+/¡Linux desde CERO Mi guía personal para NOVATOS! - YouTube.md",
-    "+/Adoración.md",
-    "Atlas/Dots/X/2025-05-13 Protocolo del León.md",
-    "+/Asumo el precio, pago las consecuencias y vivo con coherencia.md",
-    "Atlas/Utilities/Reflexiones",
-    "Atlas/Utilities/Botiquin",
-    "Atlas/Utilities/Engram",
-    "Atlas/Utilities/Ideas",
-    "Atlas/Utilities/Images/Pasted image 20260329005803.png",
-    "Efforts/Rules",
-    "Atlas/Dots/Published/Blog",
-    "Atlas/Dots/Published",
-    "Atlas/Utilities/Images/Pasted image 20260327004328.png",
-    "Atlas/Utilities/Images/Pasted image 20260320161604.png",
-    "Atlas/Utilities/Images/Pasted image 20260320161556.png",
-    "Atlas/Utilities/Images/Pasted image 20260319013217.png",
-    "Atlas/Utilities/Images/Pasted image 20260317110339.png",
-    "Atlas/Utilities/Images/msedge_Jv6h8MuCVz.png",
-    "Atlas/Utilities/Images/msedge_Q6Bp4gbbJ9.png",
-    "Atlas/Utilities/Images/f6G0aq5Y8C.png",
-    "Atlas/Utilities/Images/msedge_BmRlSD5asl.jpg",
+    "Atlas/Utilities/Clips/Modelos Qwen3.5 (0.8B, 2B, 4B, 9B).md",
+    "Atlas/Utilities/Clips/prueba.md",
+    "x/Templates/Template, Thing Note (Conceptual).md",
+    "x/Templates/Template, Single Source.md",
+    "x/Templates/Template, Evergreen Note.md",
+    "Atlas/Utilities/News/_news.base",
+    "Atlas/Utilities/Engram/_engram.base",
+    "Pasted image 20260518131540.png",
+    "Atlas/Utilities/Ideas/Lecciones Aprendidas Inorizonti",
+    "zResources/Multimedia.base",
+    "x/Images/Covers/videos/el-misterioso-patriarca-isaac-maestro-ramon-cabral-y-pastor-alexis-janvier-ccd-cover.jpg",
+    "x/Images/Covers/videos/el-misterioso-patriarca-abrahan-maestro-ramon-cabral-y-pastor-alexis-janvier-ccd-cover.jpg",
+    "x/Images/Covers/videos/el-misterioso-sonador-jose-1parte-maestro-ramon-cabral-y-pastor-alexis-janvier-ccd-cover.jpg",
+    "x/Images/Covers/audio/a-horse-with-no-name-america-cover-by-the-hscc-cover.jpg",
+    "x/Images/Covers/cursos/aprende-a-tocar-horse-with-no-name-cover.jpg",
+    "x/Images/Covers/cursos",
+    "x/Images/Covers/videos/angeles-de-agua-y-fuego-cover.jpg",
+    "x/Images/Covers/videos/gigantes-de-la-industria-cover.jpg",
+    "x/Images/Covers/_generic/ebook-cover_generic.png",
+    "x/Images/Covers/videos/el-diabolico-mensaje-oculto-de-kevin-spacey-cover.jpeg",
+    "graphify-out/cache/semantic",
+    "graphify-out/cache",
+    "graphify-out",
+    "zResources/_logs/ultimo-movimiento.json",
+    "zResources/_logs/movimientos-para.csv",
     "Atlas/Utilities/Canvases/2023-03-20 - Review, Brain Dump, Imagine, Prioritize.canvas",
     "Atlas/Utilities/Canvases/LYT W10 Calendar Canvas.canvas",
     "Atlas/Utilities/Canvases/LYT Ship Dashboard.canvas",

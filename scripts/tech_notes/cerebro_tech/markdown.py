@@ -1,0 +1,170 @@
+\
+from __future__ import annotations
+
+import re
+from datetime import date
+from typing import Any
+
+import yaml
+
+from pathlib import Path
+
+
+def source_to_wikilink(source_path: str | None) -> str | None:
+    if not source_path:
+        return None
+
+    path = Path(source_path)
+
+    # nombre sin extensión
+    stem = path.stem
+
+    # opcional: incluir carpeta relativa
+    parent = path.parent.name
+
+    return f"[[{parent}/{stem}]]"
+
+
+def _yaml_block(data: dict[str, Any]) -> str:
+    return "---\n" + yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        sort_keys=False,
+        default_flow_style=False,
+    ).strip() + "\n---\n"
+
+
+def _list_lines(items: list[str], empty: str = "_No detectado._") -> str:
+    if not items:
+        return empty
+    return "\n".join(f"- {x}" for x in items if str(x).strip())
+
+
+def _numbered(items: list[str], empty: str = "_No detectado._") -> str:
+    if not items:
+        return empty
+    return "\n".join(f"{i}. {x}" for i, x in enumerate(items, 1) if str(x).strip())
+
+
+def _commands(commands: list[str]) -> str:
+    if not commands:
+        return "_No detectado._"
+    blocks = []
+    for cmd in commands:
+        cmd = str(cmd).strip()
+        if not cmd:
+            continue
+        blocks.append(f"```bash\n{cmd}\n```")
+    return "\n\n".join(blocks) if blocks else "_No detectado._"
+
+
+def _errors(errors: list[dict[str, str]]) -> str:
+    if not errors:
+        return "_No detectado._"
+    out = []
+    for item in errors:
+        error = item.get("error", "").strip()
+        cause = item.get("cause", "").strip()
+        fix = item.get("fix", "").strip()
+        out.append(f"- **Error:** {error or 'No especificado'}\n  - **Causa:** {cause or 'No especificada'}\n  - **Corrección:** {fix or 'No especificada'}")
+    return "\n".join(out)
+
+
+def wikilink_title(title: str) -> str:
+    title = re.sub(r"[\[\]]", "", title).strip()
+    return f"[[{title}]]" if title else ""
+
+
+def render_note(
+    extracted: dict[str, Any],
+    tags: list[str],
+    source_hash: str,
+    model_used: str,
+    source_type: str,
+    review_status: str,
+    original_content: str,
+    source_path: str | None = None,
+    include_original_excerpt: bool = True,
+    max_original_excerpt_chars: int = 3500,
+    vector_indexed: bool = False,
+    vector_collection: str | None = None,
+) -> str:
+    title = extracted.get("title") or "Nota técnica sin título"
+    today = date.today().isoformat()
+
+    frontmatter = {
+        "up": [],
+        "related": [wikilink_title(x) for x in extracted.get("suggested_links", []) if str(x).strip()],
+        "created": today,
+        "sourceType": source_type,
+        "source": source_to_wikilink(source_path),
+        "source_hash": source_hash,
+        "tags": tags,
+        "ai_generated": True,
+        "ai_model": model_used,
+        "ai_reviewed": False,
+        "ai_review_status": review_status,
+        "ai_confidence": extracted.get("confidence", "medium"),
+        "vector_indexed": bool(vector_indexed),
+        "vector_collection": vector_collection if vector_indexed else None,
+    }
+
+    parts = [
+        _yaml_block(frontmatter),
+        f"# {title}",
+        "",
+        "## Resumen",
+        "",
+        extracted.get("summary") or "_Sin resumen._",
+        "",
+        "## Problema",
+        "",
+        extracted.get("problem") or "_No detectado._",
+        "",
+        "## Contexto",
+        "",
+        extracted.get("context") or "_No detectado._",
+        "",
+        "## Solución",
+        "",
+        extracted.get("solution") or "_No detectado._",
+        "",
+        "## Paso a paso",
+        "",
+        _numbered(extracted.get("steps", [])),
+        "",
+        "## Comandos",
+        "",
+        _commands(extracted.get("commands", [])),
+        "",
+        "## Errores comunes / síntomas",
+        "",
+        _errors(extracted.get("errors", [])),
+        "",
+        "## Términos relacionados",
+        "",
+        _list_lines(extracted.get("related_terms", [])),
+        "",
+        "## Enlaces sugeridos",
+        "",
+        _list_lines([wikilink_title(x) for x in extracted.get("suggested_links", []) if str(x).strip()]),
+        "",
+        "## Vacíos detectados",
+        "",
+        "\n".join(f"- [ ] {x}" for x in extracted.get("gaps", []) if str(x).strip()) or "_Sin vacíos detectados._",
+    ]
+
+    if include_original_excerpt:
+        excerpt = original_content.strip()
+        if len(excerpt) > max_original_excerpt_chars:
+            excerpt = excerpt[:max_original_excerpt_chars].rstrip() + "\n\n[... extracto truncado ...]"
+        parts += [
+            "",
+            "## Extracto original",
+            "",
+            "```text",
+            excerpt,
+            "```",
+        ]
+
+    return "\n".join(parts).rstrip() + "\n"

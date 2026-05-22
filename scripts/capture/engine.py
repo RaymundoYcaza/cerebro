@@ -37,6 +37,9 @@ def build_note(profile: str, profile_data: dict) -> tuple[Path, str]:
     elif profile == "contact":
         title = data.get("name") or "Contacto"
         data["title"] = title
+    elif profile == "idea_post_ry":
+        title = data.get("titulo") or "Idea post RY"
+        data["title"] = title
     elif profile == "effort":
         title = data.get("title") or "Effort"
     else:

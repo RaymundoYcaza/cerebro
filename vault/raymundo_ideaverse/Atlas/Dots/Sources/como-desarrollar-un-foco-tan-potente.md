@@ -4,18 +4,24 @@ type: youtube
 related: []
 rating:
 title: Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas
-author: [[Adriá Solá Pastor]]
+author:
+  - - Adriá Solá Pastor
 language: español
 duration: 18:27
 category: productividad
 subcategory: enfoque
 year: 2026
 encountered: https://www.youtube.com/watch?v=QpjRcIyxuuk
-tags: [source/youtube, z/productividad, z/enfoque, z/concentracion]
+tags:
+  - source/youtube
+  - z/productividad
+  - z/enfoque
+  - z/concentracion
 in:
+cover: "[[Pasted image 20260508112721.png]]"
 ---
 
-
+![[Pasted image 20260508112721.png]]
 
 # Cómo Desarrollar Un Foco Tan Potente Que Logras En Horas Lo Que Otros En Semanas
 

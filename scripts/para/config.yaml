@@ -1,0 +1,21 @@
+vault_path: "C:/cerebro/vault/raymundo_ideaverse"
+
+default_para_root: "P:/PARA"
+default_inbox_path: "P:/PARA/00-INBOX"
+
+obsidian_resources_path: "zResources"
+obsidian_templates_path: "x/Templates/PARA"
+obsidian_covers_path: "x/Images/Covers"
+
+logs_path: "zResources/_logs"
+movement_csv: "movimientos-para.csv"
+movement_md: "movimientos-para.md"
+last_movement_json: "ultimo-movimiento.json"
+
+use_slug_names: true
+create_note_for_archived: true
+generic_cover_fallback: true
+confirm_before_move: true
+process_first_level_only: true
+
+tags_root: "z"

@@ -1,0 +1,9 @@
+views:
+  - type: cards
+    name: Table
+    filters:
+      and:
+        - file.folder == "zResources/Multimedia"
+    image: note.cover
+    imageAspectRatio: 0.55
+    cardSize: 270

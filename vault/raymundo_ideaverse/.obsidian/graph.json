@@ -1,7 +1,7 @@
 {
   "collapse-filter": false,
-  "search": "-path:x/Templates  -path:Calendar  -path:+  ",
-  "showTags": true,
+  "search": "path:Atlas/Dots/Published",
+  "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": true,
@@ -39,6 +39,6 @@
   "repelStrength": 15.3578030102984,
   "linkStrength": 0.67318017780125,
   "linkDistance": 203,
-  "scale": 0.11411238698410897,
+  "scale": 0.8665409386605812,
   "close": false
 }

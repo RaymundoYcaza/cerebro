@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.folder == "Atlas/Utilities/Engram"
+        - file.name != "_engram.base"
+    order:
+      - file.name
+      - title
+      - domain
+      - status
+      - topic_key
+      - project
+      - scope
+      - tags
+    columnSize:
+      file.name: 206
+    rowHeight: medium
