@@ -22,3 +22,16 @@ protected_paths:
 editable_paths:
   - "scripts/cerebro_notes"
   - "scripts/harness"
+
+
+git_tools:
+  max_slug_chars: 48
+  max_branch_chars: 90
+
+
+ollama:
+  base_url: "http://localhost:11434"
+  commit_model: "qwen3.5:4b"
+  fallback_model: "qwen3.5:cloud"
+  temperature: 0.2
+  timeout_seconds: 180

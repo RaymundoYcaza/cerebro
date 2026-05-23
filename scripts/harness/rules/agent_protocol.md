@@ -13,3 +13,13 @@ Todo agente debe seguir este protocolo:
 9. Documentar funcionalidades nuevas.
 
 El agente puede modificar archivos directamente solo si el usuario lo solicita o lo confirma.
+
+## Documentación obligatoria para nueva funcionalidad
+
+Toda nueva funcionalidad debe actualizar:
+
+- documentación humana correspondiente en `scripts/harness/docs/`, `scripts/cerebro_notes/*/README.md` o `specs/README.md`;
+- `scripts/harness/CHANGELOG.md` mediante `harness.py log-change`;
+- memoria SQLite mediante `harness.py log-change`;
+- `scripts/harness/context/repo_map.md` mediante `harness.py scan-repo`.
+

@@ -53,3 +53,15 @@
 - Fase 3D: smoke tests implementados
 - Detalle: Se agregaron smoke tests mínimos para frontmatter, obsidian, search y reflective dry-run.
 - Archivos: scripts/cerebro_notes/tests/smoke scripts/harness/harness.py
+
+## Cambio
+
+- Fase 4A: Git Safety Tools
+- Detalle: Se agregaron comandos seguros de Git para status, validacion de ramas, creacion de ramas, resumen de diff y commit asistido con fallback.
+- Archivos: scripts/harness/git_tools.py scripts/harness/config.yaml scripts/harness/rules/git_rules.md scripts/harness/harness.py
+
+## Cambio
+
+- Fase 4B: Specs Workflow y documentación humana
+- Detalle: Se agregaron estructura de specs, comandos specs/new-spec/docs/check-docs y documentación humana obligatoria del harness y git_tools.
+- Archivos: specs scripts/harness/docs scripts/harness/harness.py scripts/harness/README.md scripts/harness/rules/agent_protocol.md

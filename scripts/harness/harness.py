@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import re
 import subprocess
+from datetime import date
 from pathlib import Path
 
 from tools.repo_scan import write_repo_map
@@ -213,6 +215,127 @@ def cmd_sessions(args: argparse.Namespace) -> None:
             print(f"  Summary: {row['summary']}")
 
 
+
+def slugify(value: str, max_len: int = 72) -> str:
+    value = value.lower()
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    value = re.sub(r"-{2,}", "-", value).strip("-")
+    return (value or "spec")[:max_len].strip("-") or "spec"
+
+
+def specs_root() -> Path:
+    return REPO_ROOT / "specs"
+
+
+def list_markdown_files(path: Path) -> list[Path]:
+    if not path.exists():
+        return []
+    return sorted(p for p in path.glob("*.md") if p.is_file())
+
+
+def cmd_specs(args: argparse.Namespace) -> None:
+    root = specs_root()
+    print("Specs")
+    print("=====")
+    for status in ["active", "backlog", "done"]:
+        folder = root / status
+        print()
+        print(f"{status}:")
+        files = list_markdown_files(folder)
+        if not files:
+            print("- Ninguna")
+            continue
+        for path in files:
+            print(f"- {path.relative_to(REPO_ROOT)}")
+
+
+def unique_spec_path(path: Path) -> Path:
+    if not path.exists():
+        return path
+    i = 2
+    while True:
+        candidate = path.with_name(f"{path.stem}-{i}{path.suffix}")
+        if not candidate.exists():
+            return candidate
+        i += 1
+
+
+def cmd_new_spec(args: argparse.Namespace) -> None:
+    root = specs_root()
+    target_dir = root / args.status
+    template = root / "templates" / "spec.template.md"
+
+    if args.status not in {"active", "backlog"}:
+        raise SystemExit("status debe ser active o backlog")
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    created = date.today().isoformat()
+    slug = slugify(args.title)
+    filename = f"{created}-{slug}.md"
+    out = unique_spec_path(target_dir / filename)
+
+    if template.exists():
+        text = template.read_text(encoding="utf-8")
+    else:
+        text = "# {{title}}\n\nstatus: {{status}}\narea: {{area}}\ncreated: {{created}}\n"
+
+    text = (
+        text.replace("{{title}}", args.title.strip())
+        .replace("{{area}}", args.area.strip())
+        .replace("{{status}}", args.status)
+        .replace("{{created}}", created)
+    )
+    out.write_text(text, encoding="utf-8")
+
+    print(f"OK: spec creada: {out.relative_to(REPO_ROOT)}")
+
+
+DOCS = [
+    ("harness", "scripts/harness/README.md", "visión general del harness"),
+    ("harness_usage", "scripts/harness/docs/harness_usage.md", "uso diario del harness"),
+    ("git_tools", "scripts/harness/docs/git_tools.md", "herramientas Git seguras"),
+    ("git_rules", "scripts/harness/rules/git_rules.md", "reglas Git para agentes"),
+    ("specs", "specs/README.md", "flujo de specs"),
+    ("reflective", "scripts/cerebro_notes/reflective/README.md", "flujo reflexivo"),
+    ("technical", "scripts/cerebro_notes/technical/README.md", "flujo técnico"),
+]
+
+
+def cmd_docs(args: argparse.Namespace) -> None:
+    print("Documentación humana")
+    print("====================")
+    for name, rel_path, description in DOCS:
+        path = REPO_ROOT / rel_path
+        status = "OK" if path.exists() else "MISSING"
+        print(f"- {name}: {rel_path} [{status}] - {description}")
+
+
+def cmd_check_docs(args: argparse.Namespace) -> None:
+    required = {
+        "harness": ["scripts/harness/README.md", "scripts/harness/docs/harness_usage.md"],
+        "git_tools": ["scripts/harness/docs/git_tools.md", "scripts/harness/rules/git_rules.md"],
+        "cerebro_notes reflective": ["scripts/cerebro_notes/reflective/README.md"],
+        "cerebro_notes technical": ["scripts/cerebro_notes/technical/README.md"],
+        "specs": ["specs/README.md", "specs/templates/spec.template.md", "specs/templates/task.template.md"],
+    }
+
+    missing: list[str] = []
+    for feature, paths in required.items():
+        for rel_path in paths:
+            path = REPO_ROOT / rel_path
+            if not path.exists() or not path.read_text(encoding="utf-8").strip():
+                missing.append(f"{feature}: {rel_path}")
+
+    if missing:
+        print("FAIL: documentación requerida faltante")
+        for item in missing:
+            print(f"- {item}")
+        raise SystemExit(1)
+
+    print("OK: documentación mínima presente")
+
+
+
 def cmd_context(args: argparse.Namespace) -> None:
     ctx = recent_context(DB_PATH)
 
@@ -302,6 +425,32 @@ def cmd_check(args: argparse.Namespace) -> None:
 
     if py_files:
         checks.append(("py_compile", ["python3", "-m", "py_compile", *py_files], REPO_ROOT))
+
+    check_docs = REPO_ROOT / "scripts" / "harness" / "harness.py"
+    checks.append(("harness check-docs", ["python3", str(check_docs), "check-docs"], REPO_ROOT))
+
+    git_tools = REPO_ROOT / "scripts" / "harness" / "git_tools.py"
+    if git_tools.exists():
+        checks.append(
+            (
+                "git_tools validate-branch smoke",
+                [
+                    "python3",
+                    str(git_tools),
+                    "validate-branch",
+                    "--branch",
+                    "feat/20260523214730.123_core-obsidian-utils",
+                ],
+                REPO_ROOT,
+            )
+        )
+        checks.append(
+            (
+                "git_tools diff-summary smoke",
+                ["python3", str(git_tools), "diff-summary", "--no-ollama"],
+                REPO_ROOT,
+            )
+        )
 
     notes_root = REPO_ROOT / "scripts" / "cerebro_notes"
 
@@ -443,6 +592,21 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("sessions")
     p.add_argument("--limit", type=int, default=10)
     p.set_defaults(func=cmd_sessions)
+
+    p = sub.add_parser("specs")
+    p.set_defaults(func=cmd_specs)
+
+    p = sub.add_parser("new-spec")
+    p.add_argument("--title", required=True)
+    p.add_argument("--area", required=True)
+    p.add_argument("--status", required=True, choices=["active", "backlog"])
+    p.set_defaults(func=cmd_new_spec)
+
+    p = sub.add_parser("docs")
+    p.set_defaults(func=cmd_docs)
+
+    p = sub.add_parser("check-docs")
+    p.set_defaults(func=cmd_check_docs)
 
     p = sub.add_parser("context")
     p.set_defaults(func=cmd_context)

@@ -1,6 +1,6 @@
 # Repo Map — Cerebro
 
-Generated: 2026-05-23T11:11:34
+Generated: 2026-05-23T11:50:03
 
 ## cerebro_notes
 
@@ -119,11 +119,16 @@ Generated: 2026-05-23T11:11:34
     - glossary.md
     - project_brief.md
     - repo_map.md
+  - docs/
+    - git_tools.md
+    - harness_usage.md
+    - index.md
   - prompts/
   - rules/
     - agent_protocol.md
     - cerebro_notes_rules.md
     - file_modification_rules.md
+    - git_rules.md
     - obsidian_rules.md
   - tasks/
     - active_task.md
@@ -135,12 +140,14 @@ Generated: 2026-05-23T11:11:34
     - repo_scan.py
   - CHANGELOG.md
   - config.yaml
+  - git_tools.py
   - harness.py
   - README.md
 ```
 
 ### Python files
 
+- `scripts/harness/git_tools.py`
 - `scripts/harness/harness.py`
 - `scripts/harness/tools/__init__.py`
 - `scripts/harness/tools/memory.py`
