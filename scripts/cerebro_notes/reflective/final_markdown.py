@@ -4,8 +4,7 @@ from datetime import date
 from typing import Any
 
 from core.frontmatter import build_frontmatter, normalize_wikilinks
-
-from reflective.markdown import wikilink_title, quote_wikilink, _as_list
+from core.obsidian import build_wikilink
 
 
 def _yaml_block(data: dict[str, Any]) -> str:
@@ -27,11 +26,11 @@ def render_thing_note(
 
     possible_links = normalize_wikilinks(extracted.get("possible_links", []))
 
-    related = [quote_wikilink(x) for x in possible_links]
+    related = [build_wikilink(x) for x in possible_links]
     if source_link:
-        related.append(quote_wikilink(source_link))
+        related.append(build_wikilink(source_link))
     if session_link:
-        related.append(quote_wikilink(session_link))
+        related.append(build_wikilink(session_link))
 
     frontmatter = {
         "up": [],
@@ -39,7 +38,7 @@ def render_thing_note(
         "related": related,
         "created": today,
         "sourceType": "thing-note",
-        "source": quote_wikilink(source_link),
+        "source": build_wikilink(source_link) if source_link else None,
         "source_hash": source_hash,
         "tags": tags,
         "ai_assisted": True,

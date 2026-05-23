@@ -4,7 +4,8 @@ import argparse
 from pathlib import Path
 
 from technical.config import load_config
-from core.text_utils import normalize_newlines, sha256_short, slugify, unique_path
+from core.text_utils import normalize_newlines, sha256_short
+from core.obsidian import safe_note_filename, unique_note_path, wikilink_from_path
 from reflective.llm import chat_reflective_json
 from reflective.markdown import render_reflective_session
 from reflective.final_markdown import render_thing_note
@@ -87,15 +88,6 @@ def build_interactive_session_markdown(
 
     return text
 
-
-def source_to_wikilink(path: Path, vault_root: Path | None = None) -> str:
-    """
-    Usa wikilink corto por nombre de archivo.
-
-    Obsidian resuelve mejor [[archivo]] cuando la nota está dentro de la bóveda,
-    aunque no esté en Atlas. Además evita rutas largas innecesarias.
-    """
-    return f"[[{path.stem}]]"
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -210,7 +202,6 @@ def main() -> None:
     )
 
     title = extracted.get("thing_note_candidate") or "nota-reflexiva"
-    slug = slugify(title)
 
     session_path = None
     thing_path = None
@@ -221,9 +212,10 @@ def main() -> None:
             session_dir = cfg.paths.output_dir / "reflective-session"
             session_dir.mkdir(parents=True, exist_ok=True)
 
-            session_path = unique_path(session_dir / f"{slug}--{source_hash[:6]}--session.md")
+            session_filename = safe_note_filename(f"{title}--{source_hash[:6]}--session")
+            session_path = unique_note_path(session_dir / session_filename)
             session_path.write_text(session_markdown, encoding="utf-8")
-            session_link = source_to_wikilink(session_path, cfg.paths.vault_root)
+            session_link = wikilink_from_path(session_path)
 
         thing_markdown = render_thing_note(
             extracted=extracted,
@@ -239,7 +231,8 @@ def main() -> None:
             thing_dir = cfg.paths.output_dir / "thing-note"
             thing_dir.mkdir(parents=True, exist_ok=True)
 
-            thing_path = unique_path(thing_dir / f"{slug}--{source_hash[:6]}.md")
+            thing_filename = safe_note_filename(f"{title}--{source_hash[:6]}")
+            thing_path = unique_note_path(thing_dir / thing_filename)
             thing_path.write_text(thing_markdown, encoding="utf-8")
 
     else:

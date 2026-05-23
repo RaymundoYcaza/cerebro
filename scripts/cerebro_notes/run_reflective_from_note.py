@@ -4,14 +4,15 @@ import argparse
 import re
 import shutil
 from datetime import date
-from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
 import yaml
 
 from technical.config import load_config
-from core.text_utils import normalize_newlines, sha256_short, slugify, unique_path
+from core.text_utils import normalize_newlines, sha256_short
+from core.obsidian import safe_note_filename, unique_note_path, wikilink_from_path
+from core.search import choose_note_interactive
 from core.tags import normalize_tags
 from reflective.llm import chat_reflective_json
 from reflective.markdown import render_reflective_session
@@ -25,10 +26,6 @@ from run_reflective_interactive import (
 
 
 REFLECTIVE_SOURCE_TAGS = ["note/extract"]
-
-
-def wikilink_short(path: Path) -> str:
-    return f"[[{path.stem}]]"
 
 
 def split_frontmatter(content: str) -> tuple[dict[str, Any], str]:
@@ -91,7 +88,7 @@ def move_source_to_sources(source_path: Path, sources_dir: Path) -> Path:
 
     ensure_reflective_source_frontmatter(source_path)
 
-    dst = unique_path(sources_dir / source_path.name)
+    dst = unique_note_path(sources_dir / source_path.name)
     shutil.move(str(source_path), str(dst))
 
     return dst
@@ -107,70 +104,6 @@ def get_sources_dir(cfg) -> Path:
     if hasattr(cfg.paths, "sources_dir"):
         return cfg.paths.sources_dir
     return cfg.paths.vault_root / "Atlas" / "Dots" / "Sources"
-
-
-def score_file(query: str, path: Path) -> float:
-    q = query.lower().strip()
-    name = path.stem.lower()
-    full = str(path).lower()
-
-    if not q:
-        return 0.0
-
-    direct = 1.0 if q in name else 0.0
-    partial = 0.7 if q in full else 0.0
-    ratio = SequenceMatcher(None, q, name).ratio()
-
-    return max(direct, partial, ratio)
-
-
-def find_notes(base_dir: Path, query: str, limit: int = 12) -> list[Path]:
-    candidates = [p for p in base_dir.rglob("*.md") if p.is_file()]
-
-    scored = [
-        (score_file(query, p), p)
-        for p in candidates
-    ]
-
-    scored.sort(key=lambda x: x[0], reverse=True)
-
-    return [p for score, p in scored[:limit] if score > 0.15]
-
-
-def choose_note(base_dir: Path, query: str | None) -> Path:
-    while True:
-        if not query:
-            query = input("Buscar nota en '+': ").strip()
-
-        results = find_notes(base_dir, query)
-
-        if not results:
-            print("No encontré resultados. Prueba otra búsqueda.")
-            query = None
-            continue
-
-        print("\nResultados:")
-        for i, path in enumerate(results, 1):
-            print(f"{i}. {path.name}")
-            print(f"   {path}")
-
-        choice = input("\nSelecciona número, 'r' para refinar, o Enter para 1: ").strip()
-
-        if not choice:
-            return results[0]
-
-        if choice.lower() == "r":
-            query = None
-            continue
-
-        try:
-            idx = int(choice)
-            if 1 <= idx <= len(results):
-                return results[idx - 1]
-        except ValueError:
-            pass
-
-        print("Selección inválida.")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -212,7 +145,7 @@ def main() -> None:
     if not input_dir.exists():
         raise SystemExit(f"No existe la carpeta de entrada: {input_dir}")
 
-    source_path = choose_note(input_dir, args.query)
+    source_path = choose_note_interactive(input_dir, args.query)
 
     raw_content = source_path.read_text(encoding="utf-8")
     content = normalize_newlines(raw_content)
@@ -281,14 +214,13 @@ def main() -> None:
     )
 
     title = extracted.get("thing_note_candidate") or "nota-reflexiva"
-    slug = slugify(title)
 
     moved_source_path = None
-    source_link = wikilink_short(source_path)
+    source_link = wikilink_from_path(source_path)
 
     if args.write and not args.dry_run and not args.no_move_source:
         moved_source_path = move_source_to_sources(source_path, sources_dir)
-        source_link = wikilink_short(moved_source_path)
+        source_link = wikilink_from_path(moved_source_path)
 
     base_session_markdown = render_reflective_session(
         extracted=extracted,
@@ -322,9 +254,10 @@ def main() -> None:
             session_dir = cfg.paths.output_dir / "reflective-session"
             session_dir.mkdir(parents=True, exist_ok=True)
 
-            session_path = unique_path(session_dir / f"{slug}--{source_hash[:6]}--session.md")
+            session_filename = safe_note_filename(f"{title}--{source_hash[:6]}--session")
+            session_path = unique_note_path(session_dir / session_filename)
             session_path.write_text(session_markdown, encoding="utf-8")
-            session_link = wikilink_short(session_path)
+            session_link = wikilink_from_path(session_path)
 
         thing_markdown = render_thing_note(
             extracted=extracted,
@@ -341,7 +274,8 @@ def main() -> None:
             thing_dir = cfg.paths.output_dir / "thing-note"
             thing_dir.mkdir(parents=True, exist_ok=True)
 
-            thing_path = unique_path(thing_dir / f"{slug}--{source_hash[:6]}.md")
+            thing_filename = safe_note_filename(f"{title}--{source_hash[:6]}")
+            thing_path = unique_note_path(thing_dir / thing_filename)
             thing_path.write_text(thing_markdown, encoding="utf-8")
 
     else:

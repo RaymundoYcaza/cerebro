@@ -1,36 +1,12 @@
-\
 from __future__ import annotations
 
-import re
 from datetime import date
+from pathlib import Path
 from typing import Any
 
 from core.frontmatter import build_frontmatter
+from core.obsidian import build_wikilink, wikilink_from_path
 
-from pathlib import Path
-
-
-from pathlib import Path
-
-
-def source_to_wikilink(source_path: str | None, vault_root: str | None = None) -> str | None:
-    if not source_path:
-        return None
-
-    source = Path(source_path)
-
-    try:
-        if vault_root:
-            rel = source.relative_to(Path(vault_root))
-        else:
-            rel = source.name
-
-        rel_no_ext = rel.with_suffix("")
-        rel_str = rel_no_ext.as_posix()
-        return f"[[{rel_str}]]"
-
-    except Exception:
-        return f"[[{source.stem}]]"
 
 def _yaml_block(data: dict[str, Any]) -> str:
     return build_frontmatter(data)
@@ -71,11 +47,6 @@ def _errors(errors: list[dict[str, str]]) -> str:
     return "\n".join(out)
 
 
-def wikilink_title(title: str) -> str:
-    title = re.sub(r"[\[\]]", "", title).strip()
-    return f"[[{title}]]" if title else ""
-
-
 def render_note(
     extracted: dict[str, Any],
     tags: list[str],
@@ -96,10 +67,10 @@ def render_note(
 
     frontmatter = {
         "up": [],
-        "related": [wikilink_title(x) for x in extracted.get("suggested_links", []) if str(x).strip()],
+        "related": [build_wikilink(x) for x in extracted.get("suggested_links", []) if str(x).strip()],
         "created": today,
         "sourceType": source_type,
-        "source": source_to_wikilink(source_path,vault_root),
+        "source": wikilink_from_path(Path(source_path)) if source_path else None,
         "source_hash": source_hash,
         "tags": tags,
         "ai_generated": True,
@@ -149,7 +120,7 @@ def render_note(
         "",
         "## Enlaces sugeridos",
         "",
-        _list_lines([wikilink_title(x) for x in extracted.get("suggested_links", []) if str(x).strip()]),
+        _list_lines([build_wikilink(x) for x in extracted.get("suggested_links", []) if str(x).strip()]),
         "",
         "## Vacíos detectados",
         "",

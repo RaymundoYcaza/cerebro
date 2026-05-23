@@ -35,3 +35,15 @@
 - Documentacion del flujo reflexivo desde nota
 - Detalle: Se documento run_reflective_from_note.py y se ajusto scan-repo para no recorrer directorios ignorados como .venv.
 - Archivos: scripts/cerebro_notes/reflective/README.md scripts/harness/tools/repo_scan.py scripts/harness/tasks/backlog.md
+
+## Cambio
+
+- Fase 3B core obsidian
+- Detalle: Se creo core/obsidian.py y se migraron helpers duplicados de wikilink, nombres seguros y rutas unicas en flujos reflexivos y renderers.
+- Archivos: scripts/cerebro_notes/core/obsidian.py scripts/cerebro_notes/run_reflective_interactive.py scripts/cerebro_notes/run_reflective_from_note.py scripts/cerebro_notes/reflective/markdown.py scripts/cerebro_notes/reflective/final_markdown.py scripts/cerebro_notes/technical/markdown.py
+
+## Cambio
+
+- Fase 3C: core/search.py implementado
+- Detalle: Se extrajo fuzzy search reusable desde run_reflective_from_note.py.
+- Archivos: scripts/cerebro_notes/core/search.py scripts/cerebro_notes/run_reflective_from_note.py

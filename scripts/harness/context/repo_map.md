@@ -1,6 +1,6 @@
 # Repo Map — Cerebro
 
-Generated: 2026-05-23T03:01:53
+Generated: 2026-05-23T03:16:59
 
 ## cerebro_notes
 
@@ -9,6 +9,8 @@ Generated: 2026-05-23T03:01:53
   - core/
     - __init__.py
     - frontmatter.py
+    - obsidian.py
+    - search.py
     - source_note.py
     - tags.py
     - text_utils.py
@@ -46,6 +48,8 @@ Generated: 2026-05-23T03:01:53
 
 - `scripts/cerebro_notes/core/__init__.py`
 - `scripts/cerebro_notes/core/frontmatter.py`
+- `scripts/cerebro_notes/core/obsidian.py`
+- `scripts/cerebro_notes/core/search.py`
 - `scripts/cerebro_notes/core/source_note.py`
 - `scripts/cerebro_notes/core/tags.py`
 - `scripts/cerebro_notes/core/text_utils.py`

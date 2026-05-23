@@ -3,11 +3,8 @@ from __future__ import annotations
 from datetime import date
 from typing import Any
 
-from core.frontmatter import build_frontmatter
-
-from core.frontmatter import as_list as _as_list, build_frontmatter, normalize_wikilink, normalize_wikilinks
-
-
+from core.frontmatter import as_list as _as_list, build_frontmatter
+from core.obsidian import build_wikilink
 
 
 def _yaml_block(data: dict[str, Any]) -> str:
@@ -27,20 +24,6 @@ def _checkbox_lines(items, empty: str = "_Sin pendientes detectados._") -> str:
     return "\n".join(f"- [ ] {x}" for x in cleaned)
 
 
-def wikilink_title(title: str) -> str:
-    title = str(title).replace("[", "").replace("]", "").strip()
-    return f"[[{title}]]" if title else ""
-
-
-def quote_wikilink(value: str | None) -> str | None:
-    """
-    Normaliza wikilinks sin agregar comillas manuales.
-    El YAML dumper decide cómo serializarlos.
-    """
-    if not value:
-        return value
-    return str(value).strip()
-
 
 def render_reflective_session(
     *,
@@ -55,7 +38,7 @@ def render_reflective_session(
     today = date.today().isoformat()
 
     possible_links = [
-        wikilink_title(x)
+        build_wikilink(x)
         for x in _as_list(extracted.get("possible_links", []))
         if str(x).strip()
     ]
