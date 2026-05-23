@@ -1,0 +1,13 @@
+Cómo instalar Docker Compose en Ubuntu 24.04 usando el repositorio oficial de Docker.
+
+Problema:
+docker: unknown command: docker compose
+
+Contexto:
+El usuario estaba usando fish shell y se dañó /etc/apt/sources.list.d/docker.list porque se intentó ejecutar sintaxis de bash que usa $(. /etc/os-release && echo "$VERSION_CODENAME").
+
+Solución:
+En fish conviene separar la obtención de variables o escribir el archivo con valores explícitos.
+
+Verificación:
+docker compose version

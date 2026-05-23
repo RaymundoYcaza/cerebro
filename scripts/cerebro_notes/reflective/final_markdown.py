@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+from datetime import date
+from typing import Any
+
+import yaml
+
+from reflective.markdown import wikilink_title, quote_wikilink, _as_list, ObsidianDumper
+
+
+def _yaml_block(data: dict[str, Any]) -> str:
+    return "---\n" + yaml.dump(
+        data,
+        Dumper=ObsidianDumper,
+        allow_unicode=True,
+        sort_keys=False,
+        default_flow_style=False,
+    ).strip() + "\n---\n"
+
+
+def render_thing_note(
+    *,
+    extracted: dict[str, Any],
+    tags: list[str],
+    source_hash: str,
+    model_used: str,
+    own_voice: str,
+    connections: str,
+    session_link: str | None = None,
+    source_link: str | None = None,
+) -> str:
+    title = extracted.get("thing_note_candidate") or "Nota de conocimiento sin título"
+    today = date.today().isoformat()
+
+    possible_links = [
+        wikilink_title(x)
+        for x in _as_list(extracted.get("possible_links", []))
+        if str(x).strip()
+    ]
+
+    related = [quote_wikilink(x) for x in possible_links]
+    if source_link:
+        related.append(quote_wikilink(source_link))
+    if session_link:
+        related.append(quote_wikilink(session_link))
+
+    frontmatter = {
+        "up": [],
+        "title": title,
+        "related": related,
+        "created": today,
+        "sourceType": "thing-note",
+        "source": quote_wikilink(source_link),
+        "source_hash": source_hash,
+        "tags": tags,
+        "ai_assisted": True,
+        "ai_model": model_used,
+        "ai_reviewed": False,
+        "ai_review_status": "draft",
+    }
+
+    body = own_voice.strip() or extracted.get("signal") or "_Pendiente de redactar con voz propia._"
+
+    parts = [
+        _yaml_block(frontmatter),
+        f"# {title}",
+        "",
+        body,
+    ]
+
+    if connections.strip():
+        parts += [
+            "",
+            "## Conexiones",
+            "",
+            connections.strip(),
+        ]
+
+    if possible_links:
+        parts += [
+            "",
+            "## Enlaces sugeridos",
+            "",
+            "\n".join(f"- {link}" for link in possible_links),
+        ]
+
+    return "\n".join(parts).rstrip() + "\n"

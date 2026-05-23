@@ -1,0 +1,47 @@
+# Configuración base para scripts/cerebro/tech_notes
+# Copia este archivo como config.yaml y ajusta rutas/modelos.
+
+paths:
+  cerebro_root: "/mnt/c/cerebro"
+  vault_root: "/mnt/c/cerebro/vault"
+  output_dir: "/mnt/c/cerebro/vault/00_INBOX_IA/technical"
+  archive_input_dir: "/mnt/c/cerebro/notas/procesadas_ia"
+  log_dir: "/mnt/c/cerebro/scripts/cerebro/tech_notes/logs"
+
+ollama:
+  base_url: "http://localhost:11434"
+  chat_model: "qwen3.5:0.8b"
+  fallback_chat_model: "qwen3.5:2b"
+  embedding_model: "hf.co/Ralriki/multilingual-e5-large-instruct-GGUF:Q4_K_M"
+  temperature: 0
+  think_default: false
+  timeout_seconds: 180
+
+note:
+  default_source_type: "technical-note"
+  default_main_tags:
+    - "note/technical"
+  default_z_tags:
+    - "z/Technical"
+  review_status: "pending"
+  language: "es"
+  include_original_excerpt: true
+  max_original_excerpt_chars: 3500
+
+tag_policy:
+  allowed_roots:
+    - "source"
+    - "output"
+    - "note"
+    - "map"
+    - "cerebro"
+  general_root: "z"
+  max_z_tags: 12
+  max_main_tags: 8
+
+vector:
+  enabled: false
+  qdrant_url: "http://localhost:6333"
+  collection: "cerebro_technical_notes"
+  chunk_chars: 1400
+  chunk_overlap: 180
