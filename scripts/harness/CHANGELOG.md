@@ -47,3 +47,9 @@
 - Fase 3C: core/search.py implementado
 - Detalle: Se extrajo fuzzy search reusable desde run_reflective_from_note.py.
 - Archivos: scripts/cerebro_notes/core/search.py scripts/cerebro_notes/run_reflective_from_note.py
+
+## Cambio
+
+- Fase 3D: smoke tests implementados
+- Detalle: Se agregaron smoke tests mínimos para frontmatter, obsidian, search y reflective dry-run.
+- Archivos: scripts/cerebro_notes/tests/smoke scripts/harness/harness.py

@@ -323,6 +323,23 @@ def cmd_check(args: argparse.Namespace) -> None:
             )
         )
 
+    smoke_root = notes_root / "tests" / "smoke"
+    for smoke_name in [
+        "test_frontmatter.py",
+        "test_obsidian.py",
+        "test_search.py",
+        "test_reflective_dryrun.py",
+    ]:
+        smoke_path = smoke_root / smoke_name
+        if smoke_path.exists():
+            checks.append(
+                (
+                    f"cerebro_notes smoke {smoke_name}",
+                    ["python3", str(smoke_path.relative_to(notes_root))],
+                    notes_root,
+                )
+            )
+
     if (notes_root / "run_reflective_interactive.py").exists():
         checks.append(
             (

@@ -1,6 +1,6 @@
 # Repo Map — Cerebro
 
-Generated: 2026-05-23T03:16:59
+Generated: 2026-05-23T11:11:34
 
 ## cerebro_notes
 
@@ -34,6 +34,12 @@ Generated: 2026-05-23T03:16:59
     - pipeline.py
     - qdrant_store.py
     - README.md
+  - tests/
+    - smoke/
+      - test_frontmatter.py
+      - test_obsidian.py
+      - test_reflective_dryrun.py
+      - test_search.py
   - bash
   - config.example.yaml
   - config.yaml
@@ -71,6 +77,10 @@ Generated: 2026-05-23T03:16:59
 - `scripts/cerebro_notes/technical/markdown.py`
 - `scripts/cerebro_notes/technical/pipeline.py`
 - `scripts/cerebro_notes/technical/qdrant_store.py`
+- `scripts/cerebro_notes/tests/smoke/test_frontmatter.py`
+- `scripts/cerebro_notes/tests/smoke/test_obsidian.py`
+- `scripts/cerebro_notes/tests/smoke/test_reflective_dryrun.py`
+- `scripts/cerebro_notes/tests/smoke/test_search.py`
 
 ### Shell scripts
 
