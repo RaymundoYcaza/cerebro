@@ -141,3 +141,9 @@
 - Commit creado con git_tools
 - Detalle: docs(documentation): update and add agent-specific guides
 - Archivos: AGENTS.md CLAUDE.md CODEX.md GEMINI.md OPENCODE.md scripts/harness/CHANGELOG.md
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: feat(git-tools): update git tools functionality and documentation
+- Archivos: scripts/harness/CHANGELOG.md scripts/harness/docs/git_tools.md scripts/harness/git_tools.py
