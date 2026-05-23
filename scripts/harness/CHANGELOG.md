@@ -2,6 +2,8 @@
 
 ## 2026-05-23
 
+- Added spec_tools CLI for managing spec lifecycle (list, move, progress, complete-task). Updated docs and repo map.
+
 - Se inicializa el harness agnóstico para el repositorio `cerebro`.
 - Se define memoria SQLite local.
 - Se establecen reglas de trabajo con agentes.

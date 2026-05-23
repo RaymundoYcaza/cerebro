@@ -160,6 +160,7 @@ Generated: 2026-05-23T14:15:12
 ### Python files
 
 - `scripts/harness/git_tools.py`
+- `scripts/harness/spec_tools.py`
 - `scripts/harness/harness.py`
 - `scripts/harness/tools/__init__.py`
 - `scripts/harness/tools/memory.py`
