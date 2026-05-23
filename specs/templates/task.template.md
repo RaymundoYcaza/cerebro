@@ -1,19 +1,23 @@
-# {{title}}
+# Task: <nombre>
 
-```yaml
-status: pending
-area: {{area}}
-created: {{created}}
+## Spec relacionada
+
+...
+
+## Objetivo
+
+...
+
+## Archivos esperados
+
+...
+
+## Pasos
+
+- [ ] ...
+
+## Checks
+
+```bash
+python3 scripts/harness/harness.py check
 ```
-
-## Tarea
-
-Describe una unidad pequeña de trabajo.
-
-## Resultado esperado
-
-- Pendiente
-
-## Validación
-
-- Pendiente

@@ -1,34 +1,29 @@
-# {{title}}
+# Spec: <nombre>
 
-```yaml
-status: {{status}}
-area: {{area}}
-created: {{created}}
-```
+## Estado
+
+backlog | active | done
 
 ## Objetivo
 
-Describe el resultado esperado.
+...
+
+## Contexto
+
+...
 
 ## Alcance
 
-- Incluido:
-- Excluido:
+Incluye:
+- ...
 
-## Archivos previstos
+No incluye:
+- ...
 
-- Pendiente
+## Tareas
 
-## Plan por fases
+- [ ] ...
 
-1. Pendiente
+## Criterios de aceptación
 
-## Checks
-
-```bash
-python3 scripts/harness/harness.py check
-```
-
-## Criterio de aceptación
-
-- Pendiente
+- [ ] ...

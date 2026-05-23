@@ -101,3 +101,15 @@
 - Fase 4C: documentación automática implementada
 - Detalle: Se agregaron docs/check-docs, templates y validación automática de documentación.
 - Archivos: scripts/harness/docs scripts/harness/harness.py
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: docs(harness): expandir documentación técnica y flujos de trabajo
+- Archivos: scripts/harness/CHANGELOG.md scripts/harness/config.yaml scripts/harness/context/repo_map.md scripts/harness/docs/git_tools.md scripts/harness/docs/harness_usage.md scripts/harness/docs/index.md scripts/harness/docs/reflective_workflow.md scripts/harness/docs/repo_structure.md scripts/harness/docs/technical_workflow.md scripts/harness/docs/templates/architecture_doc.template.md scripts/harness/docs/templates/tool_doc.template.md scripts/harness/docs/templates/workflow_doc.template.md scripts/harness/harness.py scripts/harness/rules/agent_protocol.md specs/README.md
+
+## Cambio
+
+- Specs futuras creadas
+- Detalle: Se crearon specs para fases 4D, 4E, 4F, 5 y 6, junto con tareas en harness.
+- Archivos: specs/backlog specs/templates specs/README.md
