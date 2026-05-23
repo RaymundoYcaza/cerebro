@@ -81,6 +81,12 @@
 ## Cambio
 
 - Corrige generación de commits con Ollama
+
+## Cambio
+
+- Implementa discard-working-tree en git_tools
+- Detalle: comando que crea backup .patch, muestra advertencia, requiere confirmación exacta y opcionalmente elimina archivos untracked.
+- Archivos: scripts/harness/git_tools.py scripts/harness/docs/git_tools.md scripts/harness/CHANGELOG.md
 - Detalle: git_tools commit ahora acepta texto plano, usa fallback manual y valida Conventional Commits.
 - Archivos: scripts/harness/git_tools.py scripts/harness/docs/git_tools.md
 
@@ -129,3 +135,9 @@
 - Commit creado con git_tools
 - Detalle: feat(cerebro_notes): implement transaction core and reflective note execution
 - Archivos: scripts/cerebro_notes/core/README.md scripts/cerebro_notes/core/transactions.py scripts/cerebro_notes/run_reflective_from_note.py scripts/cerebro_notes/tests/smoke/test_transactions.py scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md specs/README.md specs/backlog/20260523141512_discard-working-tree-git-tools.md
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: docs(documentation): update and add agent-specific guides
+- Archivos: AGENTS.md CLAUDE.md CODEX.md GEMINI.md OPENCODE.md scripts/harness/CHANGELOG.md

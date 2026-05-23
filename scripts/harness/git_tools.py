@@ -64,7 +64,9 @@ class GitToolError(RuntimeError):
     pass
 
 
-def run_command(command: list[str], *, check: bool = True, timeout: int = 180) -> subprocess.CompletedProcess[str]:
+def run_command(
+    command: list[str], *, check: bool = True, timeout: int = 180
+) -> subprocess.CompletedProcess[str]:
     result = subprocess.run(
         command,
         cwd=str(REPO_ROOT),
@@ -74,13 +76,19 @@ def run_command(command: list[str], *, check: bool = True, timeout: int = 180) -
     )
 
     if check and result.returncode != 0:
-        detail = result.stderr.strip() or result.stdout.strip() or f"exit={result.returncode}"
+        detail = (
+            result.stderr.strip()
+            or result.stdout.strip()
+            or f"exit={result.returncode}"
+        )
         raise GitToolError(f"{' '.join(command)}: {detail}")
 
     return result
 
 
-def git(args: list[str], *, check: bool = True, timeout: int = 180) -> subprocess.CompletedProcess[str]:
+def git(
+    args: list[str], *, check: bool = True, timeout: int = 180
+) -> subprocess.CompletedProcess[str]:
     return run_command(["git", *args], check=check, timeout=timeout)
 
 
@@ -226,12 +234,16 @@ def cmd_status(args: argparse.Namespace) -> None:
 
 def branch_pattern() -> re.Pattern[str]:
     prefixes = "|".join(sorted(ALLOWED_BRANCH_PREFIXES))
-    return re.compile(rf"^({prefixes})/(\d{{14}})\.(\d{{3}})_([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$")
+    return re.compile(
+        rf"^({prefixes})/(\d{{14}})\.(\d{{3}})_([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$"
+    )
 
 
 def validate_branch_name(branch: str, config: dict[str, Any]) -> tuple[bool, list[str]]:
     errors: list[str] = []
-    git_cfg = config.get("git_tools", {}) if isinstance(config.get("git_tools"), dict) else {}
+    git_cfg = (
+        config.get("git_tools", {}) if isinstance(config.get("git_tools"), dict) else {}
+    )
     max_branch_chars = int(git_cfg.get("max_branch_chars", 90))
     max_slug_chars = int(git_cfg.get("max_slug_chars", 48))
 
@@ -296,7 +308,9 @@ def slugify_branch_name(value: str, max_chars: int) -> str:
 
 
 def build_branch_name(branch_type: str, name: str, config: dict[str, Any]) -> str:
-    git_cfg = config.get("git_tools", {}) if isinstance(config.get("git_tools"), dict) else {}
+    git_cfg = (
+        config.get("git_tools", {}) if isinstance(config.get("git_tools"), dict) else {}
+    )
     max_slug_chars = int(git_cfg.get("max_slug_chars", 48))
 
     now = datetime.now()
@@ -412,8 +426,12 @@ def build_diff_summary_text() -> str:
 
     lines.append("")
     if all_files:
-        dominant = ", ".join(f"{ext} ({count})" for ext, count in sorted(by_ext.items()))
-        lines.append(f"Resumen técnico: cambios locales en {len(all_files)} archivo(s), principalmente {dominant}.")
+        dominant = ", ".join(
+            f"{ext} ({count})" for ext, count in sorted(by_ext.items())
+        )
+        lines.append(
+            f"Resumen técnico: cambios locales en {len(all_files)} archivo(s), principalmente {dominant}."
+        )
     else:
         lines.append("Resumen técnico: no hay cambios locales para resumir.")
 
@@ -424,8 +442,12 @@ def ollama_config(config: dict[str, Any]) -> dict[str, Any]:
     ollama = config.get("ollama", {}) if isinstance(config.get("ollama"), dict) else {}
     return {
         "base_url": ollama.get("base_url", "http://localhost:11434"),
-        "commit_model": ollama.get("commit_model") or ollama.get("chat_model") or "qwen3.5:4b",
-        "fallback_model": ollama.get("fallback_model") or ollama.get("fallback_chat_model") or "qwen3.5:cloud",
+        "commit_model": ollama.get("commit_model")
+        or ollama.get("chat_model")
+        or "qwen3.5:4b",
+        "fallback_model": ollama.get("fallback_model")
+        or ollama.get("fallback_chat_model")
+        or "qwen3.5:cloud",
         "temperature": float(ollama.get("temperature", 0.2)),
         "timeout_seconds": int(ollama.get("timeout_seconds", 180)),
     }
@@ -507,7 +529,9 @@ def call_ollama_endpoint(
     return extract_ollama_text(raw)
 
 
-def ask_ollama(prompt: str, *, debug: bool = False) -> tuple[str | None, dict[str, Any]]:
+def ask_ollama(
+    prompt: str, *, debug: bool = False
+) -> tuple[str | None, dict[str, Any]]:
     metadata: dict[str, Any] = {
         "base_url": None,
         "model": None,
@@ -556,7 +580,9 @@ def ask_ollama(prompt: str, *, debug: bool = False) -> tuple[str | None, dict[st
                 errors.append(f"{model} {endpoint}: {summarize_error(exc)}")
 
     metadata["duration_seconds"] = round(time.monotonic() - started, 2)
-    metadata["error"] = "; ".join(errors[-4:]) if errors else "Ollama no produjo respuesta"
+    metadata["error"] = (
+        "; ".join(errors[-4:]) if errors else "Ollama no produjo respuesta"
+    )
     return None, metadata
 
 
@@ -616,7 +642,9 @@ def clean_commit_message(raw: str) -> str:
     return "\n".join(lines)
 
 
-def generate_commit_message(summary: str, *, debug: bool = False) -> tuple[str | None, dict[str, Any]]:
+def generate_commit_message(
+    summary: str, *, debug: bool = False
+) -> tuple[str | None, dict[str, Any]]:
     prompt = (
         "Genera SOLO un mensaje Conventional Commit para estos cambios.\n"
         "Tipos permitidos: feat, fix, refactor, docs, test, chore, ci, perf, style, build, revert.\n"
@@ -660,7 +688,9 @@ def manual_commit_message() -> str:
     return f"{subject}\n\n{body}" if body else subject
 
 
-def append_changelog(summary: str, details: str | None = None, files: str | None = None) -> None:
+def append_changelog(
+    summary: str, details: str | None = None, files: str | None = None
+) -> None:
     lines = ["", "## Cambio", "", f"- {summary}"]
     if details:
         lines.append(f"- Detalle: {details}")
@@ -686,11 +716,15 @@ def cmd_commit(args: argparse.Namespace) -> None:
 
     ops = in_progress_operations()
     if ops:
-        raise SystemExit(f"No se puede commitear con operación en curso: {', '.join(ops)}")
+        raise SystemExit(
+            f"No se puede commitear con operación en curso: {', '.join(ops)}"
+        )
 
     staged = staged_files()
     if not staged:
-        raise SystemExit("No hay archivos staged. Stagea cambios explícitamente antes de commitear.")
+        raise SystemExit(
+            "No hay archivos staged. Stagea cambios explícitamente antes de commitear."
+        )
 
     print("Archivos staged:")
     for path in staged:
@@ -741,6 +775,73 @@ def cmd_commit(args: argparse.Namespace) -> None:
     print("OK: commit creado y registrado en harness.")
 
 
+def cmd_discard_working_tree(args: argparse.Namespace) -> None:
+    """Descarta cambios del árbol de trabajo de forma segura.
+
+    - Crea un backup .patch con `git diff` de los cambios tracked.
+    - Muestra advertencia, `git status` y resumen de diff.
+    - Requiere confirmación exacta "DESCARTAR CAMBIOS".
+    - Con `--include-untracked` también elimina archivos untracked vía `git clean -fd`.
+    """
+    ensure_git_repo()
+
+    # Obtener estado actual
+    lines = porcelain_status()
+    classified = classify_status(lines)
+    tracked_changes = classified["staged"] + classified["modified"]
+    untracked = classified["untracked"]
+
+    if not tracked_changes and (not args.include_untracked or not untracked):
+        print("No hay cambios que descartar.")
+        return
+
+    # Mostrar advertencia y resumen
+    print("""\
+¡ATENCIÓN!
+Esta operación descartará TODOS los cambios locales en el árbol de trabajo.
+No se pueden deshacer sin el backup generado.
+""")
+    # Mostrar status
+    cmd_status(argparse.Namespace())  # reuse status display
+    print()
+    print(build_diff_summary_text())
+    print()
+    # Crear backup
+    backup_dir = HARNESS_DIR / "backups" / "git"
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    backup_file = backup_dir / f"working-tree-{timestamp}.patch"
+    try:
+        diff_result = git(["diff"], check=False)
+        backup_file.write_text(diff_result.stdout, encoding="utf-8")
+    except Exception as exc:
+        print(f"FAIL: No se pudo crear el backup: {exc}", file=sys.stderr)
+        raise SystemExit(1)
+
+    # Confirmación exacta
+    confirm_input = input("Escriba 'DESCARTAR CAMBIOS' para confirmar: ").strip()
+    if confirm_input != "DESCARTAR CAMBIOS":
+        print("Cancelado.")
+        return
+
+    # Descartar cambios tracked
+    try:
+        git(["reset", "--hard", "HEAD"])
+    except GitToolError as exc:
+        print(f"FAIL al descartar cambios tracked: {exc}", file=sys.stderr)
+        raise SystemExit(1)
+
+    # Opcional eliminar untracked
+    if args.include_untracked:
+        try:
+            git(["clean", "-fd"])  # respeta .gitignore, no borra ignored
+        except GitToolError as exc:
+            print(f"FAIL al limpiar archivos untracked: {exc}", file=sys.stderr)
+            raise SystemExit(1)
+
+    print(f"OK: cambios descartados. Backup guardado en {backup_file}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Git Safety Tools para Cerebro.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -758,12 +859,30 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_create_branch)
 
     p = sub.add_parser("diff-summary", help="Mostrar resumen de diff local.")
-    p.add_argument("--no-ollama", action="store_true", help="No intentar resumen con Ollama.")
+    p.add_argument(
+        "--no-ollama", action="store_true", help="No intentar resumen con Ollama."
+    )
     p.set_defaults(func=cmd_diff_summary)
 
     p = sub.add_parser("commit", help="Crear commit seguro a partir de staged changes.")
-    p.add_argument("--debug", action="store_true", help="Mostrar detalles de Ollama durante generación del commit.")
+    p.add_argument(
+        "--debug",
+        action="store_true",
+        help="Mostrar detalles de Ollama durante generación del commit.",
+    )
     p.set_defaults(func=cmd_commit)
+
+    # discard-working-tree command
+    p = sub.add_parser(
+        "discard-working-tree",
+        help="Descartar cambios del working tree con backup y confirmación.",
+    )
+    p.add_argument(
+        "--include-untracked",
+        action="store_true",
+        help="Eliminar también archivos untracked.",
+    )
+    p.set_defaults(func=cmd_discard_working_tree)
 
     return parser
 

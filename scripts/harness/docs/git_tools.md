@@ -120,6 +120,26 @@ Si Ollama está disponible, intenta producir un resumen breve y sugerir tipo de 
 
 ## Commit
 
+## Discard Working Tree
+
+```bash
+python3 scripts/harness/git_tools.py discard-working-tree
+```
+
+Opcionalmente eliminar archivos untracked:
+
+```bash
+python3 scripts/harness/git_tools.py discard-working-tree --include-untracked
+```
+
+El comando:
+- Muestra una advertencia fuerte y `git status`.
+- Genera un backup `.patch` en `scripts/harness/backups/git/`.
+- Requiere escribir exactamente `DESCARTAR CAMBIOS` para confirmar.
+- Descarta cambios tracked con `git reset --hard HEAD`.
+- Con `--include-untracked` elimina los archivos untracked mediante `git clean -fd`.
+
+
 ```bash
 python3 scripts/harness/git_tools.py commit
 ```
