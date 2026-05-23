@@ -15,7 +15,7 @@ class PathsConfig:
     output_dir: Path
     archive_input_dir: Path
     log_dir: Path
-
+    sources_dir: Path
 
 @dataclass
 class OllamaConfig:
@@ -81,10 +81,11 @@ def load_config(config_path: str | Path) -> AppConfig:
 
     paths = PathsConfig(
         cerebro_root=_path(paths_raw.get("cerebro_root", "/mnt/c/cerebro")),
-        vault_root=_path(paths_raw.get("vault_root", "/mnt/c/cerebro/vault")),
-        output_dir=_path(paths_raw.get("output_dir", "/mnt/c/cerebro/vault/00_INBOX_IA/technical")),
+        vault_root=_path(paths_raw.get("vault_root", "/mnt/c/cerebro/vault/raymundo_ideaverse")),
+        output_dir=_path(paths_raw.get("output_dir", "/mnt/c/cerebro/vault/raymundo_ideaverse/00_INBOX_IA")),
         archive_input_dir=_path(paths_raw.get("archive_input_dir", "/mnt/c/cerebro/notas/procesadas_ia")),
-        log_dir=_path(paths_raw.get("log_dir", "/mnt/c/cerebro/scripts/cerebro/tech_notes/logs")),
+        log_dir=_path(paths_raw.get("log_dir", "/mnt/c/cerebro/scripts/tech_notes/logs")),
+        sources_dir=_path(paths_raw.get("sources_dir", "/mnt/c/cerebro/vault/raymundo_ideaverse/Atlas/Dots/Sources")),
     )
 
     return AppConfig(

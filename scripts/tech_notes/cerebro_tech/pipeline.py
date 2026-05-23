@@ -11,6 +11,7 @@ from .qdrant_store import index_markdown_note
 from .tags import normalize_tags
 from .text_utils import compact_for_prompt, normalize_newlines, sha256_short, slugify, unique_path
 
+from .source_note import move_source_note_to_sources
 
 @dataclass
 class PipelineResult:
@@ -95,6 +96,12 @@ def process_content(
     vector_points = 0
 
     if write and not dry_run:
+
+        moved_source_path = move_source_note_to_sources(
+            source_path=source_path,
+            sources_dir=cfg.paths.sources_dir,
+        )
+
         kind_dir_map = {
             "technical-howto": "technical-howto",
             "technical-troubleshooting": "technical-troubleshooting",

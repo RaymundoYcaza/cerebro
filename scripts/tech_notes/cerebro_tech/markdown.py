@@ -10,20 +10,27 @@ import yaml
 from pathlib import Path
 
 
-def source_to_wikilink(source_path: str | None) -> str | None:
+from pathlib import Path
+
+
+def source_to_wikilink(source_path: str | None, vault_root: str | None = None) -> str | None:
     if not source_path:
         return None
 
-    path = Path(source_path)
+    source = Path(source_path)
 
-    # nombre sin extensión
-    stem = path.stem
+    try:
+        if vault_root:
+            rel = source.relative_to(Path(vault_root))
+        else:
+            rel = source.name
 
-    # opcional: incluir carpeta relativa
-    parent = path.parent.name
+        rel_no_ext = rel.with_suffix("")
+        rel_str = rel_no_ext.as_posix()
+        return f"[[{rel_str}]]"
 
-    return f"[[{parent}/{stem}]]"
-
+    except Exception:
+        return f"[[{source.stem}]]"
 
 def _yaml_block(data: dict[str, Any]) -> str:
     return "---\n" + yaml.safe_dump(
@@ -84,6 +91,7 @@ def render_note(
     review_status: str,
     original_content: str,
     source_path: str | None = None,
+    vault_root: str | None = None,
     include_original_excerpt: bool = True,
     max_original_excerpt_chars: int = 3500,
     vector_indexed: bool = False,
@@ -97,7 +105,7 @@ def render_note(
         "related": [wikilink_title(x) for x in extracted.get("suggested_links", []) if str(x).strip()],
         "created": today,
         "sourceType": source_type,
-        "source": source_to_wikilink(source_path),
+        "source": source_to_wikilink(source_path,vault_root),
         "source_hash": source_hash,
         "tags": tags,
         "ai_generated": True,
