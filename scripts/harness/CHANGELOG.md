@@ -65,3 +65,9 @@
 - Fase 4B: Specs Workflow y documentación humana
 - Detalle: Se agregaron estructura de specs, comandos specs/new-spec/docs/check-docs y documentación humana obligatoria del harness y git_tools.
 - Archivos: specs scripts/harness/docs scripts/harness/harness.py scripts/harness/README.md scripts/harness/rules/agent_protocol.md
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: feat: Implementa fase 4B con documentacion de git tools
+- Archivos: scripts/harness/.memory/cerebro_harness.sqlite scripts/harness/CHANGELOG.md scripts/harness/README.md scripts/harness/config.yaml scripts/harness/context/repo_map.md scripts/harness/docs/git_tools.md scripts/harness/docs/harness_usage.md scripts/harness/docs/index.md scripts/harness/git_tools.py scripts/harness/harness.py scripts/harness/rules/agent_protocol.md scripts/harness/rules/git_rules.md specs/README.md specs/templates/spec.template.md specs/templates/task.template.md
