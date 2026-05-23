@@ -149,3 +149,9 @@
 - Commit creado con git_tools
 - Detalle: feat(git-tools): update git tools functionality and documentation
 - Archivos: scripts/harness/CHANGELOG.md scripts/harness/docs/git_tools.md scripts/harness/git_tools.py
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: feat(harness): implement spec tools and interactive menu
+- Archivos: scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md scripts/harness/docs/spec_tools.md scripts/harness/spec_tools.py specs/backlog/20260523153000_spec-tools-interactive-menu.md specs/backlog/20260523162948_spec-lifecycle-tools.md
