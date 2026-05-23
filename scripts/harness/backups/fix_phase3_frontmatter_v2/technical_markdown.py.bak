@@ -35,6 +35,7 @@ def source_to_wikilink(source_path: str | None, vault_root: str | None = None) -
 def _yaml_block(data: dict[str, Any]) -> str:
     return build_frontmatter(data)
 
+
 def _list_lines(items: list[str], empty: str = "_No detectado._") -> str:
     if not items:
         return empty

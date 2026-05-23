@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd /mnt/c/cerebro
+
+mkdir -p scripts/harness/.memory
+mkdir -p scripts/harness/context
+mkdir -p scripts/harness/rules
+mkdir -p scripts/harness/tasks
+mkdir -p scripts/harness/prompts
+mkdir -p scripts/harness/tools
+
+touch scripts/harness/tools/__init__.py
+
+cat > scripts/harness/config.yaml <<'YAML'
+project:
+  name: cerebro
+  root: "/mnt/c/cerebro"
+  notes_system_root: "/mnt/c/cerebro/scripts/cerebro_notes"
+  vault_root: "/mnt/c/cerebro/vault/raymundo_ideaverse"
+
+memory:
+  sqlite_path: "/mnt/c/cerebro/scripts/harness/.memory/cerebro_harness.sqlite"
+
+agent:
+  mode: "agnostic"
+  require_plan_before_changes: true
+  prefer_bash_temp_scripts: true
+  require_confirmation_for_direct_file_changes: true
+  require_changelog: true
+  require_docs_for_new_features: true
+
+protected_paths:
+  - ".git"
+  - "vault/raymundo_ideaverse"
+
+editable_paths:
+  - "scripts/cerebro_notes"
+  - "scripts/harness"
+YAML
+
+cat > scripts/harness/README.md <<'MD'
+# Cerebro Harness
+
+Harness local y agnóstico para evolucionar el repositorio `cerebro`.
+
+## Propósito
+
+Ayudar a cualquier agente —Claude Code, OpenCode, Codex CLI, Gemini CLI, Ollama u otro— a trabajar sobre el proyecto con contexto, memoria, reglas y trazabilidad.
+
+## Filosofía
+
+El flujo estándar es:
+
+```text
+plan → script bash temporal → ejecución → checks → memoria SQLite → changelog → documentación

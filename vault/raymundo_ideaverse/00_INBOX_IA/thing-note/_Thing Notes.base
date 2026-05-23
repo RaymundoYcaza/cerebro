@@ -1,0 +1,21 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.folder == "00_INBOX_IA/thing-note"
+        - '!file.name.endsWith(".base")'
+    order:
+      - file.name
+      - title
+      - up
+      - tags
+      - sourceType
+      - created
+      - ai_assisted
+    limit: 100
+    columnSize:
+      file.name: 106
+    rowHeight: tall
+    markers: number
+    indentProperties: true

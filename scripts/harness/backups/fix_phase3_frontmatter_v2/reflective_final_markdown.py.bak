@@ -11,6 +11,7 @@ from reflective.markdown import wikilink_title, quote_wikilink, _as_list
 def _yaml_block(data: dict[str, Any]) -> str:
     return build_frontmatter(data)
 
+
 def render_thing_note(
     *,
     extracted: dict[str, Any],

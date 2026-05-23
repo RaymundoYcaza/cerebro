@@ -3,15 +3,52 @@ from __future__ import annotations
 from datetime import date
 from typing import Any
 
-from core.frontmatter import build_frontmatter
-
-from core.frontmatter import as_list as _as_list, build_frontmatter, normalize_wikilink, normalize_wikilinks
+import yaml
 
 
+class ObsidianDumper(yaml.SafeDumper):
+    pass
+
+
+def _str_presenter(dumper, data):
+    if isinstance(data, str) and data.startswith("[[") and data.endswith("]]"):
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="'")
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+
+ObsidianDumper.add_representer(str, _str_presenter)
 
 
 def _yaml_block(data: dict[str, Any]) -> str:
-    return build_frontmatter(data)
+    return "---\n" + yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        sort_keys=False,
+        default_flow_style=False,
+    ).strip() + "\n---\n"
+
+
+def _as_list(value) -> list[str]:
+    """
+    Normaliza valores del modelo a lista.
+    Evita que un string se itere carácter por carácter.
+    Maneja strings con saltos \\n reales o escapados.
+    """
+    if value is None:
+        return []
+
+    if isinstance(value, str):
+        value = value.replace("\\n", "\n").strip()
+        if not value:
+            return []
+        lines = [x.strip(" -\t") for x in value.splitlines() if x.strip()]
+        return lines if lines else [value]
+
+    if isinstance(value, list):
+        return [str(x).strip() for x in value if str(x).strip()]
+
+    return [str(value).strip()] if str(value).strip() else []
+
 
 def _list_lines(items, empty: str = "_No detectado._") -> str:
     cleaned = _as_list(items)

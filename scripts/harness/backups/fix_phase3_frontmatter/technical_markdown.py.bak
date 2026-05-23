@@ -33,7 +33,13 @@ def source_to_wikilink(source_path: str | None, vault_root: str | None = None) -
         return f"[[{source.stem}]]"
 
 def _yaml_block(data: dict[str, Any]) -> str:
-    return build_frontmatter(data)
+    return "---\n" + yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        sort_keys=False,
+        default_flow_style=False,
+    ).strip() + "\n---\n"
+
 
 def _list_lines(items: list[str], empty: str = "_No detectado._") -> str:
     if not items:

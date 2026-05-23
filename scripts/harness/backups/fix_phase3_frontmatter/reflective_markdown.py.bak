@@ -3,15 +3,20 @@ from __future__ import annotations
 from datetime import date
 from typing import Any
 
-from core.frontmatter import build_frontmatter
-
 from core.frontmatter import as_list as _as_list, build_frontmatter, normalize_wikilink, normalize_wikilinks
 
 
 
 
 def _yaml_block(data: dict[str, Any]) -> str:
-    return build_frontmatter(data)
+    return "---\n" + yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        sort_keys=False,
+        default_flow_style=False,
+    ).strip() + "\n---\n"
+
+
 
 def _list_lines(items, empty: str = "_No detectado._") -> str:
     cleaned = _as_list(items)
