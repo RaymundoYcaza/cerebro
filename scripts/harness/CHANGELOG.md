@@ -119,3 +119,7 @@
 - Commit creado con git_tools
 - Detalle: docs(specs): update project roadmap and backlog specifications
 - Archivos: prompt-base_corto.md scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md specs/README.md specs/backlog/20260523_phase-4d-transactions-rollback.md specs/backlog/20260523_phase-4e-structural-validators.md specs/backlog/20260523_phase-4f-git-harness-integration.md specs/backlog/20260523_phase-5-safe-reflective-batch.md specs/backlog/20260523_phase-6-optional-semantic-search.md specs/templates/spec.template.md specs/templates/task.template.md
+
+## Cambio
+
+- Add transactional utilities and integrate into run_reflective_from_note

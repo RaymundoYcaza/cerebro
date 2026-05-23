@@ -17,6 +17,7 @@ from core.tags import normalize_tags
 from reflective.llm import chat_reflective_json
 from reflective.markdown import render_reflective_session
 from reflective.final_markdown import render_thing_note
+from core.transactions import Transaction, atomic_write_text, safe_move_file
 
 from run_reflective_interactive import (
     as_list,
@@ -50,12 +51,16 @@ def split_frontmatter(content: str) -> tuple[dict[str, Any], str]:
 
 
 def build_frontmatter(data: dict[str, Any]) -> str:
-    return "---\n" + yaml.safe_dump(
-        data,
-        allow_unicode=True,
-        sort_keys=False,
-        default_flow_style=False,
-    ).strip() + "\n---\n\n"
+    return (
+        "---\n"
+        + yaml.safe_dump(
+            data,
+            allow_unicode=True,
+            sort_keys=False,
+            default_flow_style=False,
+        ).strip()
+        + "\n---\n\n"
+    )
 
 
 def ensure_reflective_source_frontmatter(source_path: Path) -> None:
@@ -205,12 +210,12 @@ def main() -> None:
     )
 
     connection_question = (
-        extracted.get("connection_question")
-        or "¿Esto a qué te recuerda?"
+        extracted.get("connection_question") or "¿Esto a qué te recuerda?"
     )
 
     connections = ask_multiline(
-        connection_question + " Piensa en tu Atlas, notas previas, proyectos, experiencias o ideas relacionadas."
+        connection_question
+        + " Piensa en tu Atlas, notas previas, proyectos, experiencias o ideas relacionadas."
     )
 
     title = extracted.get("thing_note_candidate") or "nota-reflexiva"
@@ -218,10 +223,10 @@ def main() -> None:
     moved_source_path = None
     source_link = wikilink_from_path(source_path)
 
+    # Move source note safely if required
     if args.write and not args.dry_run and not args.no_move_source:
-        moved_source_path = move_source_to_sources(source_path, sources_dir)
+        moved_source_path = safe_move_file(source_path, sources_dir / source_path.name)
         source_link = wikilink_from_path(moved_source_path)
-
     base_session_markdown = render_reflective_session(
         extracted=extracted,
         tags=tag_result.tags,
@@ -254,9 +259,11 @@ def main() -> None:
             session_dir = cfg.paths.output_dir / "reflective-session"
             session_dir.mkdir(parents=True, exist_ok=True)
 
-            session_filename = safe_note_filename(f"{title}--{source_hash[:6]}--session")
+            session_filename = safe_note_filename(
+                f"{title}--{source_hash[:6]}--session"
+            )
             session_path = unique_note_path(session_dir / session_filename)
-            session_path.write_text(session_markdown, encoding="utf-8")
+            atomic_write_text(session_path, session_markdown)
             session_link = wikilink_from_path(session_path)
 
         thing_markdown = render_thing_note(
@@ -276,7 +283,7 @@ def main() -> None:
 
             thing_filename = safe_note_filename(f"{title}--{source_hash[:6]}")
             thing_path = unique_note_path(thing_dir / thing_filename)
-            thing_path.write_text(thing_markdown, encoding="utf-8")
+            atomic_write_text(thing_path, thing_markdown)
 
     else:
         thing_markdown = render_thing_note(

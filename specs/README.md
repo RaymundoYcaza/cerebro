@@ -1,19 +1,14 @@
 # Specs — Cerebro
 
-Este directorio contiene specs para desarrollo guiado por especificaciones.
+## Propósito
 
-## Flujo recomendado
+Descripción corta: Especificaciones de desarrollo guiado por pruebas para el proyecto Cerebro.
 
-```text
-idea → spec → tareas → branch → implementación → checks → commit → done
-```
+## Ejemplos
 
-## Estados
+- Ver ejemplos de uso en los archivos de spec individuales.
 
-- `active/`: specs en ejecución.
-- `backlog/`: specs pendientes.
-- `done/`: specs completadas.
+## Comandos
 
-## Regla
-
-Cada spec debe tener objetivo, contexto, alcance, tareas y criterios de aceptación.
+- `harness check` – ejecutar checks del proyecto.
+- `harness log-change --summary "..."` – registrar cambios.

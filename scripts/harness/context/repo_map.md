@@ -1,6 +1,6 @@
 # Repo Map — Cerebro
 
-Generated: 2026-05-23T12:52:21
+Generated: 2026-05-23T14:15:12
 
 ## cerebro_notes
 
@@ -10,10 +10,12 @@ Generated: 2026-05-23T12:52:21
     - __init__.py
     - frontmatter.py
     - obsidian.py
+    - README.md
     - search.py
     - source_note.py
     - tags.py
     - text_utils.py
+    - transactions.py
   - reflective/
     - __init__.py
     - cli.py
@@ -40,6 +42,7 @@ Generated: 2026-05-23T12:52:21
       - test_obsidian.py
       - test_reflective_dryrun.py
       - test_search.py
+      - test_transactions.py
   - bash
   - config.example.yaml
   - config.yaml
@@ -59,6 +62,7 @@ Generated: 2026-05-23T12:52:21
 - `scripts/cerebro_notes/core/source_note.py`
 - `scripts/cerebro_notes/core/tags.py`
 - `scripts/cerebro_notes/core/text_utils.py`
+- `scripts/cerebro_notes/core/transactions.py`
 - `scripts/cerebro_notes/reflective/__init__.py`
 - `scripts/cerebro_notes/reflective/cli.py`
 - `scripts/cerebro_notes/reflective/final_markdown.py`
@@ -81,6 +85,7 @@ Generated: 2026-05-23T12:52:21
 - `scripts/cerebro_notes/tests/smoke/test_obsidian.py`
 - `scripts/cerebro_notes/tests/smoke/test_reflective_dryrun.py`
 - `scripts/cerebro_notes/tests/smoke/test_search.py`
+- `scripts/cerebro_notes/tests/smoke/test_transactions.py`
 
 ### Shell scripts
 
