@@ -89,3 +89,15 @@
 - Corrige fallback HTTP de git_tools commit
 - Detalle: git_tools commit ya no depende de requests; usa urllib estándar si requests no está disponible y mantiene generación de commit con Ollama.
 - Archivos: scripts/harness/git_tools.py scripts/harness/docs/git_tools.md
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: feat(harness): update git tools and configuration
+- Archivos: scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md scripts/harness/docs/git_tools.md scripts/harness/git_tools.py
+
+## Cambio
+
+- Fase 4C: documentación automática implementada
+- Detalle: Se agregaron docs/check-docs, templates y validación automática de documentación.
+- Archivos: scripts/harness/docs scripts/harness/harness.py

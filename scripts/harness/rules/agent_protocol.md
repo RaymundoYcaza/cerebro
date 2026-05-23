@@ -22,4 +22,13 @@ Toda nueva funcionalidad debe actualizar:
 - `scripts/harness/CHANGELOG.md` mediante `harness.py log-change`;
 - memoria SQLite mediante `harness.py log-change`;
 - `scripts/harness/context/repo_map.md` mediante `harness.py scan-repo`.
+## Regla permanente de documentación
+
+Toda nueva funcionalidad debe:
+
+1. actualizar documentación correspondiente;
+2. actualizar `scripts/harness/docs/index.md`;
+3. actualizar `scripts/harness/CHANGELOG.md`;
+4. registrar `log-change`;
+5. ejecutar `scan-repo`.
 

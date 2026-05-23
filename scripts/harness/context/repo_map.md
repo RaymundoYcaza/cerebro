@@ -1,6 +1,6 @@
 # Repo Map — Cerebro
 
-Generated: 2026-05-23T12:23:25
+Generated: 2026-05-23T12:39:58
 
 ## cerebro_notes
 
@@ -120,9 +120,16 @@ Generated: 2026-05-23T12:23:25
     - project_brief.md
     - repo_map.md
   - docs/
+    - templates/
+      - architecture_doc.template.md
+      - tool_doc.template.md
+      - workflow_doc.template.md
     - git_tools.md
     - harness_usage.md
     - index.md
+    - reflective_workflow.md
+    - repo_structure.md
+    - technical_workflow.md
   - prompts/
   - rules/
     - agent_protocol.md

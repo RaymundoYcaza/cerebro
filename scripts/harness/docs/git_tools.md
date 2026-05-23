@@ -1,6 +1,41 @@
 # Git Tools
 
+Descripción:
+Herramientas Git seguras para revisar estado, validar ramas, resumir diffs y crear commits con Ollama local o fallback manual.
+
 `scripts/harness/git_tools.py` ofrece comandos Git seguros, locales y agnósticos de agente. No hace `push`, `merge` ni `rebase` automático.
+
+## Comandos
+
+Ver estado:
+
+```bash
+python3 scripts/harness/git_tools.py status
+```
+
+Validar rama:
+
+```bash
+python3 scripts/harness/git_tools.py validate-branch
+```
+
+Crear rama:
+
+```bash
+python3 scripts/harness/git_tools.py create-branch --type feat --name "nombre"
+```
+
+Resumir diff:
+
+```bash
+python3 scripts/harness/git_tools.py diff-summary
+```
+
+Crear commit:
+
+```bash
+python3 scripts/harness/git_tools.py commit
+```
 
 ## Status
 
@@ -173,3 +208,41 @@ Cuando no haya créditos o no convenga usar el modelo principal:
 - No crear commits desde ramas protegidas.
 - No commitear cambios de `vault/raymundo_ideaverse` salvo instrucción explícita.
 - No hacer push, merge ni rebase automático.
+
+
+## Ejemplos
+
+Revisar estado:
+
+```bash
+python3 scripts/harness/git_tools.py status
+```
+
+Crear rama:
+
+```bash
+python3 scripts/harness/git_tools.py create-branch --type feat --name "docs automation"
+```
+
+Commit con debug:
+
+```bash
+python3 scripts/harness/git_tools.py commit --debug
+```
+
+## Errores comunes
+
+- `requests no está disponible`:
+  - Causa: intérprete de Python sin dependencia opcional.
+  - Solución: la herramienta usa `urllib` como fallback.
+
+## Troubleshooting
+
+- Ejecuta `diff-summary --no-ollama`.
+- Verifica `ollama.base_url` en `scripts/harness/config.yaml`.
+- Usa `commit --debug` para ver endpoint, modelo y duración.
+
+## Relación con otras herramientas
+
+- `harness.py log-change` registra cambios.
+- `harness.py check` valida el repo antes de commitear.

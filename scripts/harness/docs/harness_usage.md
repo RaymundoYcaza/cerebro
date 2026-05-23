@@ -1,40 +1,84 @@
 # Uso del Harness
 
-El harness coordina contexto, checks, memoria SQLite, changelog, specs y documentación humana.
+Descripción:
+Guía de uso diario del harness para humanos y agentes.
 
-## Comandos base
+## Propósito
 
-Antes de modificar archivos:
+El harness centraliza contexto, memoria SQLite, checks, changelog, specs y documentación humana.
+
+## Flujo
+
+1. Leer contexto antes de modificar.
+2. Presentar plan.
+3. Aplicar cambios pequeños con scripts temporales.
+4. Ejecutar checks.
+5. Registrar cambios.
+6. Regenerar el mapa del repositorio.
+
+## Comandos
+
+Inicializar memoria:
+
+```bash
+python3 scripts/harness/harness.py init
+```
+
+Revisar estado:
+
+```bash
+python3 scripts/harness/harness.py status
+```
+
+Leer contexto:
 
 ```bash
 python3 scripts/harness/harness.py context
-python3 scripts/harness/harness.py status
-python3 scripts/harness/harness.py scan-repo
 ```
 
-Después de cambios:
+Ejecutar checks:
 
 ```bash
 python3 scripts/harness/harness.py check
-python3 scripts/harness/harness.py log-change --summary "..." --details "..." --files "..."
-python3 scripts/harness/harness.py scan-repo
 ```
 
-## Documentación
-
-Listar documentación humana:
+Listar documentación:
 
 ```bash
 python3 scripts/harness/harness.py docs
 ```
 
-Validar documentación mínima:
+Validar documentación:
 
 ```bash
 python3 scripts/harness/harness.py check-docs
 ```
 
-## Specs
+Ver sesiones:
+
+```bash
+python3 scripts/harness/harness.py sessions
+```
+
+Actualizar repo map:
+
+```bash
+python3 scripts/harness/harness.py scan-repo
+```
+
+Registrar cambio:
+
+```bash
+python3 scripts/harness/harness.py log-change --summary "..." --details "..." --files "..."
+```
+
+## Ejemplos
+
+Crear una spec:
+
+```bash
+python3 scripts/harness/harness.py new-spec --title "Nuevo flujo" --area harness --status backlog
+```
 
 Listar specs:
 
@@ -42,20 +86,30 @@ Listar specs:
 python3 scripts/harness/harness.py specs
 ```
 
-Crear una spec:
+## Errores comunes
 
-```bash
-python3 scripts/harness/harness.py new-spec --title "Nombre del cambio" --area harness --status backlog
-```
+- Checks lentos:
+  - Causa: smoke tests reflexivos usan Ollama local.
+  - Solución: esperar o revisar Ollama en `localhost:11434`.
 
-## Cómo debe trabajar un agente
+- Documentación faltante:
+  - Causa: nueva funcionalidad sin doc.
+  - Solución: actualizar `scripts/harness/docs/` e index.
 
-1. Leer contexto y reglas.
-2. Presentar plan antes de modificar.
-3. Trabajar en fases pequeñas.
-4. Usar scripts temporales en `/tmp`.
-5. No tocar `vault/raymundo_ideaverse` sin instrucción explícita.
-6. Ejecutar checks.
-7. Registrar cambios con `log-change`.
-8. Actualizar documentación si agrega funcionalidad.
-9. Ejecutar `scan-repo`.
+## Troubleshooting
+
+- Ejecuta `python3 scripts/harness/harness.py status`.
+- Revisa `scripts/harness/context/repo_map.md`.
+- Revisa `scripts/harness/CHANGELOG.md`.
+
+## Notas de seguridad
+
+- No modificar `vault/raymundo_ideaverse` sin instrucción explícita.
+- No hacer push, merge o rebase automático.
+- Usar `log-change` después de cambios relevantes.
+
+## Relación con otras herramientas
+
+- `git_tools.py` cubre operaciones Git seguras.
+- `docs` y `check-docs` mantienen trazabilidad humana.
+- `specs` organiza trabajo planeado.

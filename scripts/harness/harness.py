@@ -290,49 +290,190 @@ def cmd_new_spec(args: argparse.Namespace) -> None:
     print(f"OK: spec creada: {out.relative_to(REPO_ROOT)}")
 
 
-DOCS = [
-    ("harness", "scripts/harness/README.md", "visión general del harness"),
-    ("harness_usage", "scripts/harness/docs/harness_usage.md", "uso diario del harness"),
-    ("git_tools", "scripts/harness/docs/git_tools.md", "herramientas Git seguras"),
-    ("git_rules", "scripts/harness/rules/git_rules.md", "reglas Git para agentes"),
-    ("specs", "specs/README.md", "flujo de specs"),
-    ("reflective", "scripts/cerebro_notes/reflective/README.md", "flujo reflexivo"),
-    ("technical", "scripts/cerebro_notes/technical/README.md", "flujo técnico"),
-]
+DOCS_INDEX = HARNESS_DIR / "docs" / "index.md"
+REQUIRED_DOCS = {
+    "harness": [
+        "scripts/harness/docs/harness_usage.md",
+        "scripts/harness/README.md",
+    ],
+    "git_tools": [
+        "scripts/harness/docs/git_tools.md",
+        "scripts/harness/rules/git_rules.md",
+    ],
+    "cerebro_notes reflective": [
+        "scripts/harness/docs/reflective_workflow.md",
+        "scripts/cerebro_notes/reflective/README.md",
+    ],
+    "cerebro_notes technical": [
+        "scripts/harness/docs/technical_workflow.md",
+        "scripts/cerebro_notes/technical/README.md",
+    ],
+    "architecture": [
+        "scripts/harness/docs/repo_structure.md",
+    ],
+    "docs templates": [
+        "scripts/harness/docs/templates/tool_doc.template.md",
+        "scripts/harness/docs/templates/workflow_doc.template.md",
+        "scripts/harness/docs/templates/architecture_doc.template.md",
+    ],
+}
+
+
+def parse_docs_index() -> list[dict[str, str]]:
+    if not DOCS_INDEX.exists():
+        return []
+
+    entries: list[dict[str, str]] = []
+    category = ""
+    title = ""
+    route = ""
+    description_lines: list[str] = []
+    reading_description = False
+
+    def flush() -> None:
+        nonlocal title, route, description_lines, reading_description
+        if title and route:
+            entries.append(
+                {
+                    "category": category or "Sin categoría",
+                    "title": title,
+                    "path": route,
+                    "description": " ".join(description_lines).strip(),
+                }
+            )
+        title = ""
+        route = ""
+        description_lines = []
+        reading_description = False
+
+    for raw_line in DOCS_INDEX.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if line.startswith("## "):
+            flush()
+            category = line[3:].strip()
+            continue
+        if line.startswith("### "):
+            flush()
+            title = line[4:].strip()
+            continue
+        if line.startswith("Ruta:"):
+            route = line.split(":", 1)[1].strip()
+            reading_description = False
+            continue
+        if line == "Descripción:":
+            reading_description = True
+            continue
+        if reading_description:
+            if not line or line == "---":
+                reading_description = False
+            else:
+                description_lines.append(line)
+
+    flush()
+    return entries
 
 
 def cmd_docs(args: argparse.Namespace) -> None:
-    print("Documentación humana")
-    print("====================")
-    for name, rel_path, description in DOCS:
-        path = REPO_ROOT / rel_path
-        status = "OK" if path.exists() else "MISSING"
-        print(f"- {name}: {rel_path} [{status}] - {description}")
+    entries = parse_docs_index()
+    if not entries:
+        raise SystemExit("No hay index de documentación o está vacío.")
+
+    print("Documentación del proyecto Cerebro")
+    print("==================================")
+    current = None
+    for entry in entries:
+        if entry["category"] != current:
+            current = entry["category"]
+            print()
+            print(f"[{current}]")
+        status = "OK" if (REPO_ROOT / entry["path"]).exists() else "MISSING"
+        print(f"- {entry['title']}: {entry['path']} [{status}]")
+        if entry["description"]:
+            print(f"  {entry['description']}")
+
+
+def markdown_links(text: str) -> list[str]:
+    return re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
+
+
+def has_heading(text: str, heading: str) -> bool:
+    return re.search(rf"^##\s+{re.escape(heading)}\s*$", text, flags=re.MULTILINE) is not None
+
+
+def validate_doc_shape(rel_path: str, *, require_commands: bool = True) -> list[str]:
+    path = REPO_ROOT / rel_path
+    errors: list[str] = []
+    text = path.read_text(encoding="utf-8")
+
+    if not re.search(r"^#\s+\S+", text, flags=re.MULTILINE):
+        errors.append(f"{rel_path}: falta título H1")
+    if "Descripción:" not in text and not has_heading(text, "Propósito"):
+        errors.append(f"{rel_path}: falta descripción corta")
+    if not has_heading(text, "Ejemplos"):
+        errors.append(f"{rel_path}: falta sección Ejemplos")
+    if require_commands and not has_heading(text, "Comandos"):
+        errors.append(f"{rel_path}: falta sección Comandos")
+
+    for link in markdown_links(text):
+        if link.startswith(("http://", "https://", "#", "mailto:")):
+            continue
+        target = (path.parent / link.split("#", 1)[0]).resolve()
+        try:
+            target.relative_to(REPO_ROOT.resolve())
+        except ValueError:
+            errors.append(f"{rel_path}: link fuera del repo: {link}")
+            continue
+        if not target.exists():
+            errors.append(f"{rel_path}: link roto: {link}")
+
+    return errors
 
 
 def cmd_check_docs(args: argparse.Namespace) -> None:
-    required = {
-        "harness": ["scripts/harness/README.md", "scripts/harness/docs/harness_usage.md"],
-        "git_tools": ["scripts/harness/docs/git_tools.md", "scripts/harness/rules/git_rules.md"],
-        "cerebro_notes reflective": ["scripts/cerebro_notes/reflective/README.md"],
-        "cerebro_notes technical": ["scripts/cerebro_notes/technical/README.md"],
-        "specs": ["specs/README.md", "specs/templates/spec.template.md", "specs/templates/task.template.md"],
-    }
+    errors: list[str] = []
 
-    missing: list[str] = []
-    for feature, paths in required.items():
+    if not DOCS_INDEX.exists():
+        errors.append("falta scripts/harness/docs/index.md")
+    else:
+        index_text = DOCS_INDEX.read_text(encoding="utf-8")
+        if not index_text.strip():
+            errors.append("scripts/harness/docs/index.md está vacío")
+
+    entries = parse_docs_index()
+    indexed_paths = {entry["path"] for entry in entries}
+
+    if not entries:
+        errors.append("index.md no contiene entradas de documentación")
+
+    for entry in entries:
+        path = REPO_ROOT / entry["path"]
+        if not path.exists():
+            errors.append(f"index referencia ruta inexistente: {entry['path']}")
+        if not entry["description"]:
+            errors.append(f"index entrada sin descripción: {entry['title']}")
+
+    for feature, paths in REQUIRED_DOCS.items():
         for rel_path in paths:
             path = REPO_ROOT / rel_path
             if not path.exists() or not path.read_text(encoding="utf-8").strip():
-                missing.append(f"{feature}: {rel_path}")
+                errors.append(f"{feature}: documentación faltante o vacía: {rel_path}")
+            if rel_path.startswith("scripts/harness/docs/") or rel_path == "specs/README.md":
+                if rel_path not in indexed_paths and "/templates/" not in rel_path:
+                    errors.append(f"{feature}: documentación no indexada: {rel_path}")
 
-    if missing:
-        print("FAIL: documentación requerida faltante")
-        for item in missing:
-            print(f"- {item}")
+    for rel_path in sorted(indexed_paths):
+        path = REPO_ROOT / rel_path
+        if path.exists() and path.suffix == ".md":
+            require_commands = "templates/" not in rel_path
+            errors.extend(validate_doc_shape(rel_path, require_commands=require_commands))
+
+    if errors:
+        print("FAIL: documentación inválida")
+        for error in errors:
+            print(f"- {error}")
         raise SystemExit(1)
 
-    print("OK: documentación mínima presente")
+    print("OK: documentación mínima presente e index válido")
 
 
 

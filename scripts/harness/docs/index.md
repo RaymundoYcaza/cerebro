@@ -1,17 +1,48 @@
-# Documentación Humana del Harness
+# Documentación del proyecto Cerebro
 
-Esta carpeta reúne documentación operativa para humanos y agentes.
+Descripción:
+Índice humano de documentación operativa, flujos y arquitectura del repositorio.
 
-## Documentos principales
+## Harness
 
-- `harness_usage.md`: uso diario del harness, checks, memoria y documentación.
-- `git_tools.md`: herramientas Git seguras, ramas, commits y flujo con Ollama local.
+### Harness Usage
+Ruta: scripts/harness/docs/harness_usage.md
 
-## Documentación relacionada
+Descripción:
+Uso diario del harness, memoria, checks, specs y documentación.
 
-- `scripts/harness/README.md`: visión general del harness.
-- `scripts/harness/rules/agent_protocol.md`: protocolo obligatorio para agentes.
-- `scripts/harness/rules/git_rules.md`: reglas específicas de Git.
-- `specs/README.md`: flujo de specs.
-- `scripts/cerebro_notes/reflective/README.md`: flujo reflexivo.
-- `scripts/cerebro_notes/technical/README.md`: flujo técnico.
+### Git Tools
+Ruta: scripts/harness/docs/git_tools.md
+
+Descripción:
+Herramientas Git seguras asistidas por Ollama local y fallback manual.
+
+## Cerebro Notes
+
+### Reflective Workflow
+Ruta: scripts/harness/docs/reflective_workflow.md
+
+Descripción:
+Flujos reflexivos desde texto y desde nota fuente.
+
+### Technical Workflow
+Ruta: scripts/harness/docs/technical_workflow.md
+
+Descripción:
+Flujo técnico para generar notas técnicas estructuradas.
+
+## Architecture
+
+### Repo Structure
+Ruta: scripts/harness/docs/repo_structure.md
+
+Descripción:
+Estructura del repositorio y separación core/technical/reflective/harness.
+
+## Specs
+
+### Specs Workflow
+Ruta: specs/README.md
+
+Descripción:
+Flujo para registrar trabajo planeado, activo y completado.
