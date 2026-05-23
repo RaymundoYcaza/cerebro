@@ -123,3 +123,9 @@
 ## Cambio
 
 - Add transactional utilities and integrate into run_reflective_from_note
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: feat(cerebro_notes): implement transaction core and reflective note execution
+- Archivos: scripts/cerebro_notes/core/README.md scripts/cerebro_notes/core/transactions.py scripts/cerebro_notes/run_reflective_from_note.py scripts/cerebro_notes/tests/smoke/test_transactions.py scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md specs/README.md specs/backlog/20260523141512_discard-working-tree-git-tools.md
