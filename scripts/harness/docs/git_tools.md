@@ -96,14 +96,36 @@ Flujo:
 3. Exige archivos staged.
 4. Muestra resumen de diff.
 5. Pide confirmación.
-6. Intenta generar mensaje con Ollama.
-7. Valida Conventional Commit.
-8. Muestra el commit propuesto.
-9. Pide confirmación final.
-10. Ejecuta `git commit`.
-11. Registra el cambio en memoria del harness y changelog.
+6. Intenta generar mensaje con Ollama usando texto plano, no JSON.
+7. Si Ollama falla, muestra un error técnico resumido y permite fallback manual.
+8. Valida Conventional Commit.
+9. Muestra el commit propuesto.
+10. Pide confirmación final.
+11. Ejecuta `git commit`.
+12. Registra el cambio en memoria del harness y changelog.
 
 El comando no hace `git add` automático.
+
+Modo debug:
+
+```bash
+python3 scripts/harness/git_tools.py commit --debug
+```
+
+Muestra `base_url`, modelo, endpoint (`/api/chat` o `/api/generate`), duración aproximada y si usó fallback.
+
+El prompt pide solo este formato:
+
+```text
+tipo(scope): título breve
+
+- punto 1
+- punto 2
+```
+
+La respuesta puede venir como texto plano. Con `/api/chat` se lee `message.content`; con `/api/generate` se lee `response`.
+
+El cliente HTTP usa `requests` si está disponible; si el intérprete de `python` no lo tiene instalado, usa `urllib` de la librería estándar.
 
 ## Conventional Commits
 
@@ -143,7 +165,7 @@ Cuando no haya créditos o no convenga usar el modelo principal:
 2. Usa `git_tools.py diff-summary --no-ollama`.
 3. Stagea manualmente los archivos.
 4. Ejecuta `git_tools.py commit`.
-5. Si Ollama local falla, escribe el Conventional Commit manualmente.
+5. Si Ollama local falla, el comando pide título y cuerpo opcional de forma manual.
 
 ## Advertencias
 

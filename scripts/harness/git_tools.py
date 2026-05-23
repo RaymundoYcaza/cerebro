@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import subprocess
+import time
 import sys
+import urllib.error
+import urllib.request
 import unicodedata
 from datetime import datetime
 from pathlib import Path
@@ -91,6 +93,19 @@ def read_yaml(path: Path) -> dict[str, Any]:
         return {}
 
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return data if isinstance(data, dict) else {}
+
+
+def json_dumps(data: dict[str, Any]) -> str:
+    import json
+
+    return json.dumps(data)
+
+
+def json_loads(text: str) -> dict[str, Any]:
+    import json
+
+    data = json.loads(text)
     return data if isinstance(data, dict) else {}
 
 
@@ -416,44 +431,133 @@ def ollama_config(config: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def ask_ollama(prompt: str, *, expect_json: bool = False) -> str | None:
-    if requests is None:
-        return None
+def summarize_error(exc: Exception) -> str:
+    text = str(exc).strip().replace("\n", " ")
+    return text[:240] if text else exc.__class__.__name__
 
-    config = load_config()
-    cfg = ollama_config(config)
-    url = str(cfg["base_url"]).rstrip("/") + "/api/chat"
 
-    def call(model: str) -> str:
+def extract_ollama_text(raw: dict[str, Any]) -> str:
+    message = raw.get("message")
+    if isinstance(message, dict):
+        content = message.get("content")
+        if content:
+            return str(content).strip()
+
+    response = raw.get("response")
+    if response:
+        return str(response).strip()
+
+    return ""
+
+
+def call_ollama_endpoint(
+    *,
+    base_url: str,
+    endpoint: str,
+    model: str,
+    prompt: str,
+    temperature: float,
+    timeout_seconds: int,
+) -> str:
+    url = base_url.rstrip("/") + endpoint
+
+    if endpoint == "/api/chat":
         body = {
             "model": model,
             "messages": [
-                {"role": "system", "content": "Eres un asistente técnico conciso para resumir cambios Git."},
+                {
+                    "role": "system",
+                    "content": "Eres un asistente técnico conciso. Devuelve solo un mensaje Conventional Commit.",
+                },
                 {"role": "user", "content": prompt},
             ],
             "stream": False,
             "think": False,
-            "format": "json" if expect_json else "",
-            "options": {"temperature": cfg["temperature"]},
+            "options": {"temperature": temperature},
         }
-        if not body["format"]:
-            body.pop("format")
+    else:
+        body = {
+            "model": model,
+            "prompt": prompt,
+            "stream": False,
+            "think": False,
+            "options": {"temperature": temperature},
+        }
 
-        response = requests.post(url, json=body, timeout=cfg["timeout_seconds"])
+    raw: dict[str, Any]
+    if requests is not None:
+        response = requests.post(url, json=body, timeout=timeout_seconds)
         response.raise_for_status()
         raw = response.json()
-        message = raw.get("message", {})
-        return (message.get("content") or raw.get("response") or "").strip()
-
-    for model in [cfg["commit_model"], cfg["fallback_model"]]:
+    else:
+        payload = json_dumps(body).encode("utf-8")
+        request = urllib.request.Request(
+            url,
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
         try:
-            if not model:
-                continue
-            return call(str(model))
-        except Exception:
+            with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
+                raw = json_loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            body_text = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"HTTP {exc.code}: {body_text[:240]}") from exc
+
+    return extract_ollama_text(raw)
+
+
+def ask_ollama(prompt: str, *, debug: bool = False) -> tuple[str | None, dict[str, Any]]:
+    metadata: dict[str, Any] = {
+        "base_url": None,
+        "model": None,
+        "endpoint": None,
+        "duration_seconds": 0.0,
+        "used_fallback": False,
+        "error": None,
+    }
+
+    config = load_config()
+    cfg = ollama_config(config)
+    base_url = str(cfg["base_url"])
+    metadata["base_url"] = base_url
+
+    models = [str(cfg["commit_model"])]
+    fallback_model = str(cfg["fallback_model"]) if cfg.get("fallback_model") else ""
+    if fallback_model and fallback_model not in models:
+        models.append(fallback_model)
+
+    errors: list[str] = []
+    started = time.monotonic()
+
+    for model_index, model in enumerate(models):
+        if not model:
             continue
 
-    return None
+        for endpoint in ["/api/chat", "/api/generate"]:
+            metadata["model"] = model
+            metadata["endpoint"] = endpoint
+            metadata["used_fallback"] = model_index > 0
+
+            try:
+                text = call_ollama_endpoint(
+                    base_url=base_url,
+                    endpoint=endpoint,
+                    model=model,
+                    prompt=prompt,
+                    temperature=float(cfg["temperature"]),
+                    timeout_seconds=int(cfg["timeout_seconds"]),
+                )
+                metadata["duration_seconds"] = round(time.monotonic() - started, 2)
+                if text:
+                    return text, metadata
+                errors.append(f"{model} {endpoint}: respuesta vacía")
+            except Exception as exc:
+                errors.append(f"{model} {endpoint}: {summarize_error(exc)}")
+
+    metadata["duration_seconds"] = round(time.monotonic() - started, 2)
+    metadata["error"] = "; ".join(errors[-4:]) if errors else "Ollama no produjo respuesta"
+    return None, metadata
 
 
 def cmd_diff_summary(args: argparse.Namespace) -> None:
@@ -465,7 +569,7 @@ def cmd_diff_summary(args: argparse.Namespace) -> None:
     if args.no_ollama:
         return
 
-    ai = ask_ollama(
+    ai, metadata = ask_ollama(
         "Resume brevemente estos cambios Git y sugiere un tipo Conventional Commit permitido.\n\n"
         f"{summary}\n\n"
         "Responde en español en máximo 5 líneas.",
@@ -474,6 +578,9 @@ def cmd_diff_summary(args: argparse.Namespace) -> None:
         print()
         print("Resumen Ollama:")
         print(ai)
+    elif metadata.get("error"):
+        print()
+        print(f"Ollama no disponible: {metadata['error']}")
 
 
 def staged_files() -> list[str]:
@@ -493,36 +600,64 @@ def validate_commit_message(message: str) -> tuple[bool, str | None]:
     return True, None
 
 
-def generate_commit_message(summary: str) -> str | None:
+def clean_commit_message(raw: str) -> str:
+    text = raw.strip()
+
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-zA-Z0-9_-]*\s*", "", text)
+        text = re.sub(r"\s*```$", "", text).strip()
+
+    lines = [line.rstrip() for line in text.splitlines()]
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+
+    return "\n".join(lines)
+
+
+def generate_commit_message(summary: str, *, debug: bool = False) -> tuple[str | None, dict[str, Any]]:
     prompt = (
-        "Genera un mensaje Conventional Commit para estos cambios.\n"
+        "Genera SOLO un mensaje Conventional Commit para estos cambios.\n"
         "Tipos permitidos: feat, fix, refactor, docs, test, chore, ci, perf, style, build, revert.\n"
-        "Formato exacto de la primera línea: tipo(scope): resumen breve\n"
-        "Puedes agregar cuerpo opcional en español. Devuelve JSON con keys subject y body.\n\n"
+        "Formato exacto:\n\n"
+        "tipo(scope): título breve\n\n"
+        "- punto 1\n"
+        "- punto 2\n\n"
+        "No uses JSON. No uses Markdown fenced code blocks. No expliques nada fuera del mensaje.\n\n"
         f"{summary}"
     )
-    raw = ask_ollama(prompt, expect_json=True)
+    raw, metadata = ask_ollama(prompt, debug=debug)
     if not raw:
-        return None
+        return None, metadata
 
-    try:
-        data = json.loads(raw)
-        subject = str(data.get("subject", "")).strip()
-        body = str(data.get("body", "")).strip()
-        if subject and body:
-            return f"{subject}\n\n{body}"
-        return subject or None
-    except Exception:
-        return raw.strip() or None
+    return clean_commit_message(raw), metadata
 
 
 def manual_commit_message() -> str:
-    print("Ollama no generó un mensaje válido. Escribe el subject Conventional Commit.")
+    if not sys.stdin.isatty():
+        raise SystemExit("Fallback manual requiere una terminal interactiva.")
+
+    print("Fallback manual. Escribe el título Conventional Commit.")
+    print("Ejemplo: chore(harness): corrige generación de commits")
     try:
-        subject = input("Subject: ").strip()
+        subject = input("Título: ").strip()
     except EOFError:
         subject = ""
-    return subject
+
+    print("Cuerpo opcional. Termina con una línea vacía.")
+    body_lines: list[str] = []
+    while True:
+        try:
+            line = input("> ")
+        except EOFError:
+            break
+        if not line.strip():
+            break
+        body_lines.append(line.rstrip())
+
+    body = "\n".join(body_lines).strip()
+    return f"{subject}\n\n{body}" if body else subject
 
 
 def append_changelog(summary: str, details: str | None = None, files: str | None = None) -> None:
@@ -568,17 +703,26 @@ def cmd_commit(args: argparse.Namespace) -> None:
     if not confirm("Continuar con generación de commit"):
         raise SystemExit("Cancelado.")
 
-    message = generate_commit_message(summary)
+    message, metadata = generate_commit_message(summary, debug=args.debug)
+    if args.debug:
+        print()
+        print("Debug Ollama:")
+        print(f"- base_url: {metadata.get('base_url')}")
+        print(f"- modelo: {metadata.get('model')}")
+        print(f"- endpoint: {metadata.get('endpoint')}")
+        print(f"- duración: {metadata.get('duration_seconds')}s")
+        print(f"- usó fallback: {metadata.get('used_fallback')}")
+
     if not message:
+        if metadata.get("error"):
+            print(f"Ollama no generó mensaje utilizable: {metadata['error']}")
         message = manual_commit_message()
 
     ok, error = validate_commit_message(message)
-    if not ok:
+    while not ok:
         print(f"Mensaje inválido: {error}")
         message = manual_commit_message()
         ok, error = validate_commit_message(message)
-        if not ok:
-            raise SystemExit(f"Mensaje inválido: {error}")
 
     print()
     print("Commit propuesto:")
@@ -618,6 +762,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_diff_summary)
 
     p = sub.add_parser("commit", help="Crear commit seguro a partir de staged changes.")
+    p.add_argument("--debug", action="store_true", help="Mostrar detalles de Ollama durante generación del commit.")
     p.set_defaults(func=cmd_commit)
 
     return parser

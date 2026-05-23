@@ -71,3 +71,21 @@
 - Commit creado con git_tools
 - Detalle: feat: Implementa fase 4B con documentacion de git tools
 - Archivos: scripts/harness/.memory/cerebro_harness.sqlite scripts/harness/CHANGELOG.md scripts/harness/README.md scripts/harness/config.yaml scripts/harness/context/repo_map.md scripts/harness/docs/git_tools.md scripts/harness/docs/harness_usage.md scripts/harness/docs/index.md scripts/harness/git_tools.py scripts/harness/harness.py scripts/harness/rules/agent_protocol.md scripts/harness/rules/git_rules.md specs/README.md specs/templates/spec.template.md specs/templates/task.template.md
+
+## Cambio
+
+- Commit creado con git_tools
+- Detalle: refactor: Elimina archivos sqlite del seguimiento
+- Archivos: .gitignore scripts/harness/.memory/cerebro_harness.sqlite scripts/harness/CHANGELOG.md
+
+## Cambio
+
+- Corrige generación de commits con Ollama
+- Detalle: git_tools commit ahora acepta texto plano, usa fallback manual y valida Conventional Commits.
+- Archivos: scripts/harness/git_tools.py scripts/harness/docs/git_tools.md
+
+## Cambio
+
+- Corrige fallback HTTP de git_tools commit
+- Detalle: git_tools commit ya no depende de requests; usa urllib estándar si requests no está disponible y mantiene generación de commit con Ollama.
+- Archivos: scripts/harness/git_tools.py scripts/harness/docs/git_tools.md
