@@ -1,0 +1,63 @@
+diff --git a/Makefile b/Makefile
+index 8f7d577..8301bd7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,30 @@
+-.PHONY: run
++.PHONY: run check test reflective technical help
++
++PYTHON ?= python3
+ 
+ run:
+ 	.venv/bin/python scripts/capture/main.py
++
++help:
++	@echo "Available targets:"
++	@echo "  run          – Existing run target"
++	@echo "  check        – Run harness checks"
++	@echo "  test         – Run all smoke tests"
++	@echo "  reflective   – Execute reflective note processing"
++	@echo "  technical    – Execute technical note processing"
++
++# Harness checks
++check:
++	$(PYTHON) scripts/harness/harness.py check
++
++# Run all smoke tests (cerebro_notes)
++test:
++	$(PYTHON) -m pytest scripts/cerebro_notes/tests/smoke
++
++# Reflective note flow (default config)
++reflective:
++	$(PYTHON) scripts/cerebro_notes/run_reflective_from_note.py --config scripts/harness/config.yaml
++
++# Technical note flow (default config)
++technical:
++	$(PYTHON) scripts/cerebro_notes/run_technical.py --config scripts/harness/config.yaml
+diff --git a/scripts/harness/CHANGELOG.md b/scripts/harness/CHANGELOG.md
+index 7b9e0d8..db1a9e8 100644
+--- a/scripts/harness/CHANGELOG.md
++++ b/scripts/harness/CHANGELOG.md
+@@ -155,3 +155,9 @@
+ - Commit creado con git_tools
+ - Detalle: feat(harness): implement spec tools and interactive menu
+ - Archivos: scripts/harness/CHANGELOG.md scripts/harness/context/repo_map.md scripts/harness/docs/spec_tools.md scripts/harness/spec_tools.py specs/backlog/20260523153000_spec-tools-interactive-menu.md specs/backlog/20260523162948_spec-lifecycle-tools.md
++
++## Cambio
++
++- Commit creado con git_tools
++- Detalle: feat(transactions): implement transaction rollback and spec menu
++- Archivos: scripts/cerebro_notes/core/transactions.py scripts/cerebro_notes/run_reflective_from_note.py scripts/cerebro_notes/tests/smoke/test_transactions.py scripts/harness/context/repo_map.md scripts/harness/spec_menu.py specs/backlog/20260523_phase-4d-transactions-rollback.md specs/backlog/20260523141512_discard-working-tree-git-tools.md -> specs/done/20260523141512_discard-working-tree-git-tools.md specs/backlog/20260523153000_spec-tools-interactive-menu.md -> specs/done/20260523153000_spec-tools-interactive-menu.md specs/backlog/20260523162948_spec-lifecycle-tools.md -> specs/done/20260523162948_spec-lifecycle-tools.md specs/done/20260523_phase-4d-transactions-rollback.md
+diff --git a/scripts/harness/config.yaml b/scripts/harness/config.yaml
+index af178d5..6f94968 100644
+--- a/scripts/harness/config.yaml
++++ b/scripts/harness/config.yaml
+@@ -29,7 +29,7 @@ git_tools:
+ 
+ ollama:
+   base_url: "http://localhost:11434"
+-  commit_model: "gemma4:31b-cloud"
++  chat_model: "gemma4:31b-cloud"
+   fallback_model: "qwen3.5:0.8b"
+   temperature: 0.2
+   timeout_seconds: 180
