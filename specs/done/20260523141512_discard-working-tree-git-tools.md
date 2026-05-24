@@ -1,6 +1,6 @@
 # Spec — discard-working-tree en git_tools.py
 
-Estado: backlog
+Estado: done
 
 ## Objetivo
 

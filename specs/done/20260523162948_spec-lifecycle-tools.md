@@ -1,6 +1,6 @@
 # Spec — Herramientas de ciclo de vida y seguimiento de specs
 
-Estado: backlog
+Estado: done
 
 ## Objetivo
 

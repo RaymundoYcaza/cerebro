@@ -14,7 +14,6 @@ from pathlib import Path
 from typing import Callable, List, Optional
 
 # Import utilities from the existing codebase where appropriate
-from .obsidian import unique_path
 
 
 class Transaction:
@@ -85,7 +84,9 @@ def atomic_write_text(path: Path, text: str, txn: Optional[Transaction] = None) 
     tmp_path.replace(path)
 
 
-def safe_move_file(src: Path, dst: Path, txn: Optional[Transaction] = None) -> Path:
+def safe_move_file(
+    src: Path, dst: Path, overwrite: bool = False, txn: Optional[Transaction] = None
+) -> Path:
     """Move *src* to *dst* safely, recording an undo action if *txn* is given.
 
     The destination is made unique using :func:`unique_path` to avoid
@@ -95,7 +96,8 @@ def safe_move_file(src: Path, dst: Path, txn: Optional[Transaction] = None) -> P
     if not src.exists():
         raise FileNotFoundError(f"Source file does not exist: {src}")
 
-    dst = unique_path(dst)
+    if dst.exists() and not overwrite:
+        raise FileExistsError(f"Destination file already exists: {dst}")
     dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.move(str(src), str(dst))
 

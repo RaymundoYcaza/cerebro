@@ -1,6 +1,6 @@
 # Spec — Menú interactivo auxiliar para spec_tools
 
-Estado: backlog
+Estado: done
 
 ## Objetivo
 

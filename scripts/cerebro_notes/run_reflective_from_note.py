@@ -223,10 +223,68 @@ def main() -> None:
     moved_source_path = None
     source_link = wikilink_from_path(source_path)
 
-    # Move source note safely if required
-    if args.write and not args.dry_run and not args.no_move_source:
-        moved_source_path = safe_move_file(source_path, sources_dir / source_path.name)
-        source_link = wikilink_from_path(moved_source_path)
+    # Transactional block for writes and optional move
+    if args.write and not args.dry_run:
+        with Transaction() as tx:
+            # Perform writes atomically with rollback support
+            if args.output_mode in {"session", "both"}:
+                session_dir = cfg.paths.output_dir / "reflective-session"
+                session_dir.mkdir(parents=True, exist_ok=True)
+                session_filename = safe_note_filename(
+                    f"{title}--{source_hash[:6]}--session"
+                )
+                session_path = unique_note_path(session_dir / session_filename)
+                atomic_write_text(session_path, session_markdown, txn=tx)
+                session_link = wikilink_from_path(session_path)
+
+            thing_markdown = render_thing_note(
+                extracted=extracted,
+                tags=tag_result.tags,
+                source_hash=source_hash,
+                model_used=model_used,
+                own_voice=own_voice,
+                connections=connections,
+                session_link=session_link,
+                source_link=source_link,
+            )
+
+            if args.output_mode in {"thing", "both"}:
+                thing_dir = cfg.paths.output_dir / "thing-note"
+                thing_dir.mkdir(parents=True, exist_ok=True)
+                thing_filename = safe_note_filename(f"{title}--{source_hash[:6]}")
+                thing_path = unique_note_path(thing_dir / thing_filename)
+                atomic_write_text(thing_path, thing_markdown, txn=tx)
+
+            # Move source note safely if required
+            if not args.no_move_source:
+                moved_source_path = safe_move_file(
+                    source_path, sources_dir / source_path.name, txn=tx
+                )
+                source_link = wikilink_from_path(moved_source_path)
+    else:
+        # Dry run or no write: keep original behaviour
+        thing_markdown = render_thing_note(
+            extracted=extracted,
+            tags=tag_result.tags,
+            source_hash=source_hash,
+            model_used=model_used,
+            own_voice=own_voice,
+            connections=connections,
+            session_link=None,
+            source_link=source_link,
+        )
+
+        print("\nDRY-RUN: no se escriben notas y no se mueve la fuente.")
+
+        if args.output_mode in {"session", "both"}:
+            print("\n\n=== Sesión reflexiva ===\n")
+            print(session_markdown)
+
+        if args.output_mode in {"thing", "both"}:
+            print("\n\n=== Thing Note limpia ===\n")
+            print(thing_markdown)
+
+        return
     base_session_markdown = render_reflective_session(
         extracted=extracted,
         tags=tag_result.tags,

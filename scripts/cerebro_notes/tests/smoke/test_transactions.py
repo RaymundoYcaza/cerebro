@@ -8,7 +8,20 @@ import os
 import tempfile
 from pathlib import Path
 
-from core.transactions import Transaction, atomic_write_text, safe_move_file
+import sys
+from pathlib import Path
+
+import importlib.util
+
+transactions_path = (
+    Path(__file__).resolve().parents[3] / "cerebro_notes" / "core" / "transactions.py"
+)
+spec = importlib.util.spec_from_file_location("transactions", str(transactions_path))
+transactions = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(transactions)
+Transaction = transactions.Transaction
+atomic_write_text = transactions.atomic_write_text
+safe_move_file = transactions.safe_move_file
 
 
 def test_atomic_write_rollback() -> None:
